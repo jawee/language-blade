@@ -2,11 +2,7 @@
   "name": "language-blade",
   "version": "0.0.0",
   "description": "language-blade",
-  "repository": "https://github.com/atom/language-blade",
-  "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
-  },
-  "dependencies": {
   }
 }
