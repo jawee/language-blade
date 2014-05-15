@@ -1,3 +1,5 @@
+'name': 'Blade'
+'scopeName': 'text.html.php'
 'comment': 'Syntax highlighting for Laravel Blade templates.'
 'fileTypes': [
   '.blade.php'
@@ -13,7 +15,6 @@
         'name': 'invalid.illegal.bad-angle-bracket.html'
       }
     ]
-'name': 'Blade Template'
 'patterns': [
   {
     'begin': '\\{\\{--'
@@ -82,7 +83,7 @@
         'name': 'keyword.control.blade'
       '2':
         'name': 'keyword.control.blade'
-    'end': ''
+    'end': '.'
     'name': 'keyword.control.end.blade'
   }
   {
@@ -2503,4 +2504,3 @@
         ]
       }
     ]
-'scopeName': 'text.blade'
