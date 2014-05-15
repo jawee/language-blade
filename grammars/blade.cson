@@ -1,6 +1,6 @@
 'comment': 'Syntax highlighting for Laravel Blade templates.'
 'fileTypes': [
-  'blade.php'
+  '.blade.php'
 ]
 'foldingStartMarker': '\\@\\b(section)\\b(?=(|\\s*|)\\()'
 'foldingStopMarker': '\\)(?!.*\\))'
