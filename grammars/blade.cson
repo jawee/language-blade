@@ -2,8 +2,9 @@
 'scopeName': 'text.html.php'
 'comment': 'Syntax highlighting for Laravel Blade templates.'
 'fileTypes': [
-  '.blade.php'
+  'blade.php'
 ]
+'firstLineMatch': '^#!.*(?<!-)php[0-9]{0,1}\\b',
 'foldingStartMarker': '\\@\\b(section)\\b(?=(|\\s*|)\\()'
 'foldingStopMarker': '\\)(?!.*\\))'
 'injections':
@@ -28,30 +29,30 @@
     'begin': '@?\\{\\{\\{?-?'
     'beginCaptures':
       '0':
-        'name': 'support.constant.php'
+        'name': 'support.punctuation.php'
     'end': '-?\\}?\\}\\}'
     'endCaptures':
       '0':
-        'name': 'support.constant.php'
-    'name': 'comment.embedded.line.blade'
+        'name': 'support.punctuation.php'
+    'name': 'echo.blade'
     'patterns': [
       {
-        'include': 'text.html.basic'
+        'include': '#language'
       }
     ]
   }
   {
-    'begin': '(\\s{0}|^)(\\@)\\b(if|elseif|foreach|for|while|extends|unless|each|yield|lang|choice|section|include)\\b(?=(|\\s*|)\\()'
+    'begin': '(\\s{0}|^)(\\@)\\b(if|elseif|foreach|for|while|extends|unless|each|yield|lang|choice|section|include|layout)\\b(?=(|\\s*|)\\()'
     'beginCaptures':
       '2':
-        'name': 'keyword.control.blade'
+        'name': 'command.keyword.blade'
       '3':
-        'name': 'keyword.control.blade'
+        'name': 'command.keyword.blade'
     'end': '\\)(?!.*\\))'
     'endCaptures':
       '0':
-        'name': 'keyword.control.blade'
-    'name': 'keyword.control.start.blade'
+        'name': 'command.blade'
+    'name': 'command.start.blade'
     'patterns': [
       {
         'include': '#language'
@@ -62,14 +63,14 @@
     'begin': '(\\s{0}|^)(\\@)\\b(.+)\\b(?=(|\\s*|)\\()'
     'beginCaptures':
       '0':
-        'name': 'keyword.control.blade'
+        'name': 'command.blade'
       '1':
         'name': 'entity.name.tag.html'
     'end': '\\)'
     'endCaptures':
       '0':
         'name': 'text.bounds.blade'
-    'name': 'keyword.control.inline.blade'
+    'name': 'command.inline.blade'
     'patterns': [
       {
         'include': '#language'
@@ -80,11 +81,13 @@
     'begin': '(\\s{0}|^)(\\@)\\b(endif|endforeach|endfor|endwhile|else|endunless|show|stop|endsection|parent|overwrite)\\b'
     'beginCaptures':
       '1':
-        'name': 'keyword.control.blade'
+        'name': 'command.blade'
       '2':
-        'name': 'keyword.control.blade'
+        'name': 'command.keyword.blade'
+      '3':
+        'name': 'command.keyword.blade'
     'end': '.'
-    'name': 'keyword.control.end.blade'
+    'name': 'command.end.blade'
   }
   {
     'begin': '(\\s{0}|^)(\\@)\\b([a-zA-Z_]+)\\b(\\s?)\\b'
