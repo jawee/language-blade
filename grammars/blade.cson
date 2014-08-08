@@ -1,5 +1,5 @@
 'name': 'Blade'
-'scopeName': 'text.html.php'
+'scopeName': 'text.html.php.blade'
 'comment': 'Syntax highlighting for Laravel Blade templates.'
 'fileTypes': [
   'blade.php'
@@ -280,7 +280,7 @@
         'end': '(</)((?i:script))'
         'patterns': [
           {
-            'include': 'text.html.php'
+            'include': 'text.html.php.blade'
           }
         ]
       }
