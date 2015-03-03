@@ -33,6 +33,22 @@
     ]
   }
   {
+    'begin': '@?\\{\\!\\!?-?'
+    'beginCaptures':
+      '0':
+        'name': 'support.punctuation.php'
+    'end': '-?\\}?\\!\\!'
+    'endCaptures':
+      '0':
+        'name': 'support.punctuation.php'
+    'name': 'echo.blade'
+    'patterns': [
+      {
+        'include': '#language'
+      }
+    ]
+  }
+  {
     'begin': '(\\s{0}|^)(\\@)\\b(if|elseif|foreach|for|while|extends|unless|each|yield|lang|choice|section|include|layout)\\b(?=(|\\s*|)\\()'
     'beginCaptures':
       '2':
