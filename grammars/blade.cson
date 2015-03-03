@@ -49,7 +49,7 @@
     ]
   }
   {
-    'begin': '(\\s{0}|^)(\\@)\\b(if|elseif|foreach|for|while|extends|unless|each|yield|lang|choice|section|include|layout)\\b(?=(|\\s*|)\\()'
+    'begin': '(\\s{0}|^)(\\@)\\b(if|elseif|foreach|for|while|extends|unless|each|yield|lang|choice|section|include|layout|forelse)\\b(?=(|\\s*|)\\()'
     'beginCaptures':
       '2':
         'name': 'command.keyword.blade'
@@ -85,7 +85,7 @@
     ]
   }
   {
-    'begin': '(\\s{0}|^)(\\@)\\b(endif|endforeach|endfor|endwhile|else|endunless|show|stop|endsection|parent|overwrite)\\b'
+    'begin': '(\\s{0}|^)(\\@)\\b(endif|endforeach|endfor|endwhile|else|endunless|show|stop|endsection|parent|overwrite|endforelse)\\b'
     'beginCaptures':
       '1':
         'name': 'command.blade'
