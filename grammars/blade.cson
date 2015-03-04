@@ -37,7 +37,7 @@
     'beginCaptures':
       '0':
         'name': 'support.punctuation.php'
-    'end': '-?\\}?\\!\\!'
+    'end': '-?\\!\\!\\}'
     'endCaptures':
       '0':
         'name': 'support.punctuation.php'
