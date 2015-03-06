@@ -60,9 +60,9 @@
         ]
       }
       {
-        'begin': '\\B(@(choice|each|(else)?if|extends|for(e(ach|lse))?|include|lang|push|section|stack|unless|while|yield))\\s*(?=\\()'
+        'begin': '\\B@(choice|each|(else)?if|extends|for(e(ach|lse))?|include|lang|push|section|stack|unless|while|yield)\\s*(?=\\()'
         'beginCaptures':
-          '1':
+          '0':
             'name': 'keyword.blade'
         'contentName': 'source.php'
         'end': '(?<=\\))(?!.*\\))'
@@ -74,13 +74,13 @@
         ]
       }
       {
-        'match': '(\\B@((append|empty|else|end(for(each|else)?|if|push|section|unless|while)|overwrite|show|stop)\\b)|@parent)'
+        'match': '\\B@(append|empty|else|end(for(each|else)?|if|push|section|unless|while)|overwrite|show|stop)\\b|@parent'
         'name': 'meta.embedded.keyword.blade'
       }
       {
-        'begin': '\\B(@\\w+)\\s*(?=\\()'
+        'begin': '\\B@\\w+\\s*(?=\\()'
         'beginCaptures':
-          '1':
+          '0':
             'name': 'entity.blade'
         'contentName': 'source.php'
         'end': '(?<=\\))(?!.*\\))'
