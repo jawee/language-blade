@@ -1,0 +1,4 @@
+'.text.html.php.blade':
+  'editor':
+    'commentStart': '{{-- '
+    'commentEnd': ' --}}'
