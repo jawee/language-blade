@@ -22,8 +22,10 @@
         'captures':
           '0':
             'name': 'support.punctuation.blade'
+          '1':
+            'name': 'source.php'
         'contentName': 'source.php'
-        'end': '}}}'
+        'end': '(})}}'
         'name': 'meta.embedded.echo.blade'
         'patterns': [
           {
@@ -36,8 +38,10 @@
         'captures':
           '0':
             'name': 'support.punctuation.blade'
+          '1':
+            'name': 'source.php'
         'contentName': 'source.php'
-        'end': '}}'
+        'end': '(})}'
         'name': 'meta.embedded.echo.blade'
         'patterns': [
           {
@@ -50,8 +54,10 @@
         'captures':
           '0':
             'name': 'support.punctuation.blade'
+          '1':
+            'name': 'source.php'
         'contentName': 'source.php'
-        'end': '!!}'
+        'end': '(!)!}'
         'name': 'meta.embedded.echo.blade'
         'patterns': [
           {
