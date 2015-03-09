@@ -7,7 +7,7 @@
 'foldingStartMarker': '(/\\*|\\{\\s*$|<<<HTML)'
 'foldingStopMarker': '(\\*/|^\\s*\\}|^HTML;)'
 'injections':
-  'text.html.php.blade - (meta.embedded | meta.tag), L:text.html.php.blade meta.tag, L:source.js.embedded.html':
+  'text.html.php.blade - (meta.embedded | meta.tag | comment.block.meta.embedded.blade), L:text.html.php.blade meta.tag, L:source.js.embedded.html':
     'patterns': [
       {
         'begin': '{{--'
@@ -15,7 +15,7 @@
           '0':
             'name': 'punctuation.definition.comment.blade'
         'end': '--}}'
-        'name': 'meta.embedded.comment.block.blade'
+        'name': 'comment.block.meta.embedded.blade'
       }
       {
         'begin': '(?<!@){{{'
