@@ -1,493 +1,199 @@
-'name': 'Blade'
 'scopeName': 'text.html.php.blade'
-'comment': 'Syntax highlighting for Laravel Blade templates.'
+'name': 'Blade'
 'fileTypes': [
   'blade.php'
 ]
-'firstLineMatch': '^#!.*(?<!-)php[0-9]{0,1}\\b',
-'foldingStartMarker': '\\@\\b(section)\\b(?=(|\\s*|)\\()'
-'foldingStopMarker': '\\)(?!.*\\))'
-'patterns': [
-  {
-    'begin': '\\{\\{--'
-    'captures':
-      '0':
-        'name': 'comment.block.blade'
-    'end': '--\\}\\}'
-    'name': 'comment.block.documentation.blade'
-  }
-  {
-    'begin': '@?\\{\\{\\{?-?'
-    'beginCaptures':
-      '0':
-        'name': 'support.punctuation.php'
-    'end': '-?\\}?\\}\\}'
-    'endCaptures':
-      '0':
-        'name': 'support.punctuation.php'
-    'name': 'echo.blade'
+'firstLineMatch': '^#!.*(?<!-)php[0-9]{0,1}\\b'
+'foldingStartMarker': '(/\\*|\\{\\s*$|<<<HTML)'
+'foldingStopMarker': '(\\*/|^\\s*\\}|^HTML;)'
+'injections':
+  'text.html.php.blade - (meta.embedded | meta.tag | comment.block.meta.embedded.blade), L:text.html.php.blade meta.tag, L:source.js.embedded.html':
     'patterns': [
       {
-        'include': '#language'
-      }
-    ]
-  }
-  {
-    'begin': '@?\\{\\!\\!?-?'
-    'beginCaptures':
-      '0':
-        'name': 'support.punctuation.php'
-    'end': '-?\\!\\!\\}'
-    'endCaptures':
-      '0':
-        'name': 'support.punctuation.php'
-    'name': 'echo.blade'
-    'patterns': [
-      {
-        'include': '#language'
-      }
-    ]
-  }
-  {
-    'begin': '(\\s{0}|^)(\\@)\\b(if|elseif|foreach|for|while|extends|unless|each|yield|lang|choice|section|include|layout|forelse)\\b(?=(|\\s*|)\\()'
-    'beginCaptures':
-      '2':
-        'name': 'command.keyword.blade'
-      '3':
-        'name': 'command.keyword.blade'
-    'end': '\\)(?!.*\\))'
-    'endCaptures':
-      '0':
-        'name': 'command.blade'
-    'name': 'command.start.blade'
-    'patterns': [
-      {
-        'include': '#language'
-      }
-    ]
-  }
-  {
-    'begin': '(\\s{0}|^)(\\@)\\b(.+)\\b(?=(|\\s*|)\\()'
-    'beginCaptures':
-      '0':
-        'name': 'command.blade'
-      '1':
-        'name': 'entity.name.tag.html'
-    'end': '\\)'
-    'endCaptures':
-      '0':
-        'name': 'text.bounds.blade'
-    'name': 'command.inline.blade'
-    'patterns': [
-      {
-        'include': '#language'
-      }
-    ]
-  }
-  {
-    'begin': '(\\s{0}|^)(\\@)\\b(endif|endforeach|endfor|endwhile|else|endunless|show|stop|endsection|parent|overwrite|endforelse)\\b'
-    'beginCaptures':
-      '1':
-        'name': 'command.blade'
-      '2':
-        'name': 'command.keyword.blade'
-      '3':
-        'name': 'command.keyword.blade'
-    'end': '.'
-    'name': 'command.end.blade'
-  }
-  {
-    'begin': '(\\s{0}|^)(\\@)\\b([a-zA-Z_]+)\\b(\\s?)\\b'
-    'beginCaptures':
-      '0':
-        'name': 'entity.name.tag.php'
-      '1':
-        'name': 'entity.name.tag.php'
-    'end': ''
-    'name': 'text.html.embedded.line.blade'
-    'patterns': [
-      {
-        'include': '#language'
-      }
-    ]
-  }
-  {
-    'begin': '(((?<=\\?>)<)|<)\\?(?i:php|=)?'
-    'beginCaptures':
-      '0':
-        'name': 'punctuation.section.embedded.begin.php'
-      '2':
-        'name': 'meta.consecutive-tags.php'
-    'end': '(\\?)>'
-    'endCaptures':
-      '0':
-        'name': 'punctuation.section.embedded.end.php'
-      '1':
-        'name': 'source.php'
-    'name': 'text.html.embedded.line.blade'
-    'patterns': [
-      {
-        'include': '#language'
-      }
-    ]
-  }
-  {
-    'begin': '(<)([a-zA-Z0-9:]++)(?=[^>]*></\\2>)'
-    'beginCaptures':
-      '1':
-        'name': 'punctuation.definition.tag.html'
-      '2':
-        'name': 'entity.name.tag.html'
-    'end': '(>(<)/)(\\2)(>)'
-    'endCaptures':
-      '1':
-        'name': 'punctuation.definition.tag.html'
-      '2':
-        'name': 'meta.scope.between-tag-pair.html'
-      '3':
-        'name': 'entity.name.tag.html'
-      '4':
-        'name': 'punctuation.definition.tag.html'
-    'name': 'meta.tag.any.html'
-    'patterns': [
-      {
-        'include': '#tag-stuff'
-      }
-    ]
-  }
-  {
-    'begin': '(<\\?)(xml)'
-    'captures':
-      '1':
-        'name': 'punctuation.definition.tag.html'
-      '2':
-        'name': 'entity.name.tag.xml.html'
-    'end': '(\\?>)'
-    'name': 'meta.tag.preprocessor.xml.html'
-    'patterns': [
-      {
-        'include': '#tag-generic-attribute'
-      }
-      {
-        'include': '#string-double-quoted'
-      }
-      {
-        'include': '#string-single-quoted'
-      }
-    ]
-  }
-  {
-    'begin': '<!--'
-    'captures':
-      '0':
-        'name': 'punctuation.definition.comment.html'
-    'end': '--\\s*>'
-    'name': 'comment.block.html'
-    'patterns': [
-      {
-        'match': '--'
-        'name': 'invalid.illegal.bad-comments-or-CDATA.html'
-      }
-      {
-        'include': '#embedded-code'
-      }
-    ]
-  }
-  {
-    'begin': '<!'
-    'captures':
-      '0':
-        'name': 'punctuation.definition.tag.html'
-    'end': '>'
-    'name': 'meta.tag.sgml.html'
-    'patterns': [
-      {
-        'begin': '(?i:DOCTYPE)'
+        'begin': '{{--'
         'captures':
-          '1':
-            'name': 'entity.name.tag.doctype.html'
-        'end': '(?=>)'
-        'name': 'meta.tag.sgml.doctype.html'
-        'patterns': [
-          {
-            'match': '"[^">]*"'
-            'name': 'string.quoted.double.doctype.identifiers-and-DTDs.html'
-          }
-        ]
-      }
-      {
-        'begin': '\\[CDATA\\['
-        'end': ']](?=>)'
-        'name': 'constant.other.inline-data.html'
-      }
-      {
-        'match': '(\\s*)(?!--|>)\\S(\\s*)'
-        'name': 'invalid.illegal.bad-comments-or-CDATA.html'
-      }
-    ]
-  }
-  {
-    'include': '#embedded-code'
-  }
-  {
-    'begin': '(?:^\\s+)?(<)((?i:style))\\b(?![^>]*/>)'
-    'captures':
-      '1':
-        'name': 'punctuation.definition.tag.html'
-      '2':
-        'name': 'entity.name.tag.style.html'
-      '3':
-        'name': 'punctuation.definition.tag.html'
-    'end': '(</)((?i:style))(>)(?:\\s*\\n)?'
-    'name': 'source.css.embedded.html'
-    'patterns': [
-      {
-        'include': '#tag-stuff'
-      }
-      {
-        'begin': '(>)'
-        'beginCaptures':
-          '1':
-            'name': 'punctuation.definition.tag.html'
-        'end': '(?=</(?i:style))'
-        'patterns': [
-          {
-            'include': '#embedded-code'
-          }
-          {
-            'include': 'source.css'
-          }
-        ]
-      }
-    ]
-  }
-  {
-    'begin': '(?:^\\s+)?(<)((?i:script))\\b(?=\\s*type\\s*=\\s*[\'"]?text/(x-handlebars|(x-handlebars-)?template|html)[\'"]?)(?![^>]*/>)'
-    'beginCaptures':
-      '1':
-        'name': 'punctuation.definition.tag.html'
-      '2':
-        'name': 'entity.name.tag.script.html'
-    'end': '(?<=</(script|SCRIPT))(>)(?:\\s*\\n)?'
-    'endCaptures':
-      '2':
-        'name': 'punctuation.definition.tag.html'
-    'name': 'source.embedded.html'
-    'patterns': [
-      {
-        'include': '#tag-stuff'
-      }
-      {
-        'begin': '(?<!</(?:script|SCRIPT))(>)'
-        'captures':
-          '1':
-            'name': 'punctuation.definition.tag.html'
-          '2':
-            'name': 'entity.name.tag.script.html'
-        'end': '(</)((?i:script))'
-        'patterns': [
-          {
-            'include': 'text.html.php.blade'
-          }
-        ]
-      }
-    ]
-  }
-  {
-    'begin': '(?:^\\s+)?(<)((?i:script))\\b(?![^>]*/>)'
-    'beginCaptures':
-      '1':
-        'name': 'punctuation.definition.tag.html'
-      '2':
-        'name': 'entity.name.tag.script.html'
-    'end': '(?<=</(script|SCRIPT))(>)(?:\\s*\\n)?'
-    'endCaptures':
-      '2':
-        'name': 'punctuation.definition.tag.html'
-    'name': 'source.js.embedded.html'
-    'patterns': [
-      {
-        'include': '#tag-stuff'
-      }
-      {
-        'begin': '(?<!</(?:script|SCRIPT))(>)'
-        'captures':
-          '1':
-            'name': 'punctuation.definition.tag.html'
-          '2':
-            'name': 'entity.name.tag.script.html'
-        'end': '(</)((?i:script))'
-        'patterns': [
-          {
-            'captures':
-              '1':
-                'name': 'punctuation.definition.comment.js'
-            'match': '(//).*?((?=</script)|$\\n?)'
-            'name': 'comment.line.double-slash.js'
-          }
-          {
-            'begin': '/\\*'
-            'captures':
-              '0':
-                'name': 'punctuation.definition.comment.js'
-            'end': '\\*/|(?=</script)'
-            'name': 'comment.block.js'
-          }
-          {
-            'include': 'source.js'
-          }
-        ]
-      }
-    ]
-  }
-  {
-    'begin': '(</?)((?i:body|head|html)\\b)'
-    'captures':
-      '1':
-        'name': 'punctuation.definition.tag.html'
-      '2':
-        'name': 'entity.name.tag.structure.any.html'
-    'end': '(>)'
-    'name': 'meta.tag.structure.any.html'
-    'patterns': [
-      {
-        'include': '#tag-stuff'
-      }
-    ]
-  }
-  {
-    'begin': '(</?)((?i:address|blockquote|dd|div|section|article|aside|header|footer|nav|menu|dl|dt|fieldset|form|frame|frameset|h1|h2|h3|h4|h5|h6|iframe|noframes|object|ol|p|ul|applet|center|dir|hr|pre)\\b)'
-    'beginCaptures':
-      '1':
-        'name': 'punctuation.definition.tag.begin.html'
-      '2':
-        'name': 'entity.name.tag.block.any.html'
-    'end': '(>)'
-    'endCaptures':
-      '1':
-        'name': 'punctuation.definition.tag.end.html'
-    'name': 'meta.tag.block.any.html'
-    'patterns': [
-      {
-        'include': '#tag-stuff'
-      }
-    ]
-  }
-  {
-    'begin': '(</?)((?i:a|abbr|acronym|area|b|base|basefont|bdo|big|br|button|caption|cite|code|col|colgroup|del|dfn|em|font|head|html|i|img|input|ins|isindex|kbd|label|legend|li|link|map|meta|noscript|optgroup|option|param|q|s|samp|script|select|small|span|strike|strong|style|sub|sup|table|tbody|td|textarea|tfoot|th|thead|title|tr|tt|u|var)\\b)'
-    'beginCaptures':
-      '1':
-        'name': 'punctuation.definition.tag.begin.html'
-      '2':
-        'name': 'entity.name.tag.inline.any.html'
-    'end': '((?: ?/)?>)'
-    'endCaptures':
-      '1':
-        'name': 'punctuation.definition.tag.end.html'
-    'name': 'meta.tag.inline.any.html'
-    'patterns': [
-      {
-        'include': '#tag-stuff'
-      }
-    ]
-  }
-  {
-    'begin': '(</?)([a-zA-Z0-9:]+)'
-    'beginCaptures':
-      '1':
-        'name': 'punctuation.definition.tag.begin.html'
-      '2':
-        'name': 'entity.name.tag.other.html'
-    'end': '(>)'
-    'endCaptures':
-      '1':
-        'name': 'punctuation.definition.tag.end.html'
-    'name': 'meta.tag.other.html'
-    'patterns': [
-      {
-        'include': '#tag-stuff'
-      }
-    ]
-  }
-  {
-    'include': '#entities'
-  }
-  {
-    'match': '<>'
-    'name': 'invalid.illegal.incomplete.html'
-  }
-  {
-    'captures':
-      '1':
-        'name': 'punctuation.whitespace.embedded.leading.php'
-      '2':
-        'name': 'source.php.embedded.line.empty.html'
-      '3':
-        'name': 'punctuation.section.embedded.begin.php'
-      '4':
-        'name': 'meta.consecutive-tags.php'
-      '5':
-        'name': 'source.php'
-      '6':
-        'name': 'punctuation.section.embedded.end.php'
-      '7':
-        'name': 'source.php'
-      '8':
-        'name': 'punctuation.whitespace.embedded.trailing.php'
-    'comment': 'Matches empty tags.'
-    'match': '(?x)\n\t\t\t\t(^\\s*)?\t\t\t\t\t\t\t# 1 - Leading whitespace\n\t\t\t\t\t(\t\t\t\t\t\t\t# 2 - meta.embedded.line.empty.php\n\t\t\t\t\t\t(\t\t\t\t\t\t# 3 - Open Tag\n\t\t\t\t\t\t\t(?:\n\t\t\t\t\t\t\t\t((?<=\\?>)<)\t\t# 4 - Consecutive tags\n\t\t\t\t\t\t\t  | <\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t\\?(?i:php|=)?\n\t\t\t\t\t\t)\n\t\t\t\t\t\t\t(\\s*)\t\t\t\t# 5 - Loneliness\n\t\t\t\t\t\t((\\?)>)\t\t\t\t\t# 6 - Close Tag\n\t\t\t\t\t\t\t\t\t\t\t\t# 7 - Scope ? as scope.php\n\t\t\t\t\t)\n\t\t\t\t(\n\t\t\t\t\t\\1\t\t\t\t\t\t\t# Match nothing if there was no\n\t\t\t\t\t\t\t\t\t\t\t\t#   leading whitespace...\n\t\t\t\t  | (\\s*$\\n)?\t\t\t\t\t# or match trailing whitespace.\n\t\t\t\t)\n\t\t\t'
-  }
-  {
-    'begin': '^\\s*(?=<\\?)'
-    'beginCaptures':
-      '0':
-        'name': 'punctuation.whitespace.embedded.leading.php'
-    'comment': 'Catches tags with preceeding whitespace.'
-    'end': '(?<=\\?>)(\\s*$\\n)?'
-    'endCaptures':
-      '0':
-        'name': 'punctuation.whitespace.embedded.trailing.php'
-    'patterns': [
-      {
-        'begin': '<\\?(?i:php|=)?'
-        'beginCaptures':
           '0':
-            'name': 'punctuation.section.embedded.begin.php'
-        'end': '(\\?)>'
-        'endCaptures':
+            'name': 'punctuation.definition.comment.blade'
+        'end': '--}}'
+        'name': 'comment.block.meta.embedded.blade'
+      }
+      {
+        'begin': '(?<!@){{{'
+        'captures':
           '0':
-            'name': 'punctuation.section.embedded.end.php'
+            'name': 'support.punctuation.blade'
           '1':
             'name': 'source.php'
-        'name': 'source.php.embedded.block.html'
+        'contentName': 'source.php'
+        'end': '(})}}'
+        'name': 'meta.embedded.echo.blade'
         'patterns': [
           {
             'include': '#language'
           }
         ]
       }
-    ]
-  }
-  {
-    'begin': '(((?<=\\?>)<)|<)\\?(?i:php|=)?'
-    'beginCaptures':
-      '0':
-        'name': 'punctuation.section.embedded.begin.php'
-      '2':
-        'name': 'meta.consecutive-tags.php'
-    'comment': 'Catches the remainder.'
-    'end': '(\\?)>'
-    'endCaptures':
-      '0':
-        'name': 'punctuation.section.embedded.end.php'
-      '1':
-        'name': 'source.php'
-    'name': 'source.php.embedded.line.html'
-    'patterns': [
       {
-        'include': '#language'
+        'begin': '(?<![@{]){{'
+        'captures':
+          '0':
+            'name': 'support.punctuation.blade'
+          '1':
+            'name': 'source.php'
+        'contentName': 'source.php'
+        'end': '(})}'
+        'name': 'meta.embedded.echo.blade'
+        'patterns': [
+          {
+            'include': '#language'
+          }
+        ]
+      }
+      {
+        'begin': '(?<!@){!!'
+        'captures':
+          '0':
+            'name': 'support.punctuation.blade'
+          '1':
+            'name': 'source.php'
+        'contentName': 'source.php'
+        'end': '(!)!}'
+        'name': 'meta.embedded.echo.blade'
+        'patterns': [
+          {
+            'include': '#language'
+          }
+        ]
+      }
+      {
+        'begin': '(?<![A-z0-9_])@(choice|each|(else)?if|extends|for(e(ach|lse))?|include|lang|push|section|stack|unless|while|yield)\\s*(?=\\()'
+        'beginCaptures':
+          '0':
+            'name': 'keyword.blade'
+        'contentName': 'source.php'
+        'end': '(?<=\\))(?!.*\\))'
+        'name': 'meta.embedded.blade'
+        'patterns': [
+          {
+            'include': '#language'
+          }
+        ]
+      }
+      {
+        'match': '(?<![A-z0-9_])@(append|empty|else|end(for(each|else)?|if|push|section|unless|while)|overwrite|show|stop)\\b|@parent'
+        'name': 'meta.embedded.keyword.blade'
+      }
+      {
+        'begin': '(?<![A-z0-9_])@\\w+\\s*(?=\\()'
+        'beginCaptures':
+          '0':
+            'name': 'entity.blade'
+        'contentName': 'source.php'
+        'end': '(?<=\\))(?!.*\\))'
+        'name': 'meta.embedded.blade'
+        'patterns': [
+          {
+            'include': '#language'
+          }
+        ]
+      }
+      {
+        'match': '(?<![A-z0-9_])@(?!(choice|each|(else)?if|extends|for(e(ach|lse))?|include|lang|push|section|stack|unless|while|yield)\\b)\\w+\\b'
+        'name': 'meta.embedded.entity.blade'
+      }
+      {
+        'begin': '(^\\s*)(?=<\\?(?![^?]*\\?>))'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.whitespace.embedded.leading.php'
+        'end': '(?!\\G)(\\s*$\\n)?'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.whitespace.embedded.trailing.php'
+        'patterns': [
+          {
+            'begin': '<\\?(?i:php|=)?'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.begin.php'
+            'contentName': 'source.php'
+            'end': '(\\?)>'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.end.php'
+              '1':
+                'name': 'source.php'
+            'name': 'meta.embedded.block.php'
+            'patterns': [
+              {
+                'include': '#language'
+              }
+            ]
+          }
+        ]
+      }
+      {
+        'begin': '<\\?(?i:php|=)?(?![^?]*\\?>)'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.begin.php'
+        'contentName': 'source.php'
+        'end': '(\\?)>'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.end.php'
+          '1':
+            'name': 'source.php'
+        'name': 'meta.embedded.block.php'
+        'patterns': [
+          {
+            'include': '#language'
+          }
+        ]
+      }
+      {
+        'begin': '<\\?(?i:php|=)?'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.begin.php'
+        'end': '>'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.end.php'
+        'name': 'meta.embedded.line.php'
+        'patterns': [
+          {
+            'captures':
+              '1':
+                'name': 'source.php'
+              '2':
+                'name': 'punctuation.section.embedded.end.php'
+              '3':
+                'name': 'source.php'
+            'match': '\\G(\\s*)((\\?))(?=>)'
+            'name': 'meta.special.empty-tag.php'
+          }
+          {
+            'begin': '\\G'
+            'contentName': 'source.php'
+            'end': '(\\?)(?=>)'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.end.php'
+              '1':
+                'name': 'source.php'
+            'patterns': [
+              {
+                'include': '#language'
+              }
+            ]
+          }
+        ]
       }
     ]
+'patterns': [
+  {
+    'include': 'text.html.basic'
   }
 ]
 'repository':
@@ -497,7 +203,7 @@
         'captures':
           '1':
             'name': 'punctuation.separator.inheritance.php'
-        'match': '(?i)(\\\\)?\\b(st(dClass|reamWrapper)|R(RD(Graph|Creator|Updater)|untimeException|e(sourceBundle|cursive(RegexIterator|CachingIterator|TreeIterator|Iterator(Iterator)?|DirectoryIterator|FilterIterator|ArrayIterator)|flect(ion(Method|Class|Object|P(arameter|roperty)|Extension|Function(Abstract)?)?|or)|gexIterator)|angeException)|G(lobIterator|magick(Draw|Pixel)?)|X(ML(Reader|Writer)|SLTProcessor)|M(ongo(Regex|Grid(fsFile|FS(Cursor|File)?)|BinData|C(o(de|llection)|ursor)|Timestamp|I(nt(32|64)|d)|D(B(Ref)?|ate))?|ultipleIterator|e(ssageFormatter|mcache(d)?))|Bad(MethodCallException|FunctionCallException)|tidy(Node)?|S(impleXML(Iterator|Element)|oap(Server|Header|Client|Param|Var|Fault)|NMP|CA(_(SoapProxy|LocalProxy))?|p(hinxClient|l(M(inHeap|axHeap)|Bool|S(t(ack|ring)|ubject)|Heap|TempFileObject|Int|Ob(server|jectStorage)|DoublyLinkedList|PriorityQueue|Enum|Queue|F(i(le(Info|Object)|xedArray)|loat)))|e(ekableIterator|rializable)|DO_(Model_(ReflectionDataObject|Type|Property)|Sequence|D(ata(Object|Factory)|AS_(Relational|XML(_Document)?|Setting|ChangeSummary|Data(Object|Factory)))|Exception|List)|wish(Result(s)?|Search)?|VM(Model)?|QLite(Result|3(Result|Stmt)?|Database|Unbuffered)|AM(Message|Connection))|H(ttp(Re(sponse|quest(Pool)?)|Message|InflateStream|DeflateStream|QueryString)|aru(Image|Outline|D(oc|estination)|Page|Encoder|Font|Annotation))|N(o(RewindIterator|rmalizer)|umberFormatter)|C(o(untable|llator)|achingIterator)|T(okyoTyrant(Table|Query)?|ra(nsliterator|versable))|I(n(tlDateFormatter|validArgumentException|finiteIterator)|terator(Iterator|Aggregate)?|magick(Draw|Pixel(Iterator)?)?)|ZipArchive|O(CI-(Collection|Lob)|ut(erIterator|Of(RangeException|BoundsException))|verflowException)|D(irectoryIterator|om(XsltStylesheet|Node|Document(Type)?|ProcessingInstruction|Element|ainException|Attribute)|OM(XPath|N(ode(list)?|amedNodeMap)|C(haracterData|omment)|Text|Implementation|Document(Fragment)?|ProcessingInstruction|E(ntityReference|lement)|Attr)|ate(Time(Zone)?|Interval|Period))|Un(derflowException|expectedValueException)|finfo|P(har(Data|FileInfo)?|DO(Statement)?|arentIterator)|E(rrorException|xception|mptyIterator)|V8Js(Exception)?|KTaglib_(MPEG_(File|AudioProperties)|Tag|ID3v2_(Tag|Frame|AttachedPictureFrame))|Fil(terIterator|esystemIterator)|mysqli(_(stmt|driver|warning|result))?|L(imitIterator|o(cale|gicException)|engthException)|A(MQP(Connection|Exchange|Queue)|ppendIterator|PCIterator|rray(Iterator|Object|Access)))\\b'
+        'match': '(?i)(\\\\)?\\b(st(dClass|reamWrapper)|R(RD(Graph|Creator|Updater)|untimeException|e(sourceBundle|cursive(RegexIterator|Ca(chingIterator|llbackFilterIterator)|TreeIterator|Iterator(Iterator)?|DirectoryIterator|FilterIterator|ArrayIterator)|flect(ion(Method|Class|ZendExtension|Object|P(arameter|roperty)|Extension|Function(Abstract)?)?|or)|gexIterator)|angeException)|G(ender\\Gender|lobIterator|magick(Draw|Pixel)?)|X(sltProcessor|ML(Reader|Writer)|SLTProcessor)|M(ysqlndUh(Connection|PreparedStatement)|ongo(Re(sultException|gex)|Grid(fsFile|FS(Cursor|File)?)|BinData|C(o(de|llection)|ursor(Exception)?|lient)|Timestamp|I(nt(32|64)|d)|D(B(Ref)?|ate)|Pool|Log)?|u(tex|ltipleIterator)|e(ssageFormatter|mcache(d)?))|Bad(MethodCallException|FunctionCallException)|tidy(Node)?|S(tackable|impleXML(Iterator|Element)|oap(Server|Header|Client|Param|Var|Fault)|NMP|CA(_(SoapProxy|LocalProxy))?|p(hinxClient|oofchecker|l(M(inHeap|axHeap)|S(tack|ubject)|Heap|T(ype|empFileObject)|Ob(server|jectStorage)|DoublyLinkedList|PriorityQueue|Enum|Queue|Fi(le(Info|Object)|xedArray)))|e(ssionHandler(Interface)?|ekableIterator|rializable)|DO_(Model_(ReflectionDataObject|Type|Property)|Sequence|D(ata(Object|Factory)|AS_(Relational|XML(_Document)?|Setting|ChangeSummary|Data(Object|Factory)))|Exception|List)|wish(Result(s)?|Search)?|VM(Model)?|QLite(Result|3(Result|Stmt)?|Database|Unbuffered)|AM(Message|Connection))|H(ttp(Re(sponse|quest(Pool)?)|Message|InflateStream|DeflateStream|QueryString)|aru(Image|Outline|D(oc|estination)|Page|Encoder|Font|Annotation))|Yaf_(R(oute(_(Re(write|gex)|Map|S(tatic|imple|upervar)|Interface)|r)|e(sponse_Abstract|quest_(Simple|Http|Abstract)|gistry))|Session|Con(troller_Abstract|fig_(Simple|Ini|Abstract))|Dispatcher|Plugin_Abstract|Exception|View_(Simple|Interface)|Loader|A(ction_Abstract|pplication))|N(o(RewindIterator|rmalizer)|umberFormatter)|C(o(nd|untable|llator)|a(chingIterator|llbackFilterIterator))|T(hread|okyoTyrant(Table|Iterator|Query)?|ra(nsliterator|versable))|I(n(tlDateFormatter|validArgumentException|finiteIterator)|terator(Iterator|Aggregate)?|magick(Draw|Pixel(Iterator)?)?)|php_user_filter|ZipArchive|O(CI-(Collection|Lob)|ut(erIterator|Of(RangeException|BoundsException))|verflowException)|D(irectory(Iterator)?|omainException|OM(XPath|N(ode(list)?|amedNodeMap)|C(haracterData|omment|dataSection)|Text|Implementation|Document(Fragment)?|ProcessingInstruction|E(ntityReference|lement)|Attr)|ate(Time(Zone)?|Interval|Period))|Un(derflowException|expectedValueException)|JsonSerializable|finfo|P(har(Data|FileInfo)?|DO(Statement)?|arentIterator)|E(v(S(tat|ignal)|Ch(ild|eck)|Timer|I(o|dle)|P(eriodic|repare)|Embed|Fork|Watcher|Loop)?|rrorException|xception|mptyIterator)|V(8Js(Exception)?|arnish(Stat|Log|Admin))|KTaglib_(MPEG_(File|AudioProperties)|Tag|ID3v2_(Tag|Frame|AttachedPictureFrame))|QuickHash(StringIntHash|Int(S(tringHash|et)|Hash))|Fil(terIterator|esystemIterator)|mysqli(_(stmt|driver|warning|result))?|W(orker|eak(Map|ref))|L(imitIterator|o(cale|gicException)|ua(Closure)?|engthException|apack)|A(MQP(C(hannel|onnection)|E(nvelope|xchange)|Queue)|ppendIterator|PCIterator|rray(Iterator|Object|Access)))\\b'
         'name': 'support.class.builtin.php'
       }
     ]
@@ -556,18 +262,38 @@
         'name': 'comment.block.php'
       }
       {
-        'captures':
+        'begin': '(^[ \\t]+)?(?=//)'
+        'beginCaptures':
           '1':
-            'name': 'punctuation.definition.comment.php'
-        'match': '(//).*?($\\n?|(?=\\?>))'
-        'name': 'comment.line.double-slash.php'
+            'name': 'punctuation.whitespace.comment.leading.php'
+        'end': '(?!\\G)'
+        'patterns': [
+          {
+            'begin': '//'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.definition.comment.php'
+            'end': '\\n|(?=\\?>)'
+            'name': 'comment.line.double-slash.php'
+          }
+        ]
       }
       {
-        'captures':
+        'begin': '(^[ \\t]+)?(?=#)'
+        'beginCaptures':
           '1':
-            'name': 'punctuation.definition.comment.php'
-        'match': '(#).*?($\\n?|(?=\\?>))'
-        'name': 'comment.line.number-sign.php'
+            'name': 'punctuation.whitespace.comment.leading.php'
+        'end': '(?!\\G)'
+        'patterns': [
+          {
+            'begin': '#'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.definition.comment.php'
+            'end': '\\n|(?=\\?>)'
+            'name': 'comment.line.number-sign.php'
+          }
+        ]
       }
     ]
   'constants':
@@ -626,31 +352,6 @@
             'name': 'constant.other.php'
           }
         ]
-      }
-    ]
-  'embedded-code':
-    'patterns': [
-      {
-        'include': '#smarty'
-      }
-      {
-        'include': '#python'
-      }
-    ]
-  'entities':
-    'patterns': [
-      {
-        'captures':
-          '1':
-            'name': 'punctuation.definition.entity.html'
-          '3':
-            'name': 'punctuation.definition.entity.html'
-        'match': '(&)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)'
-        'name': 'constant.character.entity.html'
-      }
-      {
-        'match': '&'
-        'name': 'invalid.illegal.bad-ampersand.html'
       }
     ]
   'function-arguments':
@@ -748,11 +449,11 @@
             'name': 'variable.other.php'
           '3':
             'name': 'punctuation.definition.variable.php'
-        'match': '(\\s*&)?\\s*((\\$+)[a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*)\\s*(?=,|\\)|/[/*]|\\#)'
+        'match': '(?:\\s*(&))?\\s*((\\$+)[a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*)\\s*(?=,|\\)|/[/*]|\\#)'
         'name': 'meta.function.argument.no-default.php'
       }
       {
-        'begin': '(\\s*&)?\\s*((\\$+)[a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*)(?:\\s*(=)\\s*)\\s*'
+        'begin': '(?:\\s*(&))?\\s*((\\$+)[a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*)(?:\\s*(=)\\s*)\\s*'
         'captures':
           '1':
             'name': 'storage.modifier.reference.php'
@@ -809,166 +510,189 @@
       }
     ]
   'heredoc':
-    'begin': '(?=<<<\\s*(\'?)([a-zA-Z_]+[a-zA-Z0-9_]*)(\\1)\\s*$)'
-    'end': '^((HTML|XML|SQL|JAVASCRIPT|JSON|CSS)|\\2)\\b'
-    'endCaptures':
-      '1':
-        'name': 'keyword.operator.heredoc.php'
-      '2':
-        'name': 'punctuation.section.embedded.end.php'
-    'name': 'string.unquoted.heredoc.php'
     'patterns': [
       {
-        'begin': '(<<<)\\s*(HTML)\\s*$\\n?'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.section.embedded.begin.php'
-          '1':
-            'name': 'punctuation.definition.string.php'
-          '2':
-            'name': 'keyword.operator.heredoc.php'
-        'contentName': 'text.html'
-        'end': '(?=^\\2\\b)'
-        'name': 'meta.embedded.html'
+        'begin': '(?=<<<\\s*("?)([a-zA-Z_]+[a-zA-Z0-9_]*)(\\1)\\s*$)'
+        'end': '(?!\\G)'
+        'injections':
+          '*':
+            'patterns': [
+              {
+                'include': '#interpolation'
+              }
+            ]
+        'name': 'string.unquoted.heredoc.php'
         'patterns': [
           {
-            'include': 'text.html.basic'
-          }
-          {
-            'include': '#interpolation'
+            'include': '#heredoc_interior'
           }
         ]
       }
       {
-        'begin': '(<<<)\\s*(XML)\\s*$\\n?'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.section.embedded.begin.php'
-          '1':
-            'name': 'punctuation.definition.string.php'
-          '2':
-            'name': 'keyword.operator.heredoc.php'
-        'contentName': 'text.xml'
-        'end': '(?=^\\2\\b)'
-        'name': 'meta.embedded.xml'
+        'begin': '(?=<<<\\s*(\'?)([a-zA-Z_]+[a-zA-Z0-9_]*)(\\1)\\s*$)'
+        'end': '(?!\\G)'
+        'name': 'string.unquoted.heredoc.nowdoc.php'
         'patterns': [
           {
-            'include': 'text.xml'
-          }
-          {
-            'include': '#interpolation'
+            'include': '#heredoc_interior'
           }
         ]
-      }
-      {
-        'begin': '(<<<)\\s*(SQL)\\s*$\\n?'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.section.embedded.begin.php'
-          '1':
-            'name': 'punctuation.definition.string.php'
-          '2':
-            'name': 'keyword.operator.heredoc.php'
-        'contentName': 'source.sql'
-        'end': '(?=^\\2\\b)'
-        'name': 'meta.embedded.sql'
-        'patterns': [
-          {
-            'include': 'source.sql'
-          }
-          {
-            'include': '#interpolation'
-          }
-        ]
-      }
-      {
-        'begin': '(<<<)\\s*(JAVASCRIPT)\\s*$\\n?'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.section.embedded.begin.php'
-          '1':
-            'name': 'punctuation.definition.string.php'
-          '2':
-            'name': 'keyword.operator.heredoc.php'
-        'contentName': 'source.js'
-        'end': '(?=^\\2\\b)'
-        'name': 'meta.embedded.js'
-        'patterns': [
-          {
-            'include': 'source.js'
-          }
-          {
-            'include': '#interpolation'
-          }
-        ]
-      }
-      {
-        'begin': '(<<<)\\s*(JSON)\\s*$\\n?'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.section.embedded.begin.php'
-          '1':
-            'name': 'punctuation.definition.string.php'
-          '2':
-            'name': 'keyword.operator.heredoc.php'
-        'contentName': 'source.json'
-        'end': '(?=^\\2\\b)'
-        'name': 'meta.embedded.json'
-        'patterns': [
-          {
-            'include': 'source.json'
-          }
-          {
-            'include': '#interpolation'
-          }
-        ]
-      }
-      {
-        'begin': '(<<<)\\s*(CSS)\\s*$\\n?'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.section.embedded.begin.php'
-          '1':
-            'name': 'punctuation.definition.string.php'
-          '2':
-            'name': 'keyword.operator.heredoc.php'
-        'contentName': 'source.css'
-        'end': '(?=^\\2\\b)'
-        'name': 'meta.embedded.css'
-        'patterns': [
-          {
-            'include': 'source.css'
-          }
-          {
-            'include': '#interpolation'
-          }
-        ]
-      }
-      {
-        'begin': '(<<<)\\s*([a-zA-Z_]+[a-zA-Z0-9_]*)'
-        'beginCaptures':
-          '1':
-            'name': 'punctuation.definition.string.php'
-          '2':
-            'name': 'keyword.operator.heredoc.php'
-        'end': '(?=^\\2\\b)'
-        'patterns': [
-          {
-            'include': '#interpolation'
-          }
-        ]
-      }
-      {
-        'begin': '(<<<)\\s*\'([a-zA-Z_]+[a-zA-Z0-9_]*)\''
-        'beginCaptures':
-          '1':
-            'name': 'punctuation.definition.string.php'
-          '2':
-            'name': 'keyword.operator.heredoc.php'
-        'end': '(?=^\\2\\b)'
-        'name': 'string.unquoted.nowdoc.php'
       }
     ]
+    'repository':
+      'heredoc_interior':
+        'patterns': [
+          {
+            'begin': '(<<<)\\s*([\'"]?)(HTML)(\\2)\\s*$\\n?'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.begin.php'
+              '1':
+                'name': 'punctuation.definition.string.php'
+              '3':
+                'name': 'keyword.operator.heredoc.php'
+            'contentName': 'text.html'
+            'end': '^(\\3)\\b'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.end.php'
+              '1':
+                'name': 'keyword.operator.heredoc.php'
+            'name': 'meta.embedded.html'
+            'patterns': [
+              {
+                'include': 'text.html.basic'
+              }
+            ]
+          }
+          {
+            'begin': '(<<<)\\s*([\'"]?)(XML)(\\2)\\s*$\\n?'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.begin.php'
+              '1':
+                'name': 'punctuation.definition.string.php'
+              '3':
+                'name': 'keyword.operator.heredoc.php'
+            'contentName': 'text.xml'
+            'end': '^(\\3)\\b'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.end.php'
+              '1':
+                'name': 'keyword.operator.heredoc.php'
+            'name': 'meta.embedded.xml'
+            'patterns': [
+              {
+                'include': 'text.xml'
+              }
+            ]
+          }
+          {
+            'begin': '(<<<)\\s*([\'"]?)(SQL)(\\2)\\s*$\\n?'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.begin.php'
+              '1':
+                'name': 'punctuation.definition.string.php'
+              '3':
+                'name': 'keyword.operator.heredoc.php'
+            'contentName': 'source.sql'
+            'end': '^(\\3)\\b'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.end.php'
+              '1':
+                'name': 'keyword.operator.heredoc.php'
+            'name': 'meta.embedded.sql'
+            'patterns': [
+              {
+                'include': 'source.sql'
+              }
+            ]
+          }
+          {
+            'begin': '(<<<)\\s*([\'"]?)(JAVASCRIPT)(\\2)\\s*$\\n?'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.begin.php'
+              '1':
+                'name': 'punctuation.definition.string.php'
+              '3':
+                'name': 'keyword.operator.heredoc.php'
+            'contentName': 'source.js'
+            'end': '^(\\3)\\b'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.end.php'
+              '1':
+                'name': 'keyword.operator.heredoc.php'
+            'name': 'meta.embedded.js'
+            'patterns': [
+              {
+                'include': 'source.js'
+              }
+            ]
+          }
+          {
+            'begin': '(<<<)\\s*([\'"]?)(JSON)(\\2)\\s*$\\n?'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.begin.php'
+              '1':
+                'name': 'punctuation.definition.string.php'
+              '3':
+                'name': 'keyword.operator.heredoc.php'
+            'contentName': 'source.json'
+            'end': '^(\\3)\\b'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.end.php'
+              '1':
+                'name': 'keyword.operator.heredoc.php'
+            'name': 'meta.embedded.json'
+            'patterns': [
+              {
+                'include': 'source.json'
+              }
+            ]
+          }
+          {
+            'begin': '(<<<)\\s*([\'"]?)(CSS)(\\2)\\s*$\\n?'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.begin.php'
+              '1':
+                'name': 'punctuation.definition.string.php'
+              '3':
+                'name': 'keyword.operator.heredoc.php'
+            'contentName': 'source.css'
+            'end': '^(\\3)\\b'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.end.php'
+              '1':
+                'name': 'keyword.operator.heredoc.php'
+            'name': 'meta.embedded.css'
+            'patterns': [
+              {
+                'include': 'source.css'
+              }
+            ]
+          }
+          {
+            'begin': '(<<<)\\s*([\'"]?)([a-zA-Z_]+[a-zA-Z0-9_]*)(\\2)'
+            'beginCaptures':
+              '1':
+                'name': 'punctuation.definition.string.php'
+              '3':
+                'name': 'keyword.operator.heredoc.php'
+            'end': '^(\\3)\\b'
+            'endCaptures':
+              '1':
+                'name': 'keyword.operator.heredoc.php'
+          }
+        ]
   'instantiation':
     'begin': '(?i)(new)\\s+'
     'beginCaptures':
@@ -1035,6 +759,14 @@
         'include': '#comments'
       }
       {
+        'match': '\\{'
+        'name': 'punctuation.section.scope.begin.php'
+      }
+      {
+        'match': '\\}'
+        'name': 'punctuation.section.scope.end.php'
+      }
+      {
         'begin': '(?i)^\\s*(interface)\\s+([a-z0-9_]+)\\s*(extends)?\\s*'
         'beginCaptures':
           '1':
@@ -1051,6 +783,21 @@
         'patterns': [
           {
             'include': '#namespace'
+          }
+        ]
+      }
+      {
+        'begin': '(?i)^\\s*(trait)\\s+([a-z0-9_]+)\\s*'
+        'beginCaptures':
+          '1':
+            'name': 'storage.type.trait.php'
+          '2':
+            'name': 'entity.name.type.class.php'
+        'end': '(?=[{])'
+        'name': 'meta.trait.php'
+        'patterns': [
+          {
+            'include': '#comments'
           }
         ]
       }
@@ -1201,8 +948,10 @@
         ]
       }
       {
-        'match': '\\s*\\b(break|c(ase|ontinue)|d(e(clare|fault)|ie|o)|e(lse(if)?|nd(declare|for(each)?|if|switch|while)|xit)|for(each)?|if|return|switch|use|while)\\b'
-        'name': 'keyword.control.php'
+        'captures':
+          '1':
+            'name': 'keyword.control.php'
+        'match': '\\s*\\b((break|c(ase|ontinue)|d(e(clare|fault)|ie|o)|e(lse(if)?|nd(declare|for(each)?|if|switch|while)|xit)|for(each)?|if|return|switch|use|while))\\b'
       }
       {
         'begin': '(?i)\\b((?:require|include)(?:_once)?)\\b\\s*'
@@ -1238,7 +987,7 @@
         ]
       }
       {
-        'match': '\\b(catch|try|throw|exception)\\b'
+        'match': '\\b(catch|try|throw|exception|finally)\\b'
         'name': 'keyword.control.exception.php'
       }
       {
@@ -1287,7 +1036,7 @@
                     'name': 'variable.other.php'
                   '3':
                     'name': 'punctuation.definition.variable.php'
-                'match': '(\\s*&)?\\s*((\\$+)[a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*)\\s*(?=,|\\))'
+                'match': '(?:\\s*(&))?\\s*((\\$+)[a-zA-Z_\\x{7f}-\\x{ff}][a-zA-Z0-9_\\x{7f}-\\x{ff}]*)\\s*(?=,|\\))'
                 'name': 'meta.function.closure.use.php'
               }
             ]
@@ -1298,7 +1047,12 @@
         'begin': '(?x)\\s*\n\t\t\t\t\t    ((?:(?:final|abstract|public|private|protected|static)\\s+)*)\n\t\t\t\t        (function)\n\t\t\t\t        (?:\\s+|(\\s*&\\s*))\n\t\t\t\t        (?:\n\t\t\t\t            (__(?:call|construct|destruct|get|set|isset|unset|tostring|clone|set_state|sleep|wakeup|autoload|invoke|callStatic))\n\t\t\t\t            |([a-zA-Z0-9_]+)\n\t\t\t\t        )\n\t\t\t\t        \\s*\n\t\t\t\t        (\\()'
         'beginCaptures':
           '1':
-            'name': 'storage.modifier.php'
+            'patterns': [
+              {
+                'match': 'final|abstract|public|private|protected|static'
+                'name': 'storage.modifier.php'
+              }
+            ]
           '2':
             'name': 'storage.type.function.php'
           '3':
@@ -1393,7 +1147,7 @@
         'match': '(?i)\\s*\\(\\s*(array|real|double|float|int(eger)?|bool(ean)?|string|object|binary|unset)\\s*\\)'
       }
       {
-        'match': '(?i)\\b(array|real|double|float|int(eger)?|bool(ean)?|string|class|clone|var|function|interface|parent|self|object)\\b'
+        'match': '(?i)\\b(array|real|double|float|int(eger)?|bool(ean)?|string|class|clone|var|function|interface|trait|parent|self|object)\\b'
         'name': 'storage.type.php'
       }
       {
@@ -1433,6 +1187,10 @@
         'name': 'keyword.operator.error-control.php'
       }
       {
+        'match': '=|\\+=|\\-=|\\*=|/=|%=|&=|\\|=|\\^=|<<=|>>='
+        'name': 'keyword.operator.assignment.php'
+      }
+      {
         'match': '(\\-\\-|\\+\\+)'
         'name': 'keyword.operator.increment-decrement.php'
       }
@@ -1454,10 +1212,6 @@
       {
         'match': '(===|==|!==|!=|<=|>=|<>|<|>)'
         'name': 'keyword.operator.comparison.php'
-      }
-      {
-        'match': '='
-        'name': 'keyword.operator.assignment.php'
       }
       {
         'begin': '(?i)\\b(instanceof)\\b\\s+(?=[\\\\$a-z_])'
@@ -1651,10 +1405,6 @@
         'match': '^\\s*\\*\\s*(@access)\\s+((public|private|protected)|(.+))\\s*$'
       }
       {
-        'match': '((https?|s?ftp|ftps|file|smb|afp|nfs|(x-)?man|gopher|txmt)://|mailto:)[-:@a-zA-Z0-9_.~%+/?=&#]+(?<![.?:])'
-        'name': 'markup.underline.link.php'
-      }
-      {
         'captures':
           '1':
             'name': 'keyword.other.phpdoc.php'
@@ -1663,7 +1413,7 @@
         'match': '(@xlink)\\s+(.+)\\s*$'
       }
       {
-        'match': '\\@(a(bstract|uthor)|c(ategory|opyright)|example|global|internal|li(cense|nk)|pa(ckage|ram)|return|s(ee|ince|tatic|ubpackage)|t(hrows|odo)|v(ar|ersion)|uses|deprecated|final)\\b'
+        'match': '\\@(a(bstract|uthor)|c(ategory|opyright)|example|global|internal|li(cense|nk)|pa(ckage|ram)|return|s(ee|ince|tatic|ubpackage)|t(hrows|odo)|v(ar|ersion)|uses|deprecated|final|ignore)\\b'
         'name': 'keyword.other.phpdoc.php'
       }
       {
@@ -1672,15 +1422,6 @@
             'name': 'keyword.other.phpdoc.php'
         'match': '\\{(@(link)).+?\\}'
         'name': 'meta.tag.inline.phpdoc.php'
-      }
-    ]
-  'python':
-    'begin': '(?:^\\s*)<\\?python(?!.*\\?>)'
-    'end': '\\?>(?:\\s*$\\n)?'
-    'name': 'source.python.embedded.html'
-    'patterns': [
-      {
-        'include': 'source.python'
       }
     ]
   'regex-double-quoted':
@@ -1705,11 +1446,11 @@
       {
         'captures':
           '1':
-            'name': 'punctuation.definition.arbitrary-repitition.php'
+            'name': 'punctuation.definition.arbitrary-repetition.php'
           '3':
-            'name': 'punctuation.definition.arbitrary-repitition.php'
+            'name': 'punctuation.definition.arbitrary-repetition.php'
         'match': '(\\{)\\d+(,\\d+)?(\\})'
-        'name': 'string.regexp.arbitrary-repitition.php'
+        'name': 'string.regexp.arbitrary-repetition.php'
       }
       {
         'begin': '\\[(?:\\^?\\])?'
@@ -1743,11 +1484,11 @@
       {
         'captures':
           '1':
-            'name': 'punctuation.definition.arbitrary-repitition.php'
+            'name': 'punctuation.definition.arbitrary-repetition.php'
           '3':
-            'name': 'punctuation.definition.arbitrary-repitition.php'
+            'name': 'punctuation.definition.arbitrary-repetition.php'
         'match': '(\\{)\\d+(,\\d+)?(\\})'
-        'name': 'string.regexp.arbitrary-repitition.php'
+        'name': 'string.regexp.arbitrary-repetition.php'
       }
       {
         'comment': 'Escaped from the regexp – there can also be 2 backslashes (since 1 will escape the first)'
@@ -1776,29 +1517,6 @@
       {
         'match': '[$^+*]'
         'name': 'keyword.operator.regexp.php'
-      }
-    ]
-  'smarty':
-    'patterns': [
-      {
-        'begin': '(\\{(literal)\\})'
-        'captures':
-          '1':
-            'name': 'source.smarty.embedded.html'
-          '2':
-            'name': 'support.function.built-in.smarty'
-        'end': '(\\{/(literal)\\})'
-      }
-      {
-        'begin': '{{|{'
-        'disabled': 1
-        'end': '}}|}'
-        'name': 'source.smarty.embedded.html'
-        'patterns': [
-          {
-            'include': 'source.smarty'
-          }
-        ]
       }
     ]
   'sql-string-double-quoted':
@@ -2001,7 +1719,7 @@
         'name': 'support.function.calendar.php'
       }
       {
-        'match': '(?i)\\b(c(lass_(exists|alias)|all_user_method(_array)?)|i(s_(subclass_of|a)|nterface_exists)|property_exists|get_(c(lass(_(vars|methods))?|alled_class)|object_vars|declared_(classes|interfaces)|parent_class)|method_exists)\\b'
+        'match': '(?i)\\b(c(lass_(exists|alias)|all_user_method(_array)?)|trait_exists|i(s_(subclass_of|a)|nterface_exists)|__autoload|property_exists|get_(c(lass(_(vars|methods))?|alled_class)|object_vars|declared_(classes|traits|interfaces)|parent_class)|method_exists)\\b'
         'name': 'support.function.classobj.php'
       }
       {
@@ -2033,12 +1751,12 @@
         'name': 'support.function.dir.php'
       }
       {
-        'match': '(?i)\\b(domxml_(new_doc|open_(file|mem)|version|x(slt_(stylesheet(_(doc|file))?|version)|mltree))|xp(tr_(new_context|eval)|ath_(new_context|eval(_expression)?|register_ns(_auto)?)))\\b'
-        'name': 'support.function.domxml.php'
-      }
-      {
         'match': '(?i)\\bdotnet_load\\b'
         'name': 'support.function.dotnet.php'
+      }
+      {
+        'match': '(?i)\\beio_(s(y(nc(_file_range|fs)?|mlink)|tat(vfs)?|e(ndfile|t_m(in_parallel|ax_(idle|p(oll_(time|reqs)|arallel)))|ek))|n(threads|op|pending|re(qs|ady))|c(h(own|mod)|ustom|lose|ancel)|truncate|init|open|dup2|u(nlink|time)|poll|event_loop|f(s(ync|tat(vfs)?)|ch(own|mod)|truncate|datasync|utime|allocate)|write|l(stat|ink)|r(e(name|a(d(dir|link|ahead)?|lpath))|mdir)|g(et_(event_stream|last_error)|rp(_(cancel|limit|add))?)|mk(nod|dir)|busy)\\b'
+        'name': 'support.function.eio.php'
       }
       {
         'match': '(?i)\\benchant_(dict_(s(tore_replacement|uggest)|check|is_in_session|describe|quick_check|add_to_(session|personal)|get_error)|broker_(set_ordering|init|d(ict_exists|escribe)|free(_dict)?|list_dicts|request_(dict|pwl_dict)|get_error))\\b'
@@ -2085,7 +1803,7 @@
         'name': 'support.function.gmp.php'
       }
       {
-        'match': '(?i)\\bhash(_(hmac(_file)?|copy|init|update(_(stream|file))?|fi(nal|le)|algos))?\\b'
+        'match': '(?i)\\bhash(_(hmac(_file)?|copy|init|update(_(stream|file))?|pbkdf2|fi(nal|le)|algos))?\\b'
         'name': 'support.function.hash.php'
       }
       {
@@ -2101,7 +1819,7 @@
         'name': 'support.function.iisfunc.php'
       }
       {
-        'match': '(?i)\\b(i(ptc(parse|embed)|mage(s(y|tring(up)?|et(style|t(hickness|ile)|pixel|brush)|avealpha|x)|c(har(up)?|o(nvolution|py(res(ized|ampled)|merge(gray)?)?|lor(s(total|et|forindex)|closest(hwb|alpha)?|transparent|deallocate|exact(alpha)?|a(t|llocate(alpha)?)|resolve(alpha)?|match))|reate(truecolor|from(string|jpeg|png|wbmp|g(if|d(2(part)?)?)|x(pm|bm)))?)|t(ypes|tf(text|bbox)|ruecolortopalette)|i(struecolor|nterlace)|2wbmp|d(estroy|ashedline)|jpeg|_type_to_(extension|mime_type)|p(s(slantfont|text|e(ncodefont|xtendfont)|freefont|loadfont|bbox)|ng|olygon|alettecopy)|ellipse|f(t(text|bbox)|il(ter|l(toborder|ed(polygon|ellipse|arc|rectangle))?)|ont(height|width))|wbmp|l(ine|oadfont|ayereffect)|a(ntialias|lphablending|rc)|r(otate|ectangle)|g(if|d(2)?|ammacorrect|rab(screen|window))|xbm))|jpeg2wbmp|png2wbmp|g(d_info|etimagesize))\\b'
+        'match': '(?i)\\b(i(ptc(parse|embed)|mage(s(y|tring(up)?|et(style|t(hickness|ile)|pixel|brush)|avealpha|x)|c(har(up)?|o(nvolution|py(res(ized|ampled)|merge(gray)?)?|lor(s(total|et|forindex)|closest(hwb|alpha)?|transparent|deallocate|exact(alpha)?|a(t|llocate(alpha)?)|resolve(alpha)?|match))|reate(truecolor|from(string|jpeg|png|wbmp|g(if|d(2(part)?)?)|x(pm|bm)))?)|t(ypes|tf(text|bbox)|ruecolortopalette)|i(struecolor|nterlace)|2wbmp|d(estroy|ashedline)|jpeg|_type_to_(extension|mime_type)|p(s(slantfont|text|e(ncodefont|xtendfont)|freefont|loadfont|bbox)|ng|olygon|alettecopy)|ellipse|f(t(text|bbox)|il(ter|l(toborder|ed(polygon|ellipse|arc|rectangle))?)|ont(height|width))|wbmp|l(ine|oadfont|ayereffect)|a(ntialias|lphablending|rc)|r(otate|ectangle)|g(if|d(2)?|ammacorrect|rab(screen|window))|xbm))|jpeg2wbmp|png2wbmp|g(d_info|etimagesize(fromstring)?))\\b'
         'name': 'support.function.image.php'
       }
       {
@@ -2109,11 +1827,11 @@
         'name': 'support.function.info.php'
       }
       {
-        'match': '(?i)\\bibase_(se(t_event_handler|rv(ice_(detach|attach)|er_info))|n(um_(params|fields)|ame_result)|c(o(nnect|mmit(_ret)?)|lose)|t(imefmt|rans)|d(elete_user|rop_db|b_info)|p(connect|aram_info|repare)|e(rr(code|msg)|xecute)|query|f(ield_info|etch_(object|assoc|row)|ree_(event_handler|query|result))|wait_event|a(dd_user|ffected_rows)|r(ollback(_ret)?|estore)|gen_id|m(odify_user|aintain_db)|b(lob_(c(lose|ancel|reate)|i(nfo|mport)|open|echo|add|get)|ackup))\\b'
+        'match': '(?i)\\bibase_(se(t_event_handler|rv(ice_(detach|attach)|er_info))|n(um_(params|fields)|ame_result)|c(o(nnect|mmit(_ret)?)|lose)|trans|d(elete_user|rop_db|b_info)|p(connect|aram_info|repare)|e(rr(code|msg)|xecute)|query|f(ield_info|etch_(object|assoc|row)|ree_(event_handler|query|result))|wait_event|a(dd_user|ffected_rows)|r(ollback(_ret)?|estore)|gen_id|m(odify_user|aintain_db)|b(lob_(c(lose|ancel|reate)|i(nfo|mport)|open|echo|add|get)|ackup))\\b'
         'name': 'support.function.interbase.php'
       }
       {
-        'match': '(?i)\\b(n(ormalizer_(normalize|is_normalized)|umfmt_(set_(symbol|text_attribute|pattern|attribute)|create|parse(_currency)?|format(_currency)?|get_(symbol|text_attribute|pattern|error_(code|message)|locale|attribute)))|collator_(s(ort(_with_sort_keys)?|et_(strength|attribute))|c(ompare|reate)|asort|get_(s(trength|ort_key)|error_(code|message)|locale|attribute))|transliterator_(create(_(inverse|from_rules))?|transliterate|list_ids|get_error_(code|message))|i(ntl_(is_failure|error_name|get_error_(code|message))|dn_to_(u(nicode|tf8)|ascii))|datefmt_(set_(calendar|timezone_id|pattern|lenient)|create|is_lenient|parse|format|localtime|get_(calendar|time(type|zone_id)|datetype|pattern|error_(code|message)|locale))|locale_(set_default|compose|parse|filter_matches|lookup|accept_from_http|get_(script|d(isplay_(script|name|variant|language|region)|efault)|primary_language|keywords|all_variants|region))|resourcebundle_(c(ount|reate)|locales|get(_error_(code|message))?)|grapheme_(s(tr(str|i(str|pos)|pos|len|r(ipos|pos))|ubstr)|extract)|msgfmt_(set_pattern|create|parse(_message)?|format(_message)?|get_(pattern|error_(code|message)|locale)))\\b'
+        'match': '(?i)\\b(n(ormalizer_(normalize|is_normalized)|umfmt_(set_(symbol|text_attribute|pattern|attribute)|create|parse(_currency)?|format(_currency)?|get_(symbol|text_attribute|pattern|error_(code|message)|locale|attribute)))|collator_(s(ort(_with_sort_keys)?|et_(strength|attribute))|c(ompare|reate)|asort|get_(s(trength|ort_key)|error_(code|message)|locale|attribute))|transliterator_(create(_(inverse|from_rules))?|transliterate|list_ids|get_error_(code|message))|i(ntl_(is_failure|error_name|get_error_(code|message))|dn_to_(u(nicode|tf8)|ascii))|datefmt_(set_(calendar|timezone(_id)?|pattern|lenient)|create|is_lenient|parse|format(_object)?|localtime|get_(calendar(_object)?|time(type|zone(_id)?)|datetype|pattern|error_(code|message)|locale))|locale_(set_default|compose|parse|filter_matches|lookup|accept_from_http|get_(script|d(isplay_(script|name|variant|language|region)|efault)|primary_language|keywords|all_variants|region))|resourcebundle_(c(ount|reate)|locales|get(_error_(code|message))?)|grapheme_(s(tr(str|i(str|pos)|pos|len|r(ipos|pos))|ubstr)|extract)|msgfmt_(set_pattern|create|parse(_message)?|format(_message)?|get_(pattern|error_(code|message)|locale)))\\b'
         'name': 'support.function.intl.php'
       }
       {
@@ -2121,11 +1839,11 @@
         'name': 'support.function.json.php'
       }
       {
-        'match': '(?i)\\bldap_(s(tart_tls|ort|e(t_(option|rebind_proc)|arch)|asl_bind)|next_(entry|attribute|reference)|c(o(nnect|unt_entries|mpare)|lose)|t61_to_8859|d(n2ufn|elete)|8859_to_t61|unbind|parse_re(sult|ference)|e(rr(no|2str|or)|xplode_dn)|f(irst_(entry|attribute|reference)|ree_result)|list|add|re(name|ad)|get_(option|dn|entries|values(_len)?|attributes)|mod(ify|_(del|add|replace))|bind)\\b'
+        'match': '(?i)\\bldap_(s(tart_tls|ort|e(t_(option|rebind_proc)|arch)|asl_bind)|next_(entry|attribute|reference)|c(o(n(nect|trol_paged_result(_response)?)|unt_entries|mpare)|lose)|t61_to_8859|d(n2ufn|elete)|8859_to_t61|unbind|parse_re(sult|ference)|e(rr(no|2str|or)|xplode_dn)|f(irst_(entry|attribute|reference)|ree_result)|list|add|re(name|ad)|get_(option|dn|entries|values(_len)?|attributes)|mod(ify|_(del|add|replace))|bind)\\b'
         'name': 'support.function.ldap.php'
       }
       {
-        'match': '(?i)\\blibxml_(set_streams_context|clear_errors|disable_entity_loader|use_internal_errors|get_(errors|last_error))\\b'
+        'match': '(?i)\\blibxml_(set_(streams_context|external_entity_loader)|clear_errors|disable_entity_loader|use_internal_errors|get_(errors|last_error))\\b'
         'name': 'support.function.libxml.php'
       }
       {
@@ -2137,7 +1855,7 @@
         'name': 'support.function.math.php'
       }
       {
-        'match': '(?i)\\bmb_(s(tr(str|cut|to(upper|lower)|i(str|pos|mwidth)|pos|width|len|r(chr|i(chr|pos)|pos))|ubst(itute_character|r(_count)?)|plit|end_mail)|http_(input|output)|c(heck_encoding|onvert_(case|encoding|variables|kana))|internal_encoding|output_handler|de(code_(numericentity|mimeheader)|tect_(order|encoding))|p(arse_str|referred_mime_name)|e(ncod(ing_aliases|e_(numericentity|mimeheader))|reg(i(_replace)?|_(search(_(setpos|init|pos|regs|get(pos|regs)))?|replace|match))?)|l(ist_encodings|anguage)|regex_(set_options|encoding)|get_info)\\b'
+        'match': '(?i)\\bmb_(s(tr(str|cut|to(upper|lower)|i(str|pos|mwidth)|pos|width|len|r(chr|i(chr|pos)|pos))|ubst(itute_character|r(_count)?)|plit|end_mail)|http_(input|output)|c(heck_encoding|onvert_(case|encoding|variables|kana))|internal_encoding|output_handler|de(code_(numericentity|mimeheader)|tect_(order|encoding))|p(arse_str|referred_mime_name)|e(ncod(ing_aliases|e_(numericentity|mimeheader))|reg(i(_replace)?|_(search(_(setpos|init|pos|regs|get(pos|regs)))?|replace(_callback)?|match))?)|l(ist_encodings|anguage)|regex_(set_options|encoding)|get_info)\\b'
         'name': 'support.function.mbstring.php'
       }
       {
@@ -2161,19 +1879,27 @@
         'name': 'support.function.mysql.php'
       }
       {
-        'match': '(?i)\\bmysqli_(s(sl_set|t(ore_result|at|mt_(s(tore_result|end_long_data|qlstate)|num_rows|close|in(sert_id|it)|data_seek|p(aram_count|repare)|e(rr(no|or)|xecute)|f(ield_count|etch|ree_result)|a(ttr_(set|get)|ffected_rows)|res(ult_metadata|et)|get_(warnings|result)|bind_(param|result)))|e(nd_(query|long_data)|t_(charset|opt|local_infile_(handler|default))|lect_db)|qlstate|lave_query)|n(um_(fields|rows)|ext_result)|c(ha(nge_user|racter_set_name)|o(nnect(_err(no|or))?|mmit)|l(ient_encoding|ose))|thread_(safe|id)|in(sert_id|it|fo)|options|d(isable_r(pl_parse|eads_from_master)|ump_debug_info|ebug|ata_seek)|use_result|p(ing|oll|aram_count|repare)|e(scape_string|nable_r(pl_parse|eads_from_master)|rr(no|or)|xecute|mbedded_server_(start|end))|kill|query|f(ield_(seek|count|tell)|etch(_(object|field(s|_direct)?|lengths|a(ssoc|ll|rray)|row))?|ree_result)|warning_count|a(utocommit|ffected_rows)|r(ollback|pl_(p(arse_enabled|robe)|query_type)|e(port|a(p_async_query|l_(connect|escape_string|query))))|get_(server_(info|version)|host_info|c(harset|onnection_stats|lient_(stats|info|version)|ache_stats)|proto_info|warnings|metadata)|m(ore_results|ulti_query|aster_query)|bind_(param|result))\\b'
+        'match': '(?i)\\bmysqli_(s(sl_set|t(ore_result|at|mt_(s(tore_result|end_long_data)|next_result|close|init|data_seek|prepare|execute|f(etch|ree_result)|attr_(set|get)|res(ult_metadata|et)|get_(warnings|result)|more_results|bind_(param|result)))|e(nd_(query|long_data)|t_(charset|opt|local_infile_(handler|default))|lect_db)|lave_query)|next_result|c(ha(nge_user|racter_set_name)|o(nnect|mmit)|l(ient_encoding|ose))|thread_safe|init|options|d(isable_r(pl_parse|eads_from_master)|ump_debug_info|ebug|ata_seek)|use_result|p(ing|oll|aram_count|repare)|e(scape_string|nable_r(pl_parse|eads_from_master)|xecute|mbedded_server_(start|end))|kill|query|f(ield_seek|etch(_(object|field(s|_direct)?|a(ssoc|ll|rray)|row))?|ree_result)|autocommit|r(ollback|pl_(p(arse_enabled|robe)|query_type)|e(port|fresh|a(p_async_query|l_(connect|escape_string|query))))|get_(c(harset|onnection_stats|lient_(stats|info|version)|ache_stats)|warnings|metadata)|m(ore_results|ulti_query|aster_query)|bind_(param|result))\\b'
         'name': 'support.function.mysqli.php'
       }
       {
-        'match': '(?i)\\bmysqlnd_ms_(set_user_pick_server|query_is_select|get_stats)\\b'
+        'match': '(?i)\\bmysqlnd_memcache_(set|get_config)\\b'
+        'name': 'support.function.mysqlnd-memcache.php'
+      }
+      {
+        'match': '(?i)\\bmysqlnd_ms_(set_(user_pick_server|qos)|query_is_select|get_(stats|last_(used_connection|gtid))|match_wild)\\b'
         'name': 'support.function.mysqlnd-ms.php'
       }
       {
-        'match': '(?i)\\bmysqlnd_qc_(set_user_handlers|c(hange_handler|lear_cache)|get_(handler|c(ore_stats|ache_info)|query_trace_log))\\b'
+        'match': '(?i)\\bmysqlnd_qc_(set_(storage_handler|cache_condition|is_select|user_handlers)|clear_cache|get_(normalized_query_trace_log|c(ore_stats|ache_info)|query_trace_log|available_handlers))\\b'
         'name': 'support.function.mysqlnd-qc.php'
       }
       {
-        'match': '(?i)\\b(s(yslog|ocket_(set_(timeout|blocking)|get_status)|et(cookie|rawcookie))|header(s_(sent|list)|_remove)?|c(heckdnsrr|loselog)|i(net_(ntop|pton)|p2long)|openlog|d(ns_(check_record|get_(record|mx))|efine_syslog_variables)|pfsockopen|fsockopen|long2ip|get(servby(name|port)|host(name|by(name(l)?|addr))|protobyn(umber|ame)|mxrr))\\b'
+        'match': '(?i)\\bmysqlnd_uh_(set_(statement_proxy|connection_proxy)|convert_to_mysqlnd)\\b'
+        'name': 'support.function.mysqlnd-uh.php'
+      }
+      {
+        'match': '(?i)\\b(s(yslog|ocket_(set_(timeout|blocking)|get_status)|et(cookie|rawcookie))|h(ttp_response_code|eader(s_(sent|list)|_re(gister_callback|move))?)|c(heckdnsrr|loselog)|i(net_(ntop|pton)|p2long)|openlog|d(ns_(check_record|get_(record|mx))|efine_syslog_variables)|pfsockopen|fsockopen|long2ip|get(servby(name|port)|host(name|by(name(l)?|addr))|protobyn(umber|ame)|mxrr))\\b'
         'name': 'support.function.network.php'
       }
       {
@@ -2185,7 +1911,7 @@
         'name': 'support.function.objaggregation.php'
       }
       {
-        'match': '(?i)\\boci(s(tatementtype|e(tprefetch|rverversion)|avelob(file)?)|n(umcols|ew(c(ollection|ursor)|descriptor)|logon)|c(o(l(umn(s(cale|ize)|name|type(raw)?|isnull|precision)|l(size|trim|a(ssign(elem)?|ppend)|getelem|max))|mmit)|loselob|ancel)|internaldebug|definebyname|_(s(tatement_type|e(t_(client_i(nfo|dentifier)|prefetch|edition|action|module_name)|rver_version))|n(um_(fields|rows)|ew_(c(o(nnect|llection)|ursor)|descriptor))|c(o(nnect|mmit)|l(ient_version|ose)|ancel)|internal_debug|define_by_name|p(connect|a(ssword_change|rse))|e(rror|xecute)|f(ield_(s(cale|ize)|name|type(_raw)?|is_null|precision)|etch(_(object|a(ssoc|ll|rray)|row))?|ree_statement)|lob_(copy|is_equal)|r(ollback|esult)|bind_(array_by_name|by_name))|p(logon|arse)|e(rror|xecute)|f(etch(statement|into)?|ree(statement|c(ollection|ursor)|desc))|write(temporarylob|lobtofile)|lo(adlob|go(n|ff))|r(o(wcount|llback)|esult)|bindbyname)\\b'
+        'match': '(?i)\\boci(s(tatementtype|e(tprefetch|rverversion)|avelob(file)?)|n(umcols|ew(c(ollection|ursor)|descriptor)|logon)|c(o(l(umn(s(cale|ize)|name|type(raw)?|isnull|precision)|l(size|trim|a(ssign(elem)?|ppend)|getelem|max))|mmit)|loselob|ancel)|internaldebug|definebyname|_(s(tatement_type|e(t_(client_i(nfo|dentifier)|prefetch|edition|action|module_name)|rver_version))|n(um_(fields|rows)|ew_(c(o(nnect|llection)|ursor)|descriptor))|c(o(nnect|mmit)|l(ient_version|ose)|ancel)|internal_debug|define_by_name|p(connect|a(ssword_change|rse))|e(rror|xecute)|f(ield_(s(cale|ize)|name|type(_raw)?|is_null|precision)|etch(_(object|a(ssoc|ll|rray)|row))?|ree_(statement|descriptor))|lob_(copy|is_equal)|r(ollback|esult)|bind_(array_by_name|by_name))|p(logon|arse)|e(rror|xecute)|f(etch(statement|into)?|ree(statement|c(ollection|ursor)|desc))|write(temporarylob|lobtofile)|lo(adlob|go(n|ff))|r(o(wcount|llback)|esult)|bindbyname)\\b'
         'name': 'support.function.oci8.php'
       }
       {
@@ -2197,15 +1923,15 @@
         'name': 'support.function.output.php'
       }
       {
-        'match': '(?i)\\boverload\\b'
-        'name': 'support.function.overload.php'
+        'match': '(?i)\\bpassword_(hash|needs_rehash|verify|get_info)\\b'
+        'name': 'support.function.password.php'
       }
       {
         'match': '(?i)\\bpcntl_(s(ig(nal(_dispatch)?|timedwait|procmask|waitinfo)|etpriority)|exec|fork|w(stopsig|termsig|if(s(topped|ignaled)|exited)|exitstatus|ait(pid)?)|alarm|getpriority)\\b'
         'name': 'support.function.pcntl.php'
       }
       {
-        'match': '(?i)\\bpg_(se(nd_(prepare|execute|query(_params)?)|t_(client_encoding|error_verbosity)|lect)|host|num_(fields|rows)|c(o(n(nect(ion_(status|reset|busy))?|vert)|py_(to|from))|l(ient_encoding|ose)|ancel_query)|t(ty|ra(nsaction_status|ce))|insert|options|d(elete|bname)|u(n(trace|escape_bytea)|pdate)|p(connect|ing|ort|ut_line|arameter_status|repare)|e(scape_(string|bytea)|nd_copy|xecute)|version|query(_params)?|f(ield_(size|n(um|ame)|t(ype(_oid)?|able)|is_null|prtlen)|etch_(object|a(ssoc|ll(_columns)?|rray)|r(ow|esult))|ree_result)|l(o_(seek|c(lose|reate)|tell|import|open|unlink|export|write|read(_all)?)|ast_(notice|oid|error))|affected_rows|result_(s(tatus|eek)|error(_field)?)|get_(notify|pid|result)|meta_data)\\b'
+        'match': '(?i)\\bpg_(se(nd_(prepare|execute|query(_params)?)|t_(client_encoding|error_verbosity)|lect)|host|num_(fields|rows)|c(o(n(nect(ion_(status|reset|busy))?|vert)|py_(to|from))|l(ient_encoding|ose)|ancel_query)|t(ty|ra(nsaction_status|ce))|insert|options|d(elete|bname)|u(n(trace|escape_bytea)|pdate)|p(connect|ing|ort|ut_line|arameter_status|repare)|e(scape_(string|identifier|literal|bytea)|nd_copy|xecute)|version|query(_params)?|f(ield_(size|n(um|ame)|t(ype(_oid)?|able)|is_null|prtlen)|etch_(object|a(ssoc|ll(_columns)?|rray)|r(ow|esult))|ree_result)|l(o_(seek|c(lose|reate)|tell|import|open|unlink|export|write|read(_all)?)|ast_(notice|oid|error))|affected_rows|result_(s(tatus|eek)|error(_field)?)|get_(notify|pid|result)|meta_data)\\b'
         'name': 'support.function.pgsql.php'
       }
       {
@@ -2237,7 +1963,7 @@
         'name': 'support.function.php_pcre.php'
       }
       {
-        'match': '(?i)\\b(spl_(classes|object_hash|autoload(_(call|unregister|extensions|functions|register))?)|class_(implements|parents)|iterator_(count|to_array|apply))\\b'
+        'match': '(?i)\\b(spl_(classes|object_hash|autoload(_(call|unregister|extensions|functions|register))?)|class_(implements|uses|parents)|iterator_(count|to_array|apply))\\b'
         'name': 'support.function.php_spl.php'
       }
       {
@@ -2265,7 +1991,7 @@
         'name': 'support.function.recode.php'
       }
       {
-        'match': '(?i)\\brrd_(create|tune|info|update|error|f(irst|etch)|last(update)?|restore|graph|xport)\\b'
+        'match': '(?i)\\brrd_(create|tune|info|update|error|version|f(irst|etch)|last(update)?|restore|graph|xport)\\b'
         'name': 'support.function.rrd.php'
       }
       {
@@ -2273,7 +1999,7 @@
         'name': 'support.function.sem.php'
       }
       {
-        'match': '(?i)\\bsession_(s(tart|et_(save_handler|cookie_params)|ave_path)|name|c(ommit|ache_(expire|limiter))|i(s_registered|d)|de(stroy|code)|un(set|register)|encode|write_close|reg(ister|enerate_id)|get_cookie_params|module_name)\\b'
+        'match': '(?i)\\bsession_(s(ta(tus|rt)|et_(save_handler|cookie_params)|ave_path)|name|c(ommit|ache_(expire|limiter))|i(s_registered|d)|de(stroy|code)|un(set|register)|encode|write_close|reg(ister(_shutdown)?|enerate_id)|get_cookie_params|module_name)\\b'
         'name': 'support.function.session.php'
       }
       {
@@ -2293,7 +2019,7 @@
         'name': 'support.function.soap.php'
       }
       {
-        'match': '(?i)\\bsocket_(s(hutdown|trerror|e(nd(to)?|t_(nonblock|option|block)|lect))|c(onnect|l(ose|ear_error)|reate(_(pair|listen))?)|write|l(isten|ast_error)|accept|re(cv(from)?|ad)|get(sockname|_option|peername)|bind)\\b'
+        'match': '(?i)\\bsocket_(s(hutdown|trerror|e(nd(to)?|t_(nonblock|option|block)|lect))|c(onnect|l(ose|ear_error)|reate(_(pair|listen))?)|import_stream|write|l(isten|ast_error)|accept|re(cv(from)?|ad)|get(sockname|_option|peername)|bind)\\b'
         'name': 'support.function.sockets.php'
       }
       {
@@ -2301,15 +2027,19 @@
         'name': 'support.function.sqlite.php'
       }
       {
+        'match': '(?i)\\bsqlsrv_(se(nd_stream_data|rver_info)|has_rows|n(um_(fields|rows)|ext_result)|c(o(n(nect|figure)|mmit)|l(ient_info|ose)|ancel)|prepare|e(rrors|xecute)|query|f(ield_metadata|etch(_(object|array))?|ree_stmt)|ro(ws_affected|llback)|get_(config|field)|begin_transaction)\\b'
+        'name': 'support.function.sqlsrv.php'
+      }
+      {
         'match': '(?i)\\bstats_(s(ta(ndard_deviation|t_(noncentral_t|correlation|in(nerproduct|dependent_t)|p(owersum|ercentile|aired_t)|gennch|binomial_coef))|kew)|harmonic_mean|c(ovariance|df_(n(oncentral_(chisquare|f)|egative_binomial)|c(hisquare|auchy)|t|uniform|poisson|exponential|f|weibull|l(ogistic|aplace)|gamma|b(inomial|eta)))|den(s_(n(ormal|egative_binomial)|c(hisquare|auchy)|t|pmf_(hypergeometric|poisson|binomial)|exponential|f|weibull|l(ogistic|aplace)|gamma|beta)|_uniform)|variance|kurtosis|absolute_deviation|rand_(setall|phrase_to_seeds|ranf|ge(n_(no(ncen(tral_(t|f)|ral_chisquare)|rmal)|chisquare|t|i(nt|uniform|poisson|binomial(_negative)?)|exponential|f(uniform)?|gamma|beta)|t_seeds)))\\b'
         'name': 'support.function.stats.php'
       }
       {
-        'match': '(?i)\\bs(tream_(s(ocket_(s(hutdown|e(ndto|rver))|client|pair|enable_crypto|accept|recvfrom|get_name)|upports_lock|e(t_(timeout|write_buffer|read_buffer|blocking)|lect))|notification_callback|co(ntext_(set_(option|default|params)|create|get_(options|default|params))|py_to_stream)|is_local|encoding|filter_(prepend|append|re(gister|move))|wrapper_(unregister|re(store|gister))|re(solve_include_path|gister_wrapper)|get_(contents|transports|filters|wrappers|line|meta_data)|bucket_(new|prepend|append|make_writeable))|et_socket_blocking)\\b'
+        'match': '(?i)\\bs(tream_(s(ocket_(s(hutdown|e(ndto|rver))|client|pair|enable_crypto|accept|recvfrom|get_name)|upports_lock|e(t_(chunk_size|timeout|write_buffer|read_buffer|blocking)|lect))|notification_callback|co(ntext_(set_(option|default|params)|create|get_(options|default|params))|py_to_stream)|is_local|encoding|filter_(prepend|append|re(gister|move))|wrapper_(unregister|re(store|gister))|re(solve_include_path|gister_wrapper)|get_(contents|transports|filters|wrappers|line|meta_data)|bucket_(new|prepend|append|make_writeable))|et_socket_blocking)\\b'
         'name': 'support.function.streamsfuncs.php'
       }
       {
-        'match': '(?i)\\b(s(scanf|ha1(_file)?|tr(s(tr|pn)|n(c(asecmp|mp)|atc(asecmp|mp))|c(spn|hr|oll|asecmp|mp)|t(o(upper|k|lower)|r)|i(str|p(slashes|cslashes|os|_tags))|_(s(huffle|plit)|ireplace|pad|word_count|r(ot13|ep(eat|lace))|getcsv)|p(os|brk)|len|r(chr|ipos|pos|ev))|imilar_text|oundex|ubstr(_(co(unt|mpare)|replace))?|printf|etlocale)|h(tml(specialchars(_decode)?|_entity_decode|entities)|ebrev(c)?)|n(umber_format|l(2br|_langinfo))|c(h(op|unk_split|r)|o(nvert_(cyr_string|uu(decode|encode))|unt_chars)|r(ypt|c32))|trim|implode|ord|uc(first|words)|join|p(arse_str|rint(f)?)|e(cho|xplode)|v(sprintf|printf|fprintf)|quote(d_printable_(decode|encode)|meta)|fprintf|wordwrap|l(cfirst|trim|ocaleconv|evenshtein)|add(slashes|cslashes)|rtrim|get_html_translation_table|m(oney_format|d5(_file)?|etaphone)|bin2hex)\\b'
+        'match': '(?i)\\b(s(scanf|ha1(_file)?|tr(s(tr|pn)|n(c(asecmp|mp)|atc(asecmp|mp))|c(spn|hr|oll|asecmp|mp)|t(o(upper|k|lower)|r)|i(str|p(slashes|cslashes|os|_tags))|_(s(huffle|plit)|ireplace|pad|word_count|r(ot13|ep(eat|lace))|getcsv)|p(os|brk)|len|r(chr|ipos|pos|ev))|imilar_text|oundex|ubstr(_(co(unt|mpare)|replace))?|printf|etlocale)|h(tml(specialchars(_decode)?|_entity_decode|entities)|e(x2bin|brev(c)?))|n(umber_format|l(2br|_langinfo))|c(h(op|unk_split|r)|o(nvert_(cyr_string|uu(decode|encode))|unt_chars)|r(ypt|c32))|trim|implode|ord|uc(first|words)|join|p(arse_str|rint(f)?)|e(cho|xplode)|v(sprintf|printf|fprintf)|quote(d_printable_(decode|encode)|meta)|fprintf|wordwrap|l(cfirst|trim|ocaleconv|evenshtein)|add(slashes|cslashes)|rtrim|get_html_translation_table|m(oney_format|d5(_file)?|etaphone)|bin2hex)\\b'
         'name': 'support.function.string.php'
       }
       {
@@ -2317,7 +2047,11 @@
         'name': 'support.function.sybase.php'
       }
       {
-        'match': '(?i)\\b(tidy_(s(et(opt|_encoding)|ave_config)|c(onfig_count|lean_repair)|is_x(html|ml)|diagnose|parse_(string|file)|error_count|warning_count|load_config|access_count|re(set_config|pair_(string|file))|get(opt|_(status|h(tml(_ver)?|ead)|config|o(utput|pt_doc)|error_buffer|r(oot|elease)|body)))|ob_tidyhandler)\\b'
+        'match': '(?i)\\b(taint|is_tainted|untaint)\\b'
+        'name': 'support.function.taint.php'
+      }
+      {
+        'match': '(?i)\\b(tidy_(s(et(opt|_encoding)|ave_config)|c(onfig_count|lean_repair)|is_x(html|ml)|diagnose|parse_(string|file)|error_count|warning_count|load_config|access_count|re(set_config|pair_(string|file))|get(opt|_(status|h(tml(_ver)?|ead)|config|o(utput|pt_doc)|r(oot|elease)|body)))|ob_tidyhandler)\\b'
         'name': 'support.function.tidy.php'
       }
       {
@@ -2325,11 +2059,15 @@
         'name': 'support.function.tokenizer.php'
       }
       {
+        'match': '(?i)\\btrader_(s(t(och(f|rsi)?|ddev)|in(h)?|u(m|b)|et_(compat|unstable_period)|qrt|ar(ext)?|ma)|ht_(sine|trend(line|mode)|dcp(hase|eriod)|phasor)|natr|c(ci|o(s(h)?|rrel)|dl(s(ho(otingstar|rtline)|t(icksandwich|alledpattern)|pinningtop|eparatinglines)|h(i(kkake(mod)?|ghwave)|omingpigeon|a(ngingman|rami(cross)?|mmer))|c(o(ncealbabyswall|unterattack)|losingmarubozu)|t(hrusting|a(sukigap|kuri)|ristar)|i(n(neck|vertedhammer)|dentical3crows)|2crows|onneck|d(oji(star)?|arkcloudcover|ragonflydoji)|u(nique3river|psidegap2crows)|3(starsinsouth|inside|outside|whitesoldiers|linestrike|blackcrows)|piercing|e(ngulfing|vening(star|dojistar))|kicking(bylength)?|l(ongl(ine|eggeddoji)|adderbottom)|a(dvanceblock|bandonedbaby)|ri(sefall3methods|ckshawman)|g(apsidesidewhite|ravestonedoji)|xsidegap3methods|m(orning(star|dojistar)|a(t(hold|chinglow)|rubozu))|b(elthold|reakaway))|eil|mo)|t(sf|ypprice|3|ema|an(h)?|r(i(x|ma)|ange))|obv|d(iv|ema|x)|ultosc|p(po|lus_d(i|m))|e(rrno|xp|ma)|var|kama|floor|w(clprice|illr|ma)|l(n|inearreg(_(slope|intercept|angle))?|og10)|a(sin|cos|t(an|r)|d(osc|d|x(r)?)?|po|vgprice|roon(osc)?)|r(si|oc(p|r(100)?)?)|get_(compat|unstable_period)|m(i(n(index|us_d(i|m)|max(index)?)?|dp(oint|rice))|om|ult|edprice|fi|a(cd(ext|fix)?|vp|x(index)?|ma)?)|b(op|eta|bands))\\b'
+        'name': 'support.function.trader.php'
+      }
+      {
         'match': '(?i)\\b(http_build_query|url(decode|encode)|parse_url|rawurl(decode|encode)|get_(headers|meta_tags)|base64_(decode|encode))\\b'
         'name': 'support.function.url.php'
       }
       {
-        'match': '(?i)\\b(s(trval|e(ttype|rialize))|i(s(set|_(s(calar|tring)|nu(ll|meric)|callable|int(eger)?|object|double|float|long|array|re(source|al)|bool))|ntval|mport_request_variables)|d(oubleval|ebug_zval_dump)|unse(t|rialize)|print_r|empty|var_(dump|export)|floatval|get(type|_(defined_vars|resource_type)))\\b'
+        'match': '(?i)\\b(s(trval|e(ttype|rialize))|i(s(set|_(s(calar|tring)|nu(ll|meric)|callable|int(eger)?|object|double|float|long|array|re(source|al)|bool))|ntval|mport_request_variables)|d(oubleval|ebug_zval_dump)|unse(t|rialize)|print_r|empty|var_(dump|export)|floatval|get(type|_(defined_vars|resource_type))|boolval)\\b'
         'name': 'support.function.var.php'
       }
       {
@@ -2357,7 +2095,7 @@
         'name': 'support.function.xslt.php'
       }
       {
-        'match': '(?i)\\b(zlib_get_coding_type|readgzfile|gz(seek|c(ompress|lose)|tell|inflate|open|de(code|flate)|uncompress|p(uts|assthru)|e(ncode|of)|file|write|re(wind|ad)|get(s(s)?|c)))\\b'
+        'match': '(?i)\\b(zlib_(decode|encode|get_coding_type)|readgzfile|gz(seek|c(ompress|lose)|tell|inflate|open|de(code|flate)|uncompress|p(uts|assthru)|e(ncode|of)|file|write|re(wind|ad)|get(s(s)?|c)))\\b'
         'name': 'support.function.zlib.php'
       }
       {
@@ -2365,84 +2103,6 @@
         'name': 'support.function.alias.php'
       }
     ]
-  'tag-generic-attribute':
-    'match': '(?<=[^=])\\b([a-zA-Z0-9:-]+)'
-    'name': 'entity.other.attribute-name.html'
-  'tag-id-attribute':
-    'begin': '\\b(id)\\b\\s*(=)'
-    'captures':
-      '1':
-        'name': 'entity.other.attribute-name.id.html'
-      '2':
-        'name': 'punctuation.separator.key-value.html'
-    'end': '(?<=\'|")'
-    'name': 'meta.attribute-with-value.id.html'
-    'patterns': [
-      {
-        'begin': '"'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.definition.string.begin.html'
-        'contentName': 'meta.toc-list.id.html'
-        'end': '"'
-        'endCaptures':
-          '0':
-            'name': 'punctuation.definition.string.end.html'
-        'name': 'string.quoted.double.html'
-        'patterns': [
-          {
-            'include': '#embedded-code'
-          }
-          {
-            'include': '#entities'
-          }
-        ]
-      }
-      {
-        'begin': '\''
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.definition.string.begin.html'
-        'contentName': 'meta.toc-list.id.html'
-        'end': '\''
-        'endCaptures':
-          '0':
-            'name': 'punctuation.definition.string.end.html'
-        'name': 'string.quoted.single.html'
-        'patterns': [
-          {
-            'include': '#embedded-code'
-          }
-          {
-            'include': '#entities'
-          }
-        ]
-      }
-    ]
-  'tag-stuff':
-    'patterns': [
-      {
-        'include': '#tag-id-attribute'
-      }
-      {
-        'include': '#tag-generic-attribute'
-      }
-      {
-        'include': '#string-double-quoted'
-      }
-      {
-        'include': '#string-single-quoted'
-      }
-      {
-        'include': '#embedded-code'
-      }
-      {
-        'include': '#unquoted-attribute'
-      }
-    ]
-  'unquoted-attribute':
-    'match': '(?<==)(?:[^\\s<>/\'"]|/(?!>))+'
-    'name': 'string.unquoted.html'
   'user-function-call':
     'begin': '(?i)(?=[a-z_0-9\\\\]*[a-z_][a-z0-9_]*\\s*\\()'
     'end': '(?i)[a-z_][a-z_0-9]*(?=\\s*\\()'
