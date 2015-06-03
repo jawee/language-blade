@@ -21,7 +21,7 @@
         'begin': '(?<!@){{{'
         'captures':
           '0':
-            'name': 'support.punctuation.blade'
+            'name': 'support.constant.blade'
           '1':
             'name': 'source.php'
         'contentName': 'source.php'
@@ -37,7 +37,7 @@
         'begin': '(?<![@{]){{'
         'captures':
           '0':
-            'name': 'support.punctuation.blade'
+            'name': 'support.constant.blade'
           '1':
             'name': 'source.php'
         'contentName': 'source.php'
@@ -66,9 +66,11 @@
         ]
       }
       {
-        'begin': '(?<![A-z0-9_])@(choice|each|(else)?if|extends|for(e(ach|lse))?|include|lang|push|section|stack|unless|while|yield)\\s*(?=\\()'
-        'beginCaptures':
-          '0':
+        'begin': '(?<![A-z0-9_])(@)(choice|each|(else)?if|extends|for(e(ach|lse))?|include|lang|push|section|stack|unless|while|yield)\\s*(?=\\()'
+        'captures':
+          '1':
+            'name': 'support.constant.blade'
+          '2':
             'name': 'keyword.blade'
         'contentName': 'source.php'
         'end': '(?<=\\))(?!.*\\))'
@@ -80,8 +82,12 @@
         ]
       }
       {
-        'match': '(?<![A-z0-9_])@(append|empty|else|end(for(each|else)?|if|push|section|unless|while)|overwrite|show|stop)\\b|@parent'
-        'name': 'meta.embedded.keyword.blade'
+        'match': '(?<![A-z0-9_])(@)(append|empty|else|end(for(each|else)?|if|push|section|unless|while)|overwrite|show|stop)\\b|@parent'
+        'captures':
+          '1':
+            'name': 'support.constant.blade'
+          '2':
+            'name': 'meta.embedded.keyword.blade'
       }
       {
         'begin': '(?<![A-z0-9_])@\\w+\\s*(?=\\()'
