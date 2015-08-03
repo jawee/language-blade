@@ -66,7 +66,7 @@
         ]
       }
       {
-        'begin': '(?<![A-z0-9_])@(choice|each|(else)?if|extends|for(e(ach|lse))?|include|lang|push|section|stack|unless|while|yield)\\s*(?=\\()'
+        'begin': '(?<![A-z0-9_])@(choice|each|(else)?if|extends|for(e(ach|lse))?|in(clude|ject)|lang|push|section|stack|unless|while|yield)\\s*(?=\\()'
         'beginCaptures':
           '0':
             'name': 'keyword.blade'
@@ -98,7 +98,7 @@
         ]
       }
       {
-        'match': '(?<![A-z0-9_])@(?!(choice|each|(else)?if|extends|for(e(ach|lse))?|include|lang|push|section|stack|unless|while|yield)\\b)\\w+\\b'
+        'match': '(?<![A-z0-9_])@(?!(choice|each|(else)?if|extends|for(e(ach|lse))?|in(clude|ject)|lang|push|section|stack|unless|while|yield)\\b)\\w+\\b'
         'name': 'meta.embedded.entity.blade'
       }
       {
