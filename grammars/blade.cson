@@ -66,7 +66,7 @@
         ]
       }
       {
-        'begin': '(?<![A-z0-9_])@(choice|each|(else)?if|extends|for(e(ach|lse))?|in(clude|ject)|lang|push|section|stack|unless|while|yield)\\s*(?=\\()'
+        'begin': '(?<![A-z0-9_])@(c(an(not)?|hoice)|each|(else)?if|extends|for(e(ach|lse))?|in(clude|ject)|lang|push|section|stack|unless|while|yield)\\s*(?=\\()'
         'beginCaptures':
           '0':
             'name': 'keyword.blade'
@@ -80,7 +80,7 @@
         ]
       }
       {
-        'match': '(?<![A-z0-9_])@(append|empty|else|end(for(each|else)?|if|push|section|unless|while)|overwrite|show|stop)\\b|@parent'
+        'match': '(?<![A-z0-9_])@(append|empty|else|end(can(not)?|for(each|else)?|if|push|section|unless|while)|overwrite|show|stop)\\b|@parent'
         'name': 'meta.embedded.keyword.blade'
       }
       {
@@ -98,7 +98,7 @@
         ]
       }
       {
-        'match': '(?<![A-z0-9_])@(?!(choice|each|(else)?if|extends|for(e(ach|lse))?|in(clude|ject)|lang|push|section|stack|unless|while|yield)\\b)\\w+\\b'
+        'match': '(?<![A-z0-9_])@(?!(c(an(not)?|hoice)|each|(else)?if|extends|for(e(ach|lse))?|in(clude|ject)|lang|push|section|stack|unless|while|yield)\\b)\\w+\\b'
         'name': 'meta.embedded.entity.blade'
       }
       {
