@@ -19,13 +19,18 @@
       }
       {
         'begin': '(?<!@){{{'
-        'captures':
+        'beginCaptures':
           '0':
             'name': 'support.punctuation.blade'
           '1':
             'name': 'source.php'
         'contentName': 'source.php'
         'end': '(})}}'
+        'endCaptures':
+          '0':
+            'name': 'support.punctuation.blade'
+          '1':
+            'name': 'source.php.support.punctuation.blade'
         'name': 'meta.embedded.echo.blade'
         'patterns': [
           {
@@ -35,13 +40,18 @@
       }
       {
         'begin': '(?<![@{]){{'
-        'captures':
+        'beginCaptures':
           '0':
             'name': 'support.punctuation.blade'
           '1':
             'name': 'source.php'
         'contentName': 'source.php'
         'end': '(})}'
+        'endCaptures':
+          '0':
+            'name': 'support.punctuation.blade'
+          '1':
+            'name': 'source.php.support.punctuation.blade'
         'name': 'meta.embedded.echo.blade'
         'patterns': [
           {
@@ -51,13 +61,18 @@
       }
       {
         'begin': '(?<!@){!!'
-        'captures':
+        'beginCaptures':
           '0':
             'name': 'support.punctuation.blade'
           '1':
             'name': 'source.php'
         'contentName': 'source.php'
         'end': '(!)!}'
+        'endCaptures':
+          '0':
+            'name': 'support.punctuation.blade'
+          '1':
+            'name': 'source.php.support.punctuation.blade'
         'name': 'meta.embedded.echo.blade'
         'patterns': [
           {
