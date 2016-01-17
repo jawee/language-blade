@@ -2,3 +2,20 @@
   'editor':
     'commentStart': '{{-- '
     'commentEnd': ' --}}'
+    'increaseIndentPattern': '(?x)
+      <(?!\\?|(?:area|base|br|col|frame|hr|html|img|input|link|meta|param)\\b|[^>]*/>)
+      ([-_\\.A-Za-z0-9]+)(?=\\s|>)\\b[^>]*>(?!.*</\\1>)
+      |<!--(?!.*-->)
+      |<\\?php.+?\\b(if|else(?:if)?|for(?:each)?|while)\\b.*:(?!.*end\\1)
+      |\\{[^}"\']*$
+      |(?<![A-z0-9_])@(can(not)?|else(if)?|if|for(e(ach|lse))?|push|section|unless|empty|while)\\b
+    '
+    'decreaseIndentPattern': '(?x)
+      ^\\s*
+      (</(?!html)
+        [-_\\.A-Za-z0-9]+\\b[^>]*>
+        |-->
+        |<\\?(php)?\\s+(else(if)?|end(if|for(each)?|while))
+        |\\}
+        |@(end(can(not)?|push|section|unless|for(e(ach|lse))?|if|while)|else(if)?|append|stop|show|empty|overwrite)\\b
+      )'

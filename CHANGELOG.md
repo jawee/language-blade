@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.19.0] - 2016-01-17
+### Added
+- Indent patterns for control structures
+
 ## [0.18.0] - 2016-01-16
 ### Fixed
 - Override themes from changing the color of the first `}` in corner cases
@@ -36,7 +40,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.18.0..HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.19.0..HEAD
+[0.19.0]: https://github.com/jawee/language-blade/compare/v0.18.0...v0.19.0
 [0.18.0]: https://github.com/jawee/language-blade/compare/v0.17.0...v0.18.0
 [0.17.0]: https://github.com/jawee/language-blade/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/jawee/language-blade/compare/v0.15.0...v0.16.0
