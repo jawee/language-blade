@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.20.0] - 2016-01-22
+### Changed
+- Sync with [language-php 0.37.0](https://github.com/atom/language-php/compare/v0.36.0...v0.37.0#diff-0)
+
 ## [0.19.0] - 2016-01-17
 ### Added
 - Indent patterns for control structures
@@ -40,7 +44,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.19.0..HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.20.0..HEAD
+[0.20.0]: https://github.com/jawee/language-blade/compare/v0.19.0...v0.20.0
 [0.19.0]: https://github.com/jawee/language-blade/compare/v0.18.0...v0.19.0
 [0.18.0]: https://github.com/jawee/language-blade/compare/v0.17.0...v0.18.0
 [0.17.0]: https://github.com/jawee/language-blade/compare/v0.16.0...v0.17.0
