@@ -6,6 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.21.0] - 2016-03-13
+### Added
+- New keyword highlight support: break, continue, inject, php, endphp, unset
+- Keywords starting with `@` can be escaped by prepending `@`
+
 ## [0.20.0] - 2016-01-22
 ### Changed
 - Sync with [language-php 0.37.0](https://github.com/atom/language-php/compare/v0.36.0...v0.37.0#diff-0)

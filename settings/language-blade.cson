@@ -8,7 +8,8 @@
       |<!--(?!.*-->)
       |<\\?php.+?\\b(if|else(?:if)?|for(?:each)?|while)\\b.*:(?!.*end\\1)
       |\\{[^}"\']*$
-      |(?<![A-z0-9_])@(can(not)?|else(if)?|if|for(e(ach|lse))?|push|section|unless|empty|while)\\b
+      |(?<![A-z0-9_@])@(can(not)?|else(if)?|if|for(e(ach|lse))?|push|section|unless|empty|while)\\b
+      |(?<![A-z0-9_@])@php\\b[^(]*$
     '
     'decreaseIndentPattern': '(?x)
       ^\\s*
@@ -17,5 +18,5 @@
         |-->
         |<\\?(php)?\\s+(else(if)?|end(if|for(each)?|while))
         |\\}
-        |@(end(can(not)?|push|section|unless|for(e(ach|lse))?|if|while)|else(if)?|append|stop|show|empty|overwrite)\\b
+        |(?<![A-z0-9_@])@(end(can(not)?|p(hp|ush)|section|unless|for(e(ach|lse))?|if|while)|else(if)?|append|stop|show|empty|overwrite)\\b
       )'
