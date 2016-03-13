@@ -1,5 +1,6 @@
 {
   "name": "language-blade",
+  "main": "./lib/language-blade",
   "version": "0.21.0",
   "description": "Syntax highlighter for the blade templating engine used in laravel",
   "repository": "https://github.com/jawee/language-blade",
