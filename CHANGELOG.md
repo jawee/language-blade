@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.24.1] - 2016-03-28
+### Fixed
+- Fix regular completions (ones starting without `@`) being overwritten by the new ones that do start with `@` and use the same key name for the snippet.
+
 ## [0.24.0] - 2016-03-28
 ### Fixed
 - When trying to resolve snippets beginning with `@`, for instance `@if`, it will now take the `@`-sign into account and expand the appropriate snippet. [#37](https://github.com/jawee/language-blade/pull/37)
