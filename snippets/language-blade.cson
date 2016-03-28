@@ -1,4 +1,7 @@
 '.text.html.php.blade':
+  '{{-- comment --}}':
+    'prefix': 'com'
+    'body': '{{-- $1 --}}$0'
   '{{ $message }}':
     'prefix': 'echo'
     'body': '{{ ${1:$var} }}$0'
@@ -38,9 +41,6 @@
   '@if(…) … @endif':
     'prefix': 'if'
     'body': '@if(${1:$condition})\n\t$0\n@endif'
-  '{{-- comment --}}':
-    'prefix': 'com'
-    'body': '{{-- $1 --}}$0'
   '@choice(\'language.line\', 1)':
     'prefix': 'choice'
     'body': '@choice(\'${1:category.line}\', ${2:1})$0'
@@ -80,6 +80,11 @@
   '@yield(\'section\')':
     'prefix': 'yield'
     'body': '@yield(\'${1:section}\')$0'
+  # The following snippets are identical to the ones above with the exception that the prefix includes the @-symbol.
+  # This solves the edge case where for instance typing @if<TAB> will result in expanding to @@if... but should
+  # resolve to @if... instead.
+  #
+  # We shouldn't be doing this once https://github.com/atom/snippets/issues/107 is solved.
   '@else':
     'prefix': '@else'
     'body': '@else'
