@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.25.2] - 2016-04-27
+### Fixed
+- Changed `@includeif` to the correct version: `@includeIf`
+
 ## [0.25.1] - 2016-04-27
 ### Fixed
 - Incorrect directives were highlighted (e.g. `@elsecontinue`, `@elsechoice`)
@@ -69,7 +73,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.25.1...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.25.2...HEAD
+[0.25.0]: https://github.com/jawee/language-blade/compare/v0.25.1...v0.25.2
 [0.25.1]: https://github.com/jawee/language-blade/compare/v0.25.0...v0.25.1
 [0.25.0]: https://github.com/jawee/language-blade/compare/v0.24.1...v0.25.0
 [0.24.1]: https://github.com/jawee/language-blade/compare/v0.24.0...v0.24.1
