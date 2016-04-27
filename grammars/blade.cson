@@ -66,7 +66,7 @@
         ]
       }
       {
-        'begin': '(?<![A-z0-9_@])@(break|(else)?c(an(not)?|hoice|ontinue)|each|hasSection|(else)?if|in(ject|clude(if)?)|extends|for(e(ach|lse))?|lang|p(hp|ush)|section|stack|un(less|set)|while|yield)\\s*(?=\\()'
+        'begin': '(?<![A-z0-9_@])@(break|c(hoice|ontinue)|each|hasSection|(else)?(if|can(not)?)|in(ject|clude(if)?)|extends|for(e(ach|lse))?|lang|p(hp|ush)|section|stack|un(less|set)|while|yield)\\s*(?=\\()'
         'beginCaptures':
           '0':
             'name': 'keyword.blade'
