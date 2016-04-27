@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.25.0] - 2016-04-27
+### Added
+- New directives: `@verbatim`, `@endverbatim`, `@elsecan`, `@elsecannot`, `@hasSection`, `@includeif`
+
 ## [0.24.1] - 2016-03-28
 ### Fixed
 - Fix regular completions (ones starting without `@`) being overwritten by the new ones that do start with `@` and use the same key name for the snippet.
