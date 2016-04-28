@@ -74,7 +74,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
 [Unreleased]: https://github.com/jawee/language-blade/compare/v0.25.2...HEAD
-[0.25.0]: https://github.com/jawee/language-blade/compare/v0.25.1...v0.25.2
+[0.25.2]: https://github.com/jawee/language-blade/compare/v0.25.1...v0.25.2
 [0.25.1]: https://github.com/jawee/language-blade/compare/v0.25.0...v0.25.1
 [0.25.0]: https://github.com/jawee/language-blade/compare/v0.24.1...v0.25.0
 [0.24.1]: https://github.com/jawee/language-blade/compare/v0.24.0...v0.24.1
