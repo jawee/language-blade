@@ -4,6 +4,7 @@
   "version": "0.25.2",
   "description": "Syntax highlighter for the blade templating engine used in laravel",
   "repository": "https://github.com/jawee/language-blade",
+  "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   }
