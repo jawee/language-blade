@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
-- Nothing
+- Added MIT license
 
 ## [0.25.2] - 2016-04-27
 ### Fixed
