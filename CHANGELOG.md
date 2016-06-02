@@ -4,7 +4,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
+- Nothing
+
+## [0.25.3] - 2016-06-02
+### Changed
 - Added MIT license
+
+### Fixed
+- Use blade comments setting was disabled when one of multiple editor windows was closed (pull request [#46](https://github.com/jawee/language-blade/pull/45))
 
 ## [0.25.2] - 2016-04-27
 ### Fixed
@@ -73,7 +80,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.25.2...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.25.3...HEAD
+[0.25.3]: https://github.com/jawee/language-blade/compare/v0.25.2...v0.25.3
 [0.25.2]: https://github.com/jawee/language-blade/compare/v0.25.1...v0.25.2
 [0.25.1]: https://github.com/jawee/language-blade/compare/v0.25.0...v0.25.1
 [0.25.0]: https://github.com/jawee/language-blade/compare/v0.24.1...v0.25.0
