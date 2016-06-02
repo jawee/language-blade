@@ -10,7 +10,6 @@ module.exports =
     @changeUseBladeComments = atom.config.observe 'language-blade.useBladeComments', @setBladeComments
 
   deactivate: ->
-    @setBladeComments(false)
     @changeUseBladeComments.dispose()
 
   setBladeComments: (enabled) ->
