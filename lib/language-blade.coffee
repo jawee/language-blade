@@ -6,7 +6,6 @@ module.exports =
       description: 'Use Blade comments by default when toggling line comments'
 
   activate: (state) ->
-    @setBladeComments(atom.config.get('language-blade.useBladeComments'))
     @changeUseBladeComments = atom.config.observe 'language-blade.useBladeComments', @setBladeComments
 
   deactivate: ->
