@@ -11,7 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Added MIT license
 
 ### Fixed
-- Use blade comments setting was disabled when one of multiple editor windows was closed (pull request [#46](https://github.com/jawee/language-blade/pull/45))
+- Use blade comments setting was disabled when one of multiple editor windows was closed. [#45](https://github.com/jawee/language-blade/pull/45)
 
 ## [0.25.2] - 2016-04-27
 ### Fixed
@@ -39,7 +39,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.21.0] - 2016-03-13
 ### Added
-- New keyword highlight support: break, continue, inject, php, endphp, unset
+- New keyword highlight support: `break`, `continue`, `inject`, `php`, `endphp`, `unset`
 - Keywords starting with `@` can be escaped by prepending `@`
 
 ## [0.20.0] - 2016-01-22
