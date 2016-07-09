@@ -7,7 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Nothing
 
 ## [0.25.3] - 2016-06-02
-### Changed
+### Added
 - Added MIT license
 
 ### Fixed
