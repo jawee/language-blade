@@ -2,6 +2,7 @@
 'name': 'Blade'
 'fileTypes': [
   'blade.php'
+  'blade'
 ]
 'firstLineMatch': '^#!.*(?<!-)php[0-9]{0,1}\\b'
 'foldingStartMarker': '(/\\*|\\{\\s*$|<<<HTML)'
