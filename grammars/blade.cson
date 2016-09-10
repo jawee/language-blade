@@ -24,12 +24,12 @@
         'begin': '(?<!@){{{'
         'beginCaptures':
           '0':
-            'name': 'punctuation.section.begin.embedded.blade'
+            'name': 'punctuation.section.embedded.begin.blade'
         'contentName': 'source.php'
         'end': '(})}}'
         'endCaptures':
           '0':
-            'name': 'punctuation.section.end.embedded.blade'
+            'name': 'punctuation.section.embedded.end.blade'
           '1':
             'name': 'source.php'
         'name': 'meta.embedded.echo.blade'
@@ -43,12 +43,12 @@
         'begin': '(?<![@{]){{'
         'beginCaptures':
           '0':
-            'name': 'punctuation.section.begin.embedded.blade'
+            'name': 'punctuation.section.embedded.begin.blade'
         'contentName': 'source.php'
         'end': '(})}'
         'endCaptures':
           '0':
-            'name': 'punctuation.section.end.embedded.blade'
+            'name': 'punctuation.section.embedded.end.blade'
           '1':
             'name': 'source.php'
         'name': 'meta.embedded.echo.blade'
@@ -62,12 +62,12 @@
         'begin': '(?<!@){!!'
         'beginCaptures':
           '0':
-            'name': 'punctuation.section.begin.embedded.blade'
+            'name': 'punctuation.section.embedded.begin.blade'
         'contentName': 'source.php'
         'end': '(!)!}'
         'endCaptures':
           '0':
-            'name': 'punctuation.section.end.embedded.blade'
+            'name': 'punctuation.section.embedded.end.blade'
           '1':
             'name': 'source.php'
         'name': 'meta.embedded.echo.blade'
@@ -92,7 +92,7 @@
         ]
       }
       {
-        'match': "(?<![A-Za-z0-9_@])@(?:append|break|continue|empty|else|end(?:can|cannot|for|foreach|forelse|if|inject|php|push|section|unless|verbatim|while)|overwrite|show|stop|verbatim)\\b|(?<!@)@parent"
+        'match': '(?<![A-Za-z0-9_@])@(?:append|break|continue|empty|else|end(?:can|cannot|for|foreach|forelse|if|inject|php|push|section|unless|verbatim|while)|overwrite|show|stop|verbatim)\\b|(?<!@)@parent'
         'name': 'keyword.control.blade'
       }
       {
