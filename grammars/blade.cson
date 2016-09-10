@@ -26,10 +26,12 @@
           '0':
             'name': 'punctuation.section.begin.embedded.blade'
         'contentName': 'source.php'
-        'end': '}}}'
+        'end': '(})}}'
         'endCaptures':
           '0':
             'name': 'punctuation.section.end.embedded.blade'
+          '1':
+            'name': 'source.php'
         'name': 'meta.embedded.echo.blade'
         'patterns': [
           {
@@ -43,10 +45,12 @@
           '0':
             'name': 'punctuation.section.begin.embedded.blade'
         'contentName': 'source.php'
-        'end': '}}'
+        'end': '(})}'
         'endCaptures':
           '0':
             'name': 'punctuation.section.end.embedded.blade'
+          '1':
+            'name': 'source.php'
         'name': 'meta.embedded.echo.blade'
         'patterns': [
           {
@@ -60,10 +64,12 @@
           '0':
             'name': 'punctuation.section.begin.embedded.blade'
         'contentName': 'source.php'
-        'end': '!!}'
+        'end': '(!)!}'
         'endCaptures':
           '0':
             'name': 'punctuation.section.end.embedded.blade'
+          '1':
+            'name': 'source.php'
         'name': 'meta.embedded.echo.blade'
         'patterns': [
           {
