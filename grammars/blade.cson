@@ -11,21 +11,25 @@
     'patterns': [
       {
         'begin': '{{--'
-        'captures':
+        'beginCaptures':
           '0':
-            'name': 'punctuation.definition.comment.blade'
+            'name': 'punctuation.definition.comment.begin.blade'
         'end': '--}}'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.end.blade'
         'name': 'comment.block.meta.embedded.blade'
       }
       {
         'begin': '(?<!@){{{'
-        'captures':
+        'beginCaptures':
           '0':
-            'name': 'support.punctuation.blade'
-          '1':
-            'name': 'source.php'
+            'name': 'punctuation.section.begin.embedded.blade'
         'contentName': 'source.php'
-        'end': '(})}}'
+        'end': '}}}'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.end.embedded.blade'
         'name': 'meta.embedded.echo.blade'
         'patterns': [
           {
@@ -35,13 +39,14 @@
       }
       {
         'begin': '(?<![@{]){{'
-        'captures':
+        'beginCaptures':
           '0':
-            'name': 'support.punctuation.blade'
-          '1':
-            'name': 'source.php'
+            'name': 'punctuation.section.begin.embedded.blade'
         'contentName': 'source.php'
-        'end': '(})}'
+        'end': '}}'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.end.embedded.blade'
         'name': 'meta.embedded.echo.blade'
         'patterns': [
           {
@@ -51,13 +56,14 @@
       }
       {
         'begin': '(?<!@){!!'
-        'captures':
+        'beginCaptures':
           '0':
-            'name': 'support.punctuation.blade'
-          '1':
-            'name': 'source.php'
+            'name': 'punctuation.section.begin.embedded.blade'
         'contentName': 'source.php'
-        'end': '(!)!}'
+        'end': '!!}'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.end.embedded.blade'
         'name': 'meta.embedded.echo.blade'
         'patterns': [
           {
@@ -66,10 +72,10 @@
         ]
       }
       {
-        'begin': '(?<![A-z0-9_@])@(break|c(hoice|ontinue)|each|hasSection|(else)?(if|can(not)?)|in(ject|clude(If)?)|extends|for(e(ach|lse))?|lang|p(hp|ush)|section|stack|un(less|set)|while|yield)\\s*(?=\\()'
+        'begin': '(?<![A-Za-z0-9_@])@(break|c(hoice|ontinue)|each|hasSection|(else)?(if|can(not)?)|in(ject|clude(If)?)|extends|for(e(ach|lse))?|lang|p(hp|ush)|section|stack|un(less|set)|while|yield)\\s*(?=\\()'
         'beginCaptures':
           '0':
-            'name': 'keyword.blade'
+            'name': 'keyword.control.blade'
         'contentName': 'source.php'
         'end': '(?<=\\))(?!.*\\))'
         'name': 'meta.embedded.blade'
@@ -80,14 +86,14 @@
         ]
       }
       {
-        'match': '(?<![A-z0-9_@])@(append|break|continue|empty|else|end(can(not)?|for(each|else)?|i(f|nject)|p(hp|ush)|section|unless|verbatim|while)|overwrite|s(how|top)|verbatim)\\b|(?<!@)@parent'
-        'name': 'meta.embedded.keyword.blade'
+        'match': "(?<![A-Za-z0-9_@])@(?:append|break|continue|empty|else|end(?:can|cannot|for|foreach|forelse|if|inject|php|push|section|unless|verbatim|while)|overwrite|show|stop|verbatim)\\b|(?<!@)@parent"
+        'name': 'keyword.control.blade'
       }
       {
-        'begin': '(?<![A-z0-9_@])@\\w+\\s*(?=\\()'
+        'begin': '(?<![A-Za-z0-9_@])@\\w+\\s*(?=\\()'
         'beginCaptures':
           '0':
-            'name': 'entity.blade'
+            'name': 'entity.name.blade'
         'contentName': 'source.php'
         'end': '(?<=\\))(?!.*\\))'
         'name': 'meta.embedded.blade'
@@ -98,8 +104,8 @@
         ]
       }
       {
-        'begin': '(?<![A-z0-9_@])@php'
-        'end': '(?<![A-z0-9_@])@endphp'
+        'begin': '(?<![A-Za-z0-9_@])@php'
+        'end': '(?<![A-Za-z0-9_@])@endphp'
         'beginCaptures':
           '0':
             'name': 'meta.embedded.keyword.blade'
@@ -115,7 +121,7 @@
         ]
       }
       {
-        'match': '(?<![A-z0-9_@])@(?!(choice|each|(else)?(if|can(not)?)|extends|for(e(ach|lse))?|hasSection|in(clude(If)?|ject)|lang|p(hp|ush)|section|stack|un(less|set)|while|yield)\\b)\\w+\\b'
+        'match': '(?<![A-Za-z0-9_@])@(?!(choice|each|(else)?(if|can(not)?)|extends|for(e(ach|lse))?|hasSection|in(clude(If)?|ject)|lang|p(hp|ush)|section|stack|un(less|set)|while|yield)\\b)\\w+\\b'
         'name': 'meta.embedded.entity.blade'
       }
       {
