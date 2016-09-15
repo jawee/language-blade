@@ -10,6 +10,7 @@
   'text.html.php.blade - (meta.embedded | meta.tag | comment.block.meta.embedded.blade), L:text.html.php.blade meta.tag, L:source.js.embedded.html':
     'patterns': [
       {
+        # Comments
         'begin': '{{--'
         'beginCaptures':
           '0':
@@ -21,6 +22,7 @@
         'name': 'comment.block.blade'
       }
       {
+        # Escaped echos
         # Escaped if preceded by @
         'begin': '(?<!@){{{'
         'beginCaptures':
@@ -42,6 +44,7 @@
         ]
       }
       {
+        # Regular echos
         # Escaped if preceded by @
         'begin': '(?<![@{]){{'
         'beginCaptures':
@@ -63,6 +66,7 @@
         ]
       }
       {
+        # Raw echos
         # Escaped if preceded by @
         'begin': '(?<!@){!!'
         'beginCaptures':
@@ -84,7 +88,7 @@
         ]
       }
       {
-        # Directives that require additional arguments
+        # Built in directives that require additional arguments
         'begin': '''(?x)
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
                   @
@@ -132,6 +136,40 @@
         ]
       }
       {
+        # Built in directives that do not take any arguments, but it's not forbidden and we should show that it does nothing (as good as commenting out)
+        'begin': '''(?x)
+                  (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
+                  @
+                  (?: # Ordering not important as we everything will be matched up to opening parentheses
+                   append
+                  |else
+                  |empty
+                  |endcan
+                  |endcannot
+                  |endfor
+                  |endforeach
+                  |endforelse
+                  |endif
+                  |endphp
+                  |endpush
+                  |endsection
+                  |endunless
+                  |endwhile
+                  |overwrite
+                  |show
+                  |stop
+                  )
+                  \\s* # Whitespace between name and parentheses, consumed
+                  (?=\\() # Followed by opening parentheses, not consumed'''
+        'beginCaptures':
+          '0':
+            'name': 'keyword.blade'
+        'contentName': 'comment.blade'
+        'end': '(?<=\\))(?!.*\\))' # Greedy capture till the very last closing parentheses on the first line where one is detected
+        'name': 'meta.directive.blade'
+      }
+      {
+        # Built in directives that accept not taking any arguments
         'match': '''(?x)
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
                   @
