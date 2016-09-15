@@ -119,7 +119,7 @@
           '0':
             'name': 'keyword.end.blade'
         'contentName': 'source.php'
-        'name': 'meta.embedded.keyword.blade'
+        'name': 'meta.embedded.block.blade'
         'patterns': [
           {
             'include': '#language'
