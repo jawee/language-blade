@@ -11,7 +11,10 @@
     'patterns': [
       {
         # Comments
-        'begin': '{{--'
+        'begin': '''(?x)
+                    {{-- # Regular comment start tag
+                    (?!.*<?(?:php|=)) # not followed by PHP start tag somewhere on the same line
+                    '''
         'beginCaptures':
           '0':
             'name': 'punctuation.definition.comment.begin.blade'
@@ -20,6 +23,101 @@
           '0':
             'name': 'punctuation.definition.comment.end.blade'
         'name': 'comment.block.blade'
+        # If we didn't find a PHP tag on the first line of the comment, we have to warn user that their comment is not processed correctly.
+        # We can't back out of our commitment to use comment, so highlighting it differently is the best option.
+        # Contents of this is the original PHP patterns but with 'invalid.illegal.php-code-in-comment.blade' added to name
+        'patterns': [
+          {
+            'name': 'invalid.illegal.php-code-in-comment.blade'
+            'begin': '(^\\s*)(?=<\\?(?![^?]*\\?>))'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.whitespace.embedded.leading.php'
+            'end': '(?!\\G)(\\s*$\\n)?'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.whitespace.embedded.trailing.php'
+            'patterns': [
+              {
+                'begin': '<\\?(?i:php|=)?'
+                'beginCaptures':
+                  '0':
+                    'name': 'punctuation.section.embedded.begin.php'
+                'contentName': 'source.php'
+                'end': '(\\?)>'
+                'endCaptures':
+                  '0':
+                    'name': 'punctuation.section.embedded.end.php'
+                  '1':
+                    'name': 'source.php'
+                'name': 'meta.embedded.block.php'
+                'patterns': [
+                  {
+                    'include': '#language'
+                  }
+                ]
+              }
+            ]
+          }
+          {
+            'begin': '<\\?(?i:php|=)?(?![^?]*\\?>)'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.begin.php'
+            'contentName': 'source.php'
+            'end': '(\\?)>'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.end.php'
+              '1':
+                'name': 'source.php'
+            'name': 'invalid.illegal.php-code-in-comment.blade.meta.embedded.block.php'
+            'patterns': [
+              {
+                'include': '#language'
+              }
+            ]
+          }
+          {
+            'begin': '<\\?(?i:php|=)?'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.begin.php'
+            'end': '>'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.end.php'
+            'name': 'invalid.illegal.php-code-in-comment.blade.meta.embedded.line.php'
+            'patterns': [
+              {
+                'captures':
+                  '1':
+                    'name': 'source.php'
+                  '2':
+                    'name': 'punctuation.section.embedded.end.php'
+                  '3':
+                    'name': 'source.php'
+                'match': '\\G(\\s*)((\\?))(?=>)'
+                'name': 'meta.special.empty-tag.php'
+              }
+              {
+                'begin': '\\G'
+                'contentName': 'source.php'
+                'end': '(\\?)(?=>)'
+                'endCaptures':
+                  '0':
+                    'name': 'punctuation.section.embedded.end.php'
+                  '1':
+                    'name': 'source.php'
+                'patterns': [
+                  {
+                    'include': '#language'
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
       {
         # Escaped echos
