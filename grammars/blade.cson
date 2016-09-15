@@ -21,6 +21,7 @@
         'name': 'comment.block.blade'
       }
       {
+        # Escaped if preceded by @
         'begin': '(?<!@){{{'
         'beginCaptures':
           '0':
@@ -30,6 +31,7 @@
         'endCaptures':
           '0':
             'name': 'support.function.construct.end.blade'
+          # HACK to properly trigger autocomplete if content is zero-width
           '1':
             'name': 'source.php'
         'name': 'meta.function.echo.blade'
@@ -40,6 +42,7 @@
         ]
       }
       {
+        # Escaped if preceded by @
         'begin': '(?<![@{]){{'
         'beginCaptures':
           '0':
@@ -49,6 +52,7 @@
         'endCaptures':
           '0':
             'name': 'support.function.construct.end.blade'
+          # HACK to properly trigger autocomplete if content is zero-width
           '1':
             'name': 'source.php'
         'name': 'meta.function.echo.blade'
@@ -59,6 +63,7 @@
         ]
       }
       {
+        # Escaped if preceded by @
         'begin': '(?<!@){!!'
         'beginCaptures':
           '0':
@@ -68,6 +73,7 @@
         'endCaptures':
           '0':
             'name': 'support.function.construct.end.blade'
+          # HACK to properly trigger autocomplete if content is zero-width
           '1':
             'name': 'source.php'
         'name': 'meta.function.echo.blade'
@@ -78,12 +84,46 @@
         ]
       }
       {
-        'begin': '(?<![A-Za-z0-9_@])@(break|c(hoice|ontinue)|each|hasSection|(else)?(if|can(not)?)|in(ject|clude(If)?)|extends|for(e(ach|lse))?|lang|p(hp|ush)|section|stack|un(less|set)|while|yield)\\s*(?=\\()'
+        # Directives that require additional arguments
+        'begin': '''(?x)
+                  (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
+                  @
+                  (?: # Ordering not important as we everything will be matched up to opening parentheses
+                    break
+                  |can
+                  |cannot
+                  |choice
+                  |continue
+                  |each
+                  |elsecan
+                  |elsecannot
+                  |elseif
+                  |extends
+                  |for
+                  |foreach
+                  |forelse
+                  |hasSection
+                  |if
+                  |include
+                  |includeIf
+                  |inject
+                  |lang
+                  |php
+                  |push
+                  |section
+                  |stack
+                  |unless
+                  |unset
+                  |while
+                  |yield
+                  )
+                  \\s* # Whitespace between name and parentheses, consumed
+                  (?=\\() # Followed by opening parentheses, not consumed'''
         'beginCaptures':
           '0':
             'name': 'keyword.blade'
         'contentName': 'source.php'
-        'end': '(?<=\\))(?!.*\\))'
+        'end': '(?<=\\))(?!.*\\))' # Greedy capture till the very last closing parentheses on the first line where one is detected
         'name': 'meta.directive.blade'
         'patterns': [
           {
@@ -92,26 +132,43 @@
         ]
       }
       {
-        'match': '(?<![A-Za-z0-9_@])@(?:append|break|continue|empty|else|end(?:can|cannot|for|foreach|forelse|if|inject|php|push|section|unless|verbatim|while)|overwrite|show|stop|verbatim)\\b|(?<!@)@parent'
+        'match': '''(?x)
+                  (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
+                  @
+                  (?: # Ordering not important as we everything will be matched up to word boundary
+                   append
+                  |break
+                  |continue
+                  |else
+                  |empty
+                  |endcan
+                  |endcannot
+                  |endfor
+                  |endforeach
+                  |endforelse
+                  |endif
+                  |endinject
+                  |endphp
+                  |endpush
+                  |endsection
+                  |endunless
+                  |endverbatim
+                  |endwhile
+                  |overwrite
+                  |show
+                  |stop
+                  |verbatim
+                  )
+                  \\b
+                  |
+                  (?<!@) # @parent can only be escaped using another @
+                  @parent'''
         'name': 'keyword.blade'
       }
       {
-        'begin': '(?<![A-Za-z0-9_@])@\\w+\\s*(?=\\()'
-        'beginCaptures':
-          '0':
-            'name': 'entity.name.function.blade'
-        'contentName': 'source.php'
-        'end': '(?<=\\))(?!.*\\))'
-        'name': 'meta.directive.custom.blade'
-        'patterns': [
-          {
-            'include': '#language'
-          }
-        ]
-      }
-      {
-        'begin': '(?<![A-Za-z0-9_@])@php'
-        'end': '(?<![A-Za-z0-9_@])@endphp'
+        # Embedded PHP code block
+        'begin': '(?<![A-Za-z0-9_@])@php' # Prepended @ or literal character escapes the sequence
+        'end': '(?<![A-Za-z0-9_@])@endphp' # Prepended @ or literal character escapes the sequence
         'beginCaptures':
           '0':
             'name': 'keyword.begin.blade'
@@ -126,10 +183,37 @@
           }
         ]
       }
+      # Custom directives
       {
-        'match': '(?<![A-Za-z0-9_@])@(?!(choice|each|(else)?(if|can(not)?)|extends|for(e(ach|lse))?|hasSection|in(clude(If)?|ject)|lang|p(hp|ush)|section|stack|un(less|set)|while|yield)\\b)\\w+\\b'
+        # With arguments
+        'begin': '''(?x)
+                  (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
+                  @
+                  \\w+ # Any number/letter sequence
+                  \\s* # Whitespace between name and parentheses, consumed
+                  (?=\\() # Followed by opening parentheses, not consumed'''
+        'beginCaptures':
+          '0':
+            'name': 'entity.name.function.blade'
+        'contentName': 'source.php'
+        'end': '(?<=\\))(?!.*\\))' # Greedy capture till the very last closing parentheses on the first line where one is detected
+        'name': 'meta.directive.custom.blade'
+        'patterns': [
+          {
+            'include': '#language'
+          }
+        ]
+      }
+      {
+        # Without arguments
+        'match': '''(?x)
+                  (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
+                  @
+                  \\w+ # Any number/letter sequence
+                  \\b # Bounded by word boundary'''
         'name': 'entity.name.function.blade'
       }
+      # End of Blade specific code, followed by regular PHP grammar
       {
         'begin': '(^\\s*)(?=<\\?(?![^?]*\\?>))'
         'beginCaptures':
