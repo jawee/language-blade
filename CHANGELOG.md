@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.26.0] - 2016-09-15
+### Fixed
+- Most scope names have been changed to better represent their semantic meaning and to also fix displaying highlighted code on Github. [#54](https://github.com/jawee/language-blade/pull/54) [#48](https://github.com/jawee/language-blade/pull/48) [#53](https://github.com/jawee/language-blade/pull/53)
+
 ## [0.25.3] - 2016-06-02
 ### Added
 - Added MIT license
@@ -80,7 +84,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.25.3...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.26.0...HEAD
+[0.26.0]: https://github.com/jawee/language-blade/compare/v0.25.3...v0.26.0
 [0.25.3]: https://github.com/jawee/language-blade/compare/v0.25.2...v0.25.3
 [0.25.2]: https://github.com/jawee/language-blade/compare/v0.25.1...v0.25.2
 [0.25.1]: https://github.com/jawee/language-blade/compare/v0.25.0...v0.25.1
