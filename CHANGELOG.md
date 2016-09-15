@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Added a way to detect useless expressions in certain directives. For example the expression in `@append ($something)` will not be processed, but not displayed in output either. These will show up as comments in highlighting.
 - Added support for '::' in custom directive names [#52](https://github.com/jawee/language-blade/issues/52)
+- Added an intermediary way to warn users of using PHP tags in Blade comments [#50](https://github.com/jawee/language-blade/issues/50)
 
 ### Changed
 - Blade part of grammar file has additional comments and restructuring to make it more readable and maintainable by others.
