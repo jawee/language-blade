@@ -227,7 +227,7 @@
         'begin': '''(?x)
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
                   @
-                  \\w+ # Any number/letter sequence
+                  \\w+(?:::\w+)? # Any number/letter sequence, can also be postfixed by ::someOtherString
                   \\s* # Whitespace between name and parentheses, consumed
                   (?=\\() # Followed by opening parentheses, not consumed'''
         'beginCaptures':
@@ -247,7 +247,7 @@
         'match': '''(?x)
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
                   @
-                  \\w+ # Any number/letter sequence
+                  \\w+(?:::\w+)? # Any number/letter sequence, can also be postfixed by ::someOtherString
                   \\b # Bounded by word boundary'''
         'name': 'entity.name.function.blade'
       }
