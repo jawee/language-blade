@@ -6,18 +6,20 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
-## [0.26.0] - 2016-09-15
+## [0.26.0] - 2016-09-18
 ### Added
 - Added a way to detect useless expressions in certain directives. For example the expression in `@append ($something)` will not be processed, but not displayed in output either. These will show up as comments in highlighting.
-- Added support for '::' in custom directive names [#52](https://github.com/jawee/language-blade/issues/52)
-- Added an intermediary way to warn users of using PHP tags in Blade comments [#50](https://github.com/jawee/language-blade/issues/50)
+- Added support for '::' in custom directive names. [#52](https://github.com/jawee/language-blade/issues/52)
+- Added an intermediary way to warn users of using PHP tags in Blade comments. [#50](https://github.com/jawee/language-blade/issues/50)
 
 ### Changed
 - Blade part of grammar file has additional comments and restructuring to make it more readable and maintainable by others.
 - Sync with [language-php e7c048814539704e0805cfa1541942cfd895a4e0](https://github.com/atom/language-php/compare/v0.37.0...e7c048814539704e0805cfa1541942cfd895a4e0#diff-2)
+- Snippets for flow control directives have a space between name and opening parenthesis.
 
 ### Fixed
 - Most scope names have been changed to better represent their semantic meaning and to also fix displaying highlighted code on Github. [#54](https://github.com/jawee/language-blade/pull/54) [#48](https://github.com/jawee/language-blade/issues/48) [#53](https://github.com/jawee/language-blade/issues/53)
+- Improved automatic indentation. [#44](https://github.com/jawee/language-blade/issues/44)
 
 ## [0.25.3] - 2016-06-02
 ### Added
