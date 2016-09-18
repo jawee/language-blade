@@ -19,6 +19,7 @@
        |for
        |foreach
        |forelse
+       |hasSection
        |if
        |push
        |section
