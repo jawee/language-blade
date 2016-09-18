@@ -1,20 +1,78 @@
 '.text.html.php.blade':
   'editor':
-    'increaseIndentPattern': '(?x)
+    'increaseIndentPattern': '''(?x)
+      # From language-html
       <(?!\\?|(?:area|base|br|col|frame|hr|html|img|input|link|meta|param)\\b|[^>]*/>)
       ([-_\\.A-Za-z0-9]+)(?=\\s|>)\\b[^>]*>(?!.*</\\1>)
       |<!--(?!.*-->)
       |<\\?php.+?\\b(if|else(?:if)?|for(?:each)?|while)\\b.*:(?!.*end\\1)
       |\\{[^}"\']*$
-      |(?<![A-z0-9_@])@(can(not)?|else(if)?|if|for(e(ach|lse))?|push|section|unless|empty|while)\\b
-      |(?<![A-z0-9_@])@php\\b[^(]*$
-    '
-    'decreaseIndentPattern': '(?x)
+      # Blade specific
+      |(?<![A-Za-z0-9_@])
+       @
+       (
+        can
+       |cannot
+       |else
+       |elseif
+       |empty
+       |for
+       |foreach
+       |forelse
+       |if
+       |push
+       |section
+       |unless
+       |while
+       )
+       \\b
+      |(?<![A-Za-z0-9_@])
+       @php\\b
+       (?! # Not followed by
+        \\s*\\( # Single line @php ($expression)
+       |.*(?<![A-Za-z0-9_@])@endphp\\b # @endphp on same line
+       )
+    '''
+    'decreaseIndentPattern': '''(?x)
+      # From language-html
       ^\\s*
       (</(?!html)
         [-_\\.A-Za-z0-9]+\\b[^>]*>
         |-->
         |<\\?(php)?\\s+(else(if)?|end(if|for(each)?|while))
         |\\}
-        |(?<![A-z0-9_@])@(end(can(not)?|p(hp|ush)|section|unless|for(e(ach|lse))?|if|while)|else(if)?|append|stop|show|empty|overwrite)\\b
-      )'
+        # Blade specific
+        |(?<![A-Za-z0-9_@])
+         @
+         (
+          append
+         |else
+         |elseif
+         |empty
+         |endcan
+         |endcannot
+         |endfor
+         |endforeach
+         |endforelse
+         |endif
+         |endphp
+         |endpush
+         |endsection
+         |endunless
+         |endwhile
+         |overwrite
+         |show
+         |stop
+         )
+         \\b
+      )
+    '''
+# Required because of .source.php HACK
+'.support.function.construct.end.blade .source.php':
+  'editor':
+    'decreaseIndentPattern': '''
+      (?x) # From language-php
+      ^(.* \\*\\/)?\\s*
+      # Blade specific
+      (}|!!})
+    '''
