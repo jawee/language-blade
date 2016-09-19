@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.26.1] - 2016-09-19
+### Fixed
+- Fixed a regression where directives were highlighted inside Blade comments.
+
 ## [0.26.0] - 2016-09-18
 ### Added
 - Added a way to detect useless expressions in certain directives. For example the expression in `@append ($something)` will not be processed, but not displayed in output either. These will show up as comments in highlighting.
@@ -95,7 +99,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.26.0...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.26.1...HEAD
+[0.26.1]: https://github.com/jawee/language-blade/compare/v0.26.0...v0.26.1
 [0.26.0]: https://github.com/jawee/language-blade/compare/v0.25.3...v0.26.0
 [0.25.3]: https://github.com/jawee/language-blade/compare/v0.25.2...v0.25.3
 [0.25.2]: https://github.com/jawee/language-blade/compare/v0.25.1...v0.25.2
