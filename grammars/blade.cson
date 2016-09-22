@@ -13,7 +13,7 @@
         # Comments
         'begin': '''(?x)
                     {{-- # Regular comment start tag
-                    (?!.*<?(?:php|=)) # not followed by PHP start tag somewhere on the same line
+                    (?!.*<\\?(?:php|=)) # not followed by PHP start tag somewhere on the same line
                     '''
         'beginCaptures':
           '0':
