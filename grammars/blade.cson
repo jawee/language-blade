@@ -11,10 +11,7 @@
     'patterns': [
       {
         # Comments
-        'begin': '''(?x)
-                    {{-- # Regular comment start tag
-                    (?!.*<\\?(?:php|=)) # not followed by PHP start tag somewhere on the same line
-                    '''
+        'begin': '{{--'
         'beginCaptures':
           '0':
             'name': 'punctuation.definition.comment.begin.blade'
