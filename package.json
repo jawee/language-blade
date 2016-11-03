@@ -2,7 +2,7 @@
   "name": "language-blade",
   "main": "./lib/language-blade",
   "version": "0.26.2",
-  "description": "Syntax highlighter for the blade templating engine used in laravel",
+  "description": "Syntax highlighter for the Blade templating engine used in Laravel",
   "repository": "https://github.com/jawee/language-blade",
   "license": "MIT",
   "engines": {
