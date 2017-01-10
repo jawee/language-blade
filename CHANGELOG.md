@@ -6,6 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.26.3] - 2017-01-11
+### Fixed
+- Comment tags are matched regardless of the content that is following the start tag.
+- Fixed CSS hack to work with Atom shadow DOM changes. [#60](https://github.com/jawee/language-blade/issues/60)
+
 ## [0.26.2] - 2016-09-22
 ### Fixed
 - Fixed a regression where HTML source code was incorrectly detected as PHP code in comments. [#57](https://github.com/jawee/language-blade/issues/57)
@@ -103,7 +108,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.26.2...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.26.3...HEAD
+[0.26.3]: https://github.com/jawee/language-blade/compare/v0.26.2...v0.26.3
 [0.26.2]: https://github.com/jawee/language-blade/compare/v0.26.1...v0.26.2
 [0.26.1]: https://github.com/jawee/language-blade/compare/v0.26.0...v0.26.1
 [0.26.0]: https://github.com/jawee/language-blade/compare/v0.25.3...v0.26.0
