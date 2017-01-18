@@ -11,6 +11,9 @@
   '{!! $message !!}':
     'prefix': 'raw'
     'body': '{!! ${1:$var} !!}$0'
+  '{{ csrf_field() }}':
+    'prefix': 'csrf'
+    'body': '{{ csrf_field() }}'    
   '@else':
     'prefix': 'else'
     'body': '@else'
