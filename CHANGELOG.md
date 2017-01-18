@@ -6,6 +6,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.26.4] - 2017-01-19
+### Added
+- New snippet `csrf` that expands to `{{ csrf_field() ]}` [#60](https://github.com/jawee/language-blade/pull/66)
+
+### Fixed
+- The grammar injected itself into Blade comments [#65](https://github.com/jawee/language-blade/issues/65)
+
+### Changed
+- Sync with [language-php 0.37.3](https://github.com/atom/language-php/compare/e7c048814539704e0805cfa1541942cfd895a4e0...v0.37.3#diff-0)
+
 ## [0.26.3] - 2017-01-11
 ### Fixed
 - Comment tags are matched regardless of the content that is following the start tag.
@@ -108,7 +118,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.26.3...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.26.4...HEAD
+[0.26.4]: https://github.com/jawee/language-blade/compare/v0.26.3...v0.26.4
 [0.26.3]: https://github.com/jawee/language-blade/compare/v0.26.2...v0.26.3
 [0.26.2]: https://github.com/jawee/language-blade/compare/v0.26.1...v0.26.2
 [0.26.1]: https://github.com/jawee/language-blade/compare/v0.26.0...v0.26.1
