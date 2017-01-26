@@ -236,7 +236,7 @@
                   |while
                   |yield
                   )
-                  \\s* # Whitespace between name and parentheses, consumed
+                  [\\t ]* # Whitespace between name and parentheses, consumed
                   (?=\\() # Followed by opening parentheses, not consumed'''
         'beginCaptures':
           '0':
@@ -267,7 +267,6 @@
                   |endforelse
                   |endif
                   |endlang
-                  |endphp
                   |endpush
                   |endsection
                   |endslot
@@ -278,7 +277,7 @@
                   |show
                   |stop
                   )
-                  \\s* # Whitespace between name and parentheses, consumed
+                  [\\t ]* # Whitespace between name and parentheses, consumed
                   (?=\\() # Followed by opening parentheses, not consumed'''
         'beginCaptures':
           '0':
@@ -325,13 +324,15 @@
       {
         # Embedded PHP code block
         'begin': '(?<![A-Za-z0-9_@])@php' # Prepended @ or literal character escapes the sequence
-        'end': '(?<![A-Za-z0-9_@])@endphp' # Prepended @ or literal character escapes the sequence
+        'end': '(?<![A-Za-z0-9_@])@endphp([\\t ]*\\(.*\\)(?!.*\\)))?' # Prepended @ or literal character escapes the sequence
         'beginCaptures':
           '0':
             'name': 'keyword.begin.blade'
         'endCaptures':
           '0':
             'name': 'keyword.end.blade'
+          '1':
+            'name': 'comment.blade'
         'contentName': 'source.php'
         'name': 'meta.embedded.block.blade'
         'patterns': [
@@ -347,7 +348,7 @@
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
                   @
                   \\w+(?:::\w+)? # Any number/letter sequence, can also be postfixed by ::someOtherString
-                  \\s* # Whitespace between name and parentheses, consumed
+                  [\\t ]* # Whitespace between name and parentheses, consumed
                   (?=\\() # Followed by opening parentheses, not consumed'''
         'beginCaptures':
           '0':
