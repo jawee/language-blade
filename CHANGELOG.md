@@ -6,6 +6,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.27.0] - 2017-01-26
+### Added
+- Laravel 5.4 support [#67](https://github.com/jawee/language-blade/pull/67)
+- Two new snippets for 5.4 directives: `component` and `slot`
+
+### Fixed
+- Injection selector behaves now correctly in Github
+
 ## [0.26.4] - 2017-01-19
 ### Added
 - New snippet `csrf` that expands to `{{ csrf_field() ]}` [#60](https://github.com/jawee/language-blade/pull/66)
@@ -118,7 +126,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.26.4...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.27.0...HEAD
+[0.27.0]: https://github.com/jawee/language-blade/compare/v0.26.4...v0.27.0
 [0.26.4]: https://github.com/jawee/language-blade/compare/v0.26.3...v0.26.4
 [0.26.3]: https://github.com/jawee/language-blade/compare/v0.26.2...v0.26.3
 [0.26.2]: https://github.com/jawee/language-blade/compare/v0.26.1...v0.26.2
