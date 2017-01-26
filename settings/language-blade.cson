@@ -5,15 +5,18 @@
       <(?!\\?|(?:area|base|br|col|frame|hr|html|img|input|link|meta|param)\\b|[^>]*/>)
       ([-_\\.A-Za-z0-9]+)(?=\\s|>)\\b[^>]*>(?!.*</\\1>)
       |<!--(?!.*-->)
-      |<\\?php.+?\\b(if|else(?:if)?|for(?:each)?|while)\\b.*:(?!.*end\\1)
+      |<\\?php.+?\\b(if|else(?:if)?|for(?:each)?|while)\\b.*:(?!.*end\\2)
       |\\{[^}"\']*$
       # Blade specific
       |(?<![A-Za-z0-9_@])
        @
-       (
+       (?:
         can
        |cannot
+       |component
        |else
+       |elsecan
+       |elsecannot
        |elseif
        |empty
        |for
@@ -22,16 +25,22 @@
        |hasSection
        |if
        |push
-       |section
+       |slot
        |unless
+       |verbatim
        |while
        )
        \\b
       |(?<![A-Za-z0-9_@])
-       @php\\b
+       @(php|lang)\\b
        (?! # Not followed by
-        \\s*\\( # Single line @php ($expression)
-       |.*(?<![A-Za-z0-9_@])@endphp\\b # @endphp on same line
+        [\\t ]*\\( # Single line @php ($expression)
+       |.*(?<![A-Za-z0-9_@])@end\\3\\b # @endphp or @endlang on same line
+       )
+      |(?<![A-Za-z0-9_@])
+       @section\\b
+       (?! # Not followed by
+        [\\t ]*\\('[^']*', # Comma after string argument
        )
     '''
     'decreaseIndentPattern': '''(?x)
@@ -48,18 +57,24 @@
          (
           append
          |else
+         |elsecan
+         |elsecannot
          |elseif
          |empty
          |endcan
          |endcannot
+         |endcomponent
          |endfor
          |endforeach
          |endforelse
          |endif
+         |endlang
          |endphp
          |endpush
          |endsection
+         |endslot
          |endunless
+         |endverbatim
          |endwhile
          |overwrite
          |show
