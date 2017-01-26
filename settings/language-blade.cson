@@ -11,34 +11,40 @@
       |(?<![A-Za-z0-9_@])
        @
        (?:
-        can
-       |cannot
-       |component
-       |else
-       |elsecan
-       |elsecannot
-       |elseif
-       |empty
-       |for
-       |foreach
-       |forelse
-       |hasSection
-       |if
-       |push
-       |slot
-       |unless
+        [Cc]an
+       |[Cc]annot
+       |[Cc]omponent
+       |[Ee]lse
+       |[Ee]lsecan
+       |[Ee]lsecannot
+       |[Ee]lseif
+       |[Ee]mpty
+       |[Ff]or
+       |[Ff]oreach
+       |[Ff]orelse
+       |[Hh]asSection
+       |[Ii]f
+       |[Pp]ush
+       |[Ss]lot
+       |[Uu]nless
        |verbatim
-       |while
+       |[Ww]hile
        )
        \\b
       |(?<![A-Za-z0-9_@])
-       @(php|lang)\\b
+       @[Pp]hp\\b
        (?! # Not followed by
         [\\t ]*\\( # Single line @php ($expression)
-       |.*(?<![A-Za-z0-9_@])@end\\3\\b # @endphp or @endlang on same line
+       |.*(?<![A-Za-z0-9_@])@[Ee]ndphp\\b # @endphp on same line
        )
       |(?<![A-Za-z0-9_@])
-       @section\\b
+       @[Ll]ang\\b
+       (?! # Not followed by
+        [\\t ]*\\( # Single line @lang ($expression)
+       |.*(?<![A-Za-z0-9_@])@[Ee]ndlang\\b # @endlang on same line
+       )
+      |(?<![A-Za-z0-9_@])
+       @[Ss]ection\\b
        (?! # Not followed by
         [\\t ]*\\('[^']*', # Comma after string argument
        )
@@ -55,30 +61,30 @@
         |(?<![A-Za-z0-9_@])
          @
          (
-          append
-         |else
-         |elsecan
-         |elsecannot
-         |elseif
-         |empty
-         |endcan
-         |endcannot
-         |endcomponent
-         |endfor
-         |endforeach
-         |endforelse
-         |endif
-         |endlang
-         |endphp
-         |endpush
-         |endsection
-         |endslot
-         |endunless
+          [Aa]ppend
+         |[Ee]lse
+         |[Ee]lsecan
+         |[Ee]lsecannot
+         |[Ee]lseif
+         |[Ee]mpty
+         |[Ee]ndcan
+         |[Ee]ndcannot
+         |[Ee]ndcomponent
+         |[Ee]ndfor
+         |[Ee]ndforeach
+         |[Ee]ndforelse
+         |[Ee]ndif
+         |[Ee]ndlang
+         |[Ee]ndphp
+         |[Ee]ndpush
+         |[Ee]ndsection
+         |[Ee]ndslot
+         |[Ee]ndunless
          |endverbatim
-         |endwhile
-         |overwrite
-         |show
-         |stop
+         |[Ee]ndwhile
+         |[Oo]verwrite
+         |[Ss]how
+         |[Ss]top
          )
          \\b
       )

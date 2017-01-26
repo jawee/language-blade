@@ -206,35 +206,35 @@
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
                   @
                   (?: # Ordering not important as we everything will be matched up to opening parentheses
-                   break
-                  |can
-                  |cannot
-                  |choice
-                  |component
-                  |continue
-                  |each
-                  |elsecan
-                  |elsecannot
-                  |elseif
-                  |extends
-                  |for
-                  |foreach
-                  |forelse
-                  |hasSection
-                  |if
-                  |include
-                  |includeIf
-                  |inject
-                  |lang
-                  |php
-                  |push
-                  |section
-                  |slot
-                  |stack
-                  |unless
-                  |unset
-                  |while
-                  |yield
+                   [Bb]reak
+                  |[Cc]an
+                  |[Cc]annot
+                  |[Cc]hoice
+                  |[Cc]omponent
+                  |[Cc]ontinue
+                  |[Ee]ach
+                  |[Ee]lsecan
+                  |[Ee]lsecannot
+                  |[Ee]lseif
+                  |[Ee]xtends
+                  |[Ff]or
+                  |[Ff]oreach
+                  |[Ff]orelse
+                  |[Hh]asSection
+                  |[Ii]f
+                  |[Ii]nclude
+                  |[Ii]ncludeIf
+                  |[Ii]nject
+                  |[Ll]ang
+                  |[Pp]hp
+                  |[Pp]ush
+                  |[Ss]ection
+                  |[Ss]lot
+                  |[Ss]tack
+                  |[Uu]nless
+                  |[Uu]nset
+                  |[Ww]hile
+                  |[Yy]ield
                   )
                   [\\t ]* # Whitespace between name and parentheses, consumed
                   (?=\\() # Followed by opening parentheses, not consumed'''
@@ -256,26 +256,26 @@
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
                   @
                   (?: # Ordering not important as we everything will be matched up to opening parentheses
-                   append
-                  |else
-                  |empty
-                  |endcan
-                  |endcannot
-                  |endcomponent
-                  |endfor
-                  |endforeach
-                  |endforelse
-                  |endif
-                  |endlang
-                  |endpush
-                  |endsection
-                  |endslot
-                  |endunless
-                  |endwhile
-                  |overwrite
-                  |parent
-                  |show
-                  |stop
+                   [Aa]ppend
+                  |[Ee]lse
+                  |[Ee]mpty
+                  |[Ee]ndcan
+                  |[Ee]ndcannot
+                  |[Ee]ndcomponent
+                  |[Ee]ndfor
+                  |[Ee]ndforeach
+                  |[Ee]ndforelse
+                  |[Ee]ndif
+                  |[Ee]ndlang
+                  |[Ee]ndpush
+                  |[Ee]ndsection
+                  |[Ee]ndslot
+                  |[Ee]ndunless
+                  |[Ee]ndwhile
+                  |[Oo]verwrite
+                  |[Pp]arent
+                  |[Ss]how
+                  |[Ss]top
                   )
                   [\\t ]* # Whitespace between name and parentheses, consumed
                   (?=\\() # Followed by opening parentheses, not consumed'''
@@ -292,30 +292,30 @@
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
                   @
                   (?: # Ordering not important as we everything will be matched up to word boundary
-                   append
-                  |break
-                  |continue
-                  |else
-                  |empty
-                  |endcan
-                  |endcannot
-                  |endcomponent
-                  |endfor
-                  |endforeach
-                  |endforelse
-                  |endif
-                  |endlang
-                  |endpush
-                  |endsection
-                  |endslot
-                  |endunless
+                   [Aa]ppend
+                  |[Bb]reak
+                  |[Cc]ontinue
+                  |[Ee]lse
+                  |[Ee]mpty
+                  |[Ee]ndcan
+                  |[Ee]ndcannot
+                  |[Ee]ndcomponent
+                  |[Ee]ndfor
+                  |[Ee]ndforeach
+                  |[Ee]ndforelse
+                  |[Ee]ndif
+                  |[Ee]ndlang
+                  |[Ee]ndpush
+                  |[Ee]ndsection
+                  |[Ee]ndslot
+                  |[Ee]ndunless
                   |endverbatim
-                  |endwhile
-                  |lang
-                  |overwrite
-                  |parent
-                  |show
-                  |stop
+                  |[Ee]ndwhile
+                  |[Ll]ang
+                  |[Oo]verwrite
+                  |[Pp]arent
+                  |[Ss]how
+                  |[Ss]top
                   |verbatim
                   )
                   \\b'''
@@ -323,8 +323,8 @@
       }
       {
         # Embedded PHP code block
-        'begin': '(?<![A-Za-z0-9_@])@php' # Prepended @ or literal character escapes the sequence
-        'end': '(?<![A-Za-z0-9_@])@endphp([\\t ]*\\(.*\\)(?!.*\\)))?' # Prepended @ or literal character escapes the sequence
+        'begin': '(?<![A-Za-z0-9_@])@[Pp]hp' # Prepended @ or literal character escapes the sequence
+        'end': '(?<![A-Za-z0-9_@])@[Ee]ndphp([\\t ]*\\(.*\\)(?!.*\\)))?' # Prepended @ or literal character escapes the sequence
         'beginCaptures':
           '0':
             'name': 'keyword.begin.blade'
