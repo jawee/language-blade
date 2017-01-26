@@ -206,10 +206,11 @@
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
                   @
                   (?: # Ordering not important as we everything will be matched up to opening parentheses
-                    break
+                   break
                   |can
                   |cannot
                   |choice
+                  |component
                   |continue
                   |each
                   |elsecan
@@ -228,6 +229,7 @@
                   |php
                   |push
                   |section
+                  |slot
                   |stack
                   |unless
                   |unset
@@ -259,16 +261,20 @@
                   |empty
                   |endcan
                   |endcannot
+                  |endcomponent
                   |endfor
                   |endforeach
                   |endforelse
                   |endif
+                  |endlang
                   |endphp
                   |endpush
                   |endsection
+                  |endslot
                   |endunless
                   |endwhile
                   |overwrite
+                  |parent
                   |show
                   |stop
                   )
@@ -294,26 +300,26 @@
                   |empty
                   |endcan
                   |endcannot
+                  |endcomponent
                   |endfor
                   |endforeach
                   |endforelse
                   |endif
-                  |endinject
-                  |endphp
+                  |endlang
                   |endpush
                   |endsection
+                  |endslot
                   |endunless
                   |endverbatim
                   |endwhile
+                  |lang
                   |overwrite
+                  |parent
                   |show
                   |stop
                   |verbatim
                   )
-                  \\b
-                  |
-                  (?<!@) # @parent can only be escaped using another @
-                  @parent'''
+                  \\b'''
         'name': 'keyword.blade'
       }
       {
