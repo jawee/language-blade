@@ -12,6 +12,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Single line `@push` directives incorrectly triggered indent increase
+- Stock directives written with an uppercase letter were highlighted as custom directives
 
 ## [0.27.1] - 2017-01-26
 ### Fixed
