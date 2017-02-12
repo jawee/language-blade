@@ -24,8 +24,6 @@
        |[Ff]orelse
        |[Hh]asSection
        |[Ii]f
-       |[Pp]repend
-       |[Pp]ush
        |[Ss]lot
        |[Uu]nless
        |verbatim
@@ -45,7 +43,7 @@
        |.*(?<![A-Za-z0-9_@])@[Ee]ndlang\\b # @endlang on same line
        )
       |(?<![A-Za-z0-9_@])
-       @[Ss]ection\\b
+       @(?:[Ss]ection|[Pp]repend|[Pp]ush)\\b
        (?! # Not followed by
         [\\t ]*\\((?:"[^"]*"|'[^']*'), # Comma after string argument
        )
