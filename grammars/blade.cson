@@ -227,6 +227,7 @@
                   |[Ii]nject
                   |[Ll]ang
                   |[Pp]hp
+                  |[Pp]repend
                   |[Pp]ush
                   |[Ss]ection
                   |[Ss]lot
@@ -267,6 +268,7 @@
                   |[Ee]ndforelse
                   |[Ee]ndif
                   |[Ee]ndlang
+                  |[Ee]ndprepend
                   |[Ee]ndpush
                   |[Ee]ndsection
                   |[Ee]ndslot
@@ -305,6 +307,7 @@
                   |[Ee]ndforelse
                   |[Ee]ndif
                   |[Ee]ndlang
+                  |[Ee]ndprepend
                   |[Ee]ndpush
                   |[Ee]ndsection
                   |[Ee]ndslot
