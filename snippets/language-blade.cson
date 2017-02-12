@@ -65,6 +65,9 @@
   '@lang(\'language.line\')':
     'prefix': 'lang'
     'body': '@lang(\'${1:category.line}\')$0'
+  '@prepend(\'name\') … @endprepend':
+    'prefix': 'prepend'
+    'body': '@prepend(\'${1:name}\')\n\t$0\n@endprepend'
   '@push(\'name\') … @endpush':
     'prefix': 'push'
     'body': '@push(\'${1:name}\')\n\t$0\n@endpush'
@@ -150,6 +153,9 @@
   '@lang(\'language.line\') ':
     'prefix': '@lang'
     'body': '@lang(\'${1:category.line}\')$0'
+  '@prepend(\'name\') … @endprepend ':
+    'prefix': '@prepend'
+    'body': '@prepend(\'${1:name}\')\n\t$0\n@endprepend'
   '@push(\'name\') … @endpush ':
     'prefix': '@push'
     'body': '@push(\'${1:name}\')\n\t$0\n@endpush'
