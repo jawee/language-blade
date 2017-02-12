@@ -24,6 +24,7 @@
        |[Ff]orelse
        |[Hh]asSection
        |[Ii]f
+       |[Pp]repend
        |[Pp]ush
        |[Ss]lot
        |[Uu]nless
@@ -76,6 +77,7 @@
          |[Ee]ndif
          |[Ee]ndlang
          |[Ee]ndphp
+         |[Ee]ndprepend
          |[Ee]ndpush
          |[Ee]ndsection
          |[Ee]ndslot
