@@ -45,7 +45,7 @@
       |(?<![A-Za-z0-9_@])
        @(?:[Ss]ection|[Pp]repend|[Pp]ush)\\b
        (?! # Not followed by
-        [\\t ]*\\((?:"[^"]*"|'[^']*'), # Comma after string argument
+        [\\t ]*\\([ ]*(?:"[^"]*"|'[^']*')[ ]*, # Comma after string argument
        )
     '''
     'decreaseIndentPattern': '''(?x)
