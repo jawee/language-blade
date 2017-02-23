@@ -6,9 +6,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.28.1] - 2017-02-23
+### Added
+- New directive: `@includeWhen`
+
 ## [0.28.0] - 2017-02-12
 ### Added
-- New `@prepend` and `@endprepend` directives
+- New directives: `@prepend` and `@endprepend`
 
 ### Fixed
 - Single line `@push` directives incorrectly triggered indent increase
@@ -138,7 +142,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.28.0...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.28.1...HEAD
+[0.28.1]: https://github.com/jawee/language-blade/compare/v0.28.0...v0.28.1
 [0.28.0]: https://github.com/jawee/language-blade/compare/v0.27.1...v0.28.0
 [0.27.1]: https://github.com/jawee/language-blade/compare/v0.27.0...v0.27.1
 [0.27.0]: https://github.com/jawee/language-blade/compare/v0.26.4...v0.27.0
