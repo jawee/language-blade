@@ -38,7 +38,7 @@
           '0':
             'name': 'punctuation.definition.comment.end.blade'
         'name': 'comment.block.blade'
-        # If we didn't find a PHP tag on the first line of the comment, we have to warn user that their comment is not processed correctly.
+        # If we see a PHP tag inside the comment, we have to warn user that their comment is not processed correctly.
         # We can't back out of our commitment to use comment, so highlighting it differently is the best option.
         # Contents of this is the original PHP patterns but with 'invalid.illegal.php-code-in-comment.blade' added to name
         'patterns': [
