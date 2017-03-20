@@ -95,6 +95,9 @@
   '@slot(\'variable\')':
     'prefix': 'slot'
     'body': '@slot(\'${1:variable}\')\n\t$0\n@endslot'
+  '@isset($var)':
+    'prefix': 'isset'
+    'body': '@isset(${1:$var})\n\t$0\n@endisset'
   # The following snippets are identical to the ones above with the exception that the prefix includes the @-symbol.
   # This solves the edge case where for instance typing @if<TAB> will result in expanding to @@if... but should
   # resolve to @if... instead.
@@ -183,3 +186,6 @@
   '@slot(\'variable\') ':
     'prefix': '@slot'
     'body': '@slot(\'${1:variable}\')\n\t$0\n@endslot'
+  '@isset($var) ':
+    'prefix': '@isset'
+    'body': '@isset(${1:$var})\n\t$0\n@endisset'

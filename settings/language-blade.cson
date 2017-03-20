@@ -24,6 +24,7 @@
        |[Ff]orelse
        |[Hh]asSection
        |[Ii]f
+       |[Ii]sset
        |[Ss]lot
        |[Uu]nless
        |verbatim
@@ -73,6 +74,7 @@
          |[Ee]ndforeach
          |[Ee]ndforelse
          |[Ee]ndif
+         |[Ee]ndisset
          |[Ee]ndlang
          |[Ee]ndphp
          |[Ee]ndprepend

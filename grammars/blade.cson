@@ -226,6 +226,7 @@
                   |[Ii]ncludeIf
                   |[Ii]ncludeWhen
                   |[Ii]nject
+                  |[Ii]sset
                   |[Ll]ang
                   |[Pp]hp
                   |[Pp]repend
@@ -268,6 +269,7 @@
                   |[Ee]ndforeach
                   |[Ee]ndforelse
                   |[Ee]ndif
+                  |[Ee]ndisset
                   |[Ee]ndlang
                   |[Ee]ndprepend
                   |[Ee]ndpush
@@ -307,6 +309,7 @@
                   |[Ee]ndforeach
                   |[Ee]ndforelse
                   |[Ee]ndif
+                  |[Ee]ndisset
                   |[Ee]ndlang
                   |[Ee]ndprepend
                   |[Ee]ndpush
