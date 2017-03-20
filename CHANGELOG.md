@@ -6,6 +6,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.29.0] - 2017-03-21
+### Added
+- New directives: `@isset` and `@endisset`
+
+### Changed
+- Sync with [language-php 7fc557ace292af28d47dad7a20356276c9367c05](https://github.com/atom/language-php/compare/v0.37.3...7fc557ace292af28d47dad7a20356276c9367c05#diff-4)
+
 ## [0.28.1] - 2017-02-23
 ### Added
 - New directive: `@includeWhen`
@@ -142,7 +149,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.28.1...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.29.0...HEAD
+[0.29.0]: https://github.com/jawee/language-blade/compare/v0.28.1...v0.29.0
 [0.28.1]: https://github.com/jawee/language-blade/compare/v0.28.0...v0.28.1
 [0.28.0]: https://github.com/jawee/language-blade/compare/v0.27.1...v0.28.0
 [0.27.1]: https://github.com/jawee/language-blade/compare/v0.27.0...v0.27.1
