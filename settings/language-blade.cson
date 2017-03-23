@@ -11,40 +11,34 @@
       |(?<![A-Za-z0-9_@])
        @
        (?:
-        [Cc]an
-       |[Cc]annot
-       |[Cc]omponent
-       |[Ee]lse
-       |[Ee]lsecan
-       |[Ee]lsecannot
-       |[Ee]lseif
-       |[Ee]mpty
-       |[Ff]or
-       |[Ff]oreach
-       |[Ff]orelse
-       |[Hh]asSection
-       |[Ii]f
-       |[Ii]sset
-       |[Ss]lot
-       |[Uu]nless
+        (?i)can
+       |(?i)cannot
+       |(?i)component
+       |(?i)else
+       |(?i)elsecan
+       |(?i)elsecannot
+       |(?i)elseif
+       |(?i)empty
+       |(?i)for
+       |(?i)foreach
+       |(?i)forelse
+       |(?i)hasSection
+       |(?i)if
+       |(?i)isset
+       |(?i)slot
+       |(?i)unless
        |verbatim
-       |[Ww]hile
+       |(?i)while
        )
        \\b
       |(?<![A-Za-z0-9_@])
-       @[Pp]hp\\b
+       @(?i:(php|lang))\\b
        (?! # Not followed by
-        [\\t ]*\\( # Single line @php ($expression)
-       |.*(?<![A-Za-z0-9_@])@[Ee]ndphp\\b # @endphp on same line
+        [\\t ]*\\( # Single line expression
+       |.*(?<![A-Za-z0-9_@])@(?i:end\\3)\\b # @end-directive of the same name on same line
        )
       |(?<![A-Za-z0-9_@])
-       @[Ll]ang\\b
-       (?! # Not followed by
-        [\\t ]*\\( # Single line @lang ($expression)
-       |.*(?<![A-Za-z0-9_@])@[Ee]ndlang\\b # @endlang on same line
-       )
-      |(?<![A-Za-z0-9_@])
-       @(?:[Ss]ection|[Pp]repend|[Pp]ush)\\b
+       @(?i:section|prepend|push)\\b
        (?! # Not followed by
         [\\t ]*\\([ ]*(?:"[^"]*"|'[^']*')[ ]*, # Comma after string argument
        )
@@ -61,32 +55,32 @@
         |(?<![A-Za-z0-9_@])
          @
          (
-          [Aa]ppend
-         |[Ee]lse
-         |[Ee]lsecan
-         |[Ee]lsecannot
-         |[Ee]lseif
-         |[Ee]mpty
-         |[Ee]ndcan
-         |[Ee]ndcannot
-         |[Ee]ndcomponent
-         |[Ee]ndfor
-         |[Ee]ndforeach
-         |[Ee]ndforelse
-         |[Ee]ndif
-         |[Ee]ndisset
-         |[Ee]ndlang
-         |[Ee]ndphp
-         |[Ee]ndprepend
-         |[Ee]ndpush
-         |[Ee]ndsection
-         |[Ee]ndslot
-         |[Ee]ndunless
+          (?i)append
+         |(?i)else
+         |(?i)elsecan
+         |(?i)elsecannot
+         |(?i)elseif
+         |(?i)empty
+         |(?i)endcan
+         |(?i)endcannot
+         |(?i)endcomponent
+         |(?i)endfor
+         |(?i)endforeach
+         |(?i)endforelse
+         |(?i)endif
+         |(?i)endisset
+         |(?i)endlang
+         |(?i)endphp
+         |(?i)endprepend
+         |(?i)endpush
+         |(?i)endsection
+         |(?i)endslot
+         |(?i)endunless
          |endverbatim
-         |[Ee]ndwhile
-         |[Oo]verwrite
-         |[Ss]how
-         |[Ss]top
+         |(?i)endwhile
+         |(?i)overwrite
+         |(?i)show
+         |(?i)stop
          )
          \\b
       )
