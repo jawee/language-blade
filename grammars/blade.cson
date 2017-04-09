@@ -261,10 +261,10 @@
                   (?i: # Ordering not important as we everything will be matched up to opening parentheses
                    append
                   |else
-                  |empty
                   |endcan
                   |endcannot
                   |endcomponent
+                  |endempty
                   |endfor
                   |endforeach
                   |endforelse
@@ -305,6 +305,7 @@
                   |(?i)endcan
                   |(?i)endcannot
                   |(?i)endcomponent
+                  |(?i)endempty
                   |(?i)endfor
                   |(?i)endforeach
                   |(?i)endforelse
