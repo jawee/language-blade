@@ -64,6 +64,7 @@
          |(?i)endcan
          |(?i)endcannot
          |(?i)endcomponent
+         |(?i)endempty
          |(?i)endfor
          |(?i)endforeach
          |(?i)endforelse
