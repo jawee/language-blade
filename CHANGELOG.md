@@ -6,6 +6,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.30.0] - 2017-05-04
+### Added
+- New directives: `@empty ($condition)` and `@endempty`
+
+### Changed
+- Converted CoffeeScript to JavaScript
+- Most of directive names are allowed to be case insensitive, where spec allows
+- Sync with [language-php b00790432f19fdb08d25989973f66cbf7f7a3eac](https://github.com/atom/language-php/compare/7fc557ace292af28d47dad7a20356276c9367c05...b00790432f19fdb08d25989973f66cbf7f7a3eac#diff-9972c3dda8fb0e2f637ca073c25e7e6d)
+
 ## [0.29.0] - 2017-03-21
 ### Added
 - New directives: `@isset` and `@endisset`
@@ -149,7 +158,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.29.0...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.30.0...HEAD
+[0.30.0]: https://github.com/jawee/language-blade/compare/v0.29.0...v0.30.0
 [0.29.0]: https://github.com/jawee/language-blade/compare/v0.28.1...v0.29.0
 [0.28.1]: https://github.com/jawee/language-blade/compare/v0.28.0...v0.28.1
 [0.28.0]: https://github.com/jawee/language-blade/compare/v0.27.1...v0.28.0
