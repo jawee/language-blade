@@ -12,7 +12,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Converted CoffeeScript to JavaScript
-- Most of directive names are allowed to be case insensitive, where spec allows
+- Most of built-in directive names are now allowed to be case insensitive
 - Sync with [language-php b00790432f19fdb08d25989973f66cbf7f7a3eac](https://github.com/atom/language-php/compare/7fc557ace292af28d47dad7a20356276c9367c05...b00790432f19fdb08d25989973f66cbf7f7a3eac#diff-9972c3dda8fb0e2f637ca073c25e7e6d)
 
 ## [0.29.0] - 2017-03-21
