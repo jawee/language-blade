@@ -201,7 +201,7 @@
         ]
       }
       {
-        # Built in directives that require additional arguments
+        # Built in directives that take additional arguments
         'begin': '''(?x)
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
                   @
@@ -216,6 +216,7 @@
                   |elsecan
                   |elsecannot
                   |elseif
+                  |empty
                   |extends
                   |for
                   |foreach
