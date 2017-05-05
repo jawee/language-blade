@@ -2,6 +2,7 @@
 'name': 'Blade'
 'fileTypes': [
   'blade.php'
+  'blade'
 ]
 'firstLineMatch': '''(?x)
   # Hashbang
