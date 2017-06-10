@@ -204,49 +204,56 @@
         # Built in directives that take additional arguments
         'begin': '''(?x)
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
-                  @
-                  (?i: # Ordering not important as we everything will be matched up to opening parentheses
-                   break
-                  |can
-                  |cannot
-                  |choice
-                  |component
-                  |continue
-                  |each
-                  |elsecan
-                  |elsecannot
-                  |elseif
-                  |empty
-                  |extends
-                  |for
-                  |foreach
-                  |forelse
-                  |hassection
-                  |if
-                  |include
-                  |includeif
-                  |includewhen
-                  |inject
-                  |isset
-                  |lang
-                  |php
-                  |prepend
-                  |push
-                  |section
-                  |slot
-                  |stack
-                  |unless
-                  |unset
-                  |while
-                  |yield
+                  (
+                    @
+                    (?i: # Ordering not important as we everything will be matched up to opening parentheses
+                     break
+                    |can
+                    |cannot
+                    |choice
+                    |component
+                    |continue
+                    |each
+                    |elsecan
+                    |elsecannot
+                    |elseif
+                    |empty
+                    |extends
+                    |for
+                    |foreach
+                    |forelse
+                    |hassection
+                    |if
+                    |include
+                    |includeif
+                    |includewhen
+                    |inject
+                    |isset
+                    |lang
+                    |php
+                    |prepend
+                    |push
+                    |section
+                    |slot
+                    |stack
+                    |unless
+                    |unset
+                    |while
+                    |yield
+                    )
+                    [\\t ]* # Whitespace between name and parentheses
                   )
-                  [\\t ]* # Whitespace between name and parentheses, consumed
-                  (?=\\() # Followed by opening parentheses, not consumed'''
+                  (\\() # Followed by opening parentheses'''
         'beginCaptures':
-          '0':
+          '1':
             'name': 'keyword.blade'
+          '2':
+            'name': 'begin.bracket.round.blade.php'
         'contentName': 'source.php'
-        'end': '(?<=\\))(?!.*\\))' # Greedy capture till the very last closing parentheses on the first line where one is detected
+        'end': '\\)'
+        'endCaptures':
+          '0':
+            'name': 'end.bracket.round.blade.php'
         'name': 'meta.directive.blade'
         'patterns': [
           {
@@ -258,39 +265,51 @@
         # Built in directives that do not take any arguments, but it's not forbidden and we should show that it does nothing (as good as commenting out)
         'begin': '''(?x)
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
-                  @
-                  (?i: # Ordering not important as we everything will be matched up to opening parentheses
-                   append
-                  |else
-                  |endcan
-                  |endcannot
-                  |endcomponent
-                  |endempty
-                  |endfor
-                  |endforeach
-                  |endforelse
-                  |endif
-                  |endisset
-                  |endlang
-                  |endprepend
-                  |endpush
-                  |endsection
-                  |endslot
-                  |endunless
-                  |endwhile
-                  |overwrite
-                  |parent
-                  |show
-                  |stop
+                  (
+                    @
+                    (?i: # Ordering not important as we everything will be matched up to opening parentheses
+                     append
+                    |else
+                    |endcan
+                    |endcannot
+                    |endcomponent
+                    |endempty
+                    |endfor
+                    |endforeach
+                    |endforelse
+                    |endif
+                    |endisset
+                    |endlang
+                    |endprepend
+                    |endpush
+                    |endsection
+                    |endslot
+                    |endunless
+                    |endwhile
+                    |overwrite
+                    |parent
+                    |show
+                    |stop
+                    )
+                    [\\t ]* # Whitespace between name and parentheses
                   )
-                  [\\t ]* # Whitespace between name and parentheses, consumed
-                  (?=\\() # Followed by opening parentheses, not consumed'''
+                  (\\() # Followed by opening parentheses'''
         'beginCaptures':
-          '0':
+          '1':
             'name': 'keyword.blade'
+          '2':
+            'name': 'begin.bracket.round.blade.php'
         'contentName': 'comment.blade'
-        'end': '(?<=\\))(?!.*\\))' # Greedy capture till the very last closing parentheses on the first line where one is detected
+        'end': '\\)'
+        'endCaptures':
+          '0':
+            'name': 'end.bracket.round.blade.php'
         'name': 'meta.directive.blade'
+        'patterns': [
+          {
+            'include': '#balance_brackets'
+          }
+        ]
       }
       {
         # Built in directives that accept not taking any arguments
@@ -333,15 +352,13 @@
       {
         # Embedded PHP code block
         'begin': '(?<![A-Za-z0-9_@])@(?i:php)' # Prepended @ or literal character escapes the sequence
-        'end': '(?<![A-Za-z0-9_@])@(?i:endphp)([\\t ]*\\(.*\\)(?!.*\\)))?' # Prepended @ or literal character escapes the sequence
+        'end': '(?<![A-Za-z0-9_@])@(?i:endphp)' # Prepended @ or literal character escapes the sequence
         'beginCaptures':
           '0':
             'name': 'keyword.begin.blade'
         'endCaptures':
           '0':
             'name': 'keyword.end.blade'
-          '1':
-            'name': 'comment.blade'
         'contentName': 'source.php'
         'name': 'meta.embedded.block.blade'
         'patterns': [
@@ -355,15 +372,22 @@
         # With arguments
         'begin': '''(?x)
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
-                  @
-                  \\w+(?:::\w+)? # Any number/letter sequence, can also be postfixed by ::someOtherString
-                  [\\t ]* # Whitespace between name and parentheses, consumed
-                  (?=\\() # Followed by opening parentheses, not consumed'''
+                  (
+                    @
+                    \\w+(?:::\w+)? # Any number/letter sequence, can also be postfixed by ::someOtherString
+                    [\\t ]* # Whitespace between name and parentheses
+                  )
+                  (\\() # Followed by opening parentheses'''
         'beginCaptures':
-          '0':
+          '1':
             'name': 'entity.name.function.blade'
+          '2':
+            'name': 'begin.bracket.round.blade.php'
         'contentName': 'source.php'
-        'end': '(?<=\\))(?!.*\\))' # Greedy capture till the very last closing parentheses on the first line where one is detected
+        'end': '\\)'
+        'endCaptures':
+          '0':
+            'name': 'end.bracket.round.blade.php'
         'name': 'meta.directive.custom.blade'
         'patterns': [
           {
@@ -477,6 +501,19 @@
   }
 ]
 'repository':
+  'balance_brackets':
+    'patterns': [
+      {
+        'begin': '\\('
+        'end': '\\)'
+        'patterns': [
+          'include': '#balance_brackets'
+        ]
+      }
+      {
+        'match': '[^\\(\\)]+'
+      }
+    ]
   'class-builtin':
     'patterns': [
       {
