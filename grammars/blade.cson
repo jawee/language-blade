@@ -351,8 +351,8 @@
       }
       {
         # Embedded PHP code block
-        'begin': '(?<![A-Za-z0-9_@])@(?i:php)' # Prepended @ or literal character escapes the sequence
-        'end': '(?<![A-Za-z0-9_@])@(?i:endphp)' # Prepended @ or literal character escapes the sequence
+        'begin': '(?<![A-Za-z0-9_@])@(?i:php)\\b' # Prepended @ or literal character escapes the sequence
+        'end': '(?<![A-Za-z0-9_@])(?=@(?i:endphp)\\b)' # Prepended @ or literal character escapes the sequence
         'beginCaptures':
           '0':
             'name': 'keyword.begin.blade'
@@ -364,6 +364,34 @@
         'patterns': [
           {
             'include': '#language'
+          }
+        ]
+      }
+      {
+        'begin': '''(?x)
+                  (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
+                  (
+                    @
+                    (?i:
+                      endphp
+                    )
+                    [\\t ]* # Whitespace between name and parentheses
+                  )
+                  (\\() # Followed by opening parentheses'''
+        'beginCaptures':
+          '1':
+            'name': 'keyword.end.blade'
+          '2':
+            'name': 'begin.bracket.round.blade.php'
+        'contentName': 'comment.blade'
+        'end': '\\)'
+        'endCaptures':
+          '0':
+            'name': 'end.bracket.round.blade.php'
+        'name': 'meta.directive.blade'
+        'patterns': [
+          {
+            'include': '#balance_brackets'
           }
         ]
       }
