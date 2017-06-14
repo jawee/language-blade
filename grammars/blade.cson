@@ -395,6 +395,16 @@
           }
         ]
       }
+      {
+        'match': '''(?x)
+                  (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
+                  @
+                  (?: # Ordering not important as we everything will be matched up to word boundary
+                   (?i)endphp
+                  )
+                  \\b'''
+        'name': 'keyword.end.blade'
+      }
       # Custom directives
       {
         # With arguments
