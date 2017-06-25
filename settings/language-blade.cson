@@ -26,6 +26,7 @@
        |(?i)if
        |(?i)isset
        |(?i)slot
+       |(?i)switch
        |(?i)unless
        |verbatim
        |(?i)while
@@ -76,6 +77,7 @@
          |(?i)endpush
          |(?i)endsection
          |(?i)endslot
+         |(?i)endswitch
          |(?i)endunless
          |endverbatim
          |(?i)endwhile
