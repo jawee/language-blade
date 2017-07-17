@@ -11,7 +11,8 @@
       |(?<![A-Za-z0-9_@])
        @
        (?:
-        (?i)can
+        (?i)auth
+       |(?i)can
        |(?i)cannot
        |(?i)component
        |(?i)else
@@ -62,6 +63,7 @@
          |(?i)elsecannot
          |(?i)elseif
          |(?i)empty
+         |(?i)endauth
          |(?i)endcan
          |(?i)endcannot
          |(?i)endcomponent
