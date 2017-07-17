@@ -6,13 +6,19 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.33.0] - 2017-07-17
+### Added
+- New directives: `@auth`, and `@endauth`
+
+### Changed
+- Sync with [language-php 0.40.0](https://github.com/atom/language-php/compare/e1290265f3d68316347e0ab2665686016b4b24b7...v0.40.0#diff-9972c3dda8fb0e2f637ca073c25e7e6d)
+
 ## [0.32.0] - 2017-06-25
 ### Added
 - New directives: `@switch`, `@endswitch`, `@case` and `@default`
 
 ### Changed
 - Sync with [language-php e1290265f3d68316347e0ab2665686016b4b24b7](https://github.com/atom/language-php/compare/9035d97d18b2b172c317d76bf535113e41664111...e1290265f3d68316347e0ab2665686016b4b24b7#diff-9972c3dda8fb0e2f637ca073c25e7e6d)
-
 
 ## [0.31.0] - 2017-06-10
 ### Changed
@@ -171,7 +177,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.32.0...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.33.0...HEAD
+[0.33.0]: https://github.com/jawee/language-blade/compare/v0.32.0...v0.33.0
 [0.32.0]: https://github.com/jawee/language-blade/compare/v0.31.0...v0.32.0
 [0.31.0]: https://github.com/jawee/language-blade/compare/v0.30.0...v0.31.0
 [0.30.0]: https://github.com/jawee/language-blade/compare/v0.29.0...v0.30.0
