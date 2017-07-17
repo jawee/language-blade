@@ -207,7 +207,8 @@
                   (
                     @
                     (?i: # Ordering not important as we everything will be matched up to opening parentheses
-                     break
+                     auth
+                    |break
                     |can
                     |cannot
                     |case
@@ -273,6 +274,7 @@
                      append
                     |default
                     |else
+                    |endauth
                     |endcan
                     |endcannot
                     |endcomponent
@@ -322,6 +324,7 @@
                   @
                   (?: # Ordering not important as we everything will be matched up to word boundary
                    (?i)append
+                  |(?i)auth
                   |(?i)break
                   |(?i)continue
                   |(?i)default
