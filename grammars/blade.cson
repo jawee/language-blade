@@ -224,6 +224,7 @@
                     |for
                     |foreach
                     |forelse
+                    |guest
                     |hassection
                     |if
                     |include
@@ -282,6 +283,7 @@
                     |endfor
                     |endforeach
                     |endforelse
+                    |endguest
                     |endif
                     |endisset
                     |endlang
@@ -330,6 +332,7 @@
                   |(?i)default
                   |(?i)else
                   |(?i)empty
+                  |(?i)endauth
                   |(?i)endcan
                   |(?i)endcannot
                   |(?i)endcomponent
@@ -337,6 +340,7 @@
                   |(?i)endfor
                   |(?i)endforeach
                   |(?i)endforelse
+                  |(?i)endguest
                   |(?i)endif
                   |(?i)endisset
                   |(?i)endlang
@@ -348,6 +352,7 @@
                   |(?i)endunless
                   |endverbatim
                   |(?i)endwhile
+                  |(?i)guest
                   |(?i)lang
                   |(?i)overwrite
                   |(?i)parent
