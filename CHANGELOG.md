@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
+## [0.34.0] - 2017-07-20
+### Added
+- New directives: `@guest`, and `@endguest`
+
 ## [0.33.0] - 2017-07-17
 ### Added
 - New directives: `@auth`, and `@endauth`
@@ -177,7 +181,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.33.0...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.34.0...HEAD
+[0.34.0]: https://github.com/jawee/language-blade/compare/v0.33.0...v0.34.0
 [0.33.0]: https://github.com/jawee/language-blade/compare/v0.32.0...v0.33.0
 [0.32.0]: https://github.com/jawee/language-blade/compare/v0.31.0...v0.32.0
 [0.31.0]: https://github.com/jawee/language-blade/compare/v0.30.0...v0.31.0
