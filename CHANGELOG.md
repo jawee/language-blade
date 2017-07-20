@@ -8,11 +8,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.34.0] - 2017-07-20
 ### Added
-- New directives: `@guest`, and `@endguest`
+- New directives: `@guest` and `@endguest`
 
 ## [0.33.0] - 2017-07-17
 ### Added
-- New directives: `@auth`, and `@endauth`
+- New directives: `@auth` and `@endauth`
 
 ### Changed
 - Sync with [language-php 0.40.0](https://github.com/atom/language-php/compare/e1290265f3d68316347e0ab2665686016b4b24b7...v0.40.0#diff-9972c3dda8fb0e2f637ca073c25e7e6d)
