@@ -116,11 +116,11 @@
     'description': 'The @empty directive'
   '@continue':
     'prefix': 'continue'
-    'body': '@continue(${1:$var} == 1)$0'
+    'body': '@continue${1:(${2:$condition})}$0'
     'description': 'The @continue directive, @continue($user->type == 1)'
   '@break':
     'prefix': 'break'
-    'body': '@break(${1:$var} == 1)$0'
+    'body': '@break${1:(${2:$condition})}$0'
     'description': 'The @break directive, @break($user->type == 1)'
   '@includeif':
     'prefix': 'includeif'
@@ -275,11 +275,11 @@
     'description': 'The @empty directive'
   '@continue ':
     'prefix': '@continue'
-    'body': '@continue(${1:$var} == 1)$0'
+    'body': '@continue${1:(${2:$condition})}$0'
     'description': 'The @continue directive, @continue($user->type == 1)'
   '@break ':
     'prefix': '@break'
-    'body': '@break(${1:$var} == 1)$0'
+    'body': '@break${1:(${2:$condition})}$0'
     'description': 'The @break directive, @break($user->type == 1)'
   '@includeif ':
     'prefix': '@includeif'
