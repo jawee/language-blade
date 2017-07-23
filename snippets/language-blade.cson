@@ -109,7 +109,7 @@
   '@empty':
     'prefix': 'empty'
     'body': """
-    @empty(${1:$var})
+    @empty (${1:$var})
     \t$0
     @endempty
     """
@@ -133,9 +133,9 @@
   '@can':
     'prefix': 'can'
     'body': """
-    @can(\'${1:update}\', ${2:$post})
+    @can (\'${1:update}\', ${2:$post})
     \t${0:// Do something}
-    @elsecan(\'${3:create}\', ${4:$post})
+    @elsecan (\'${3:create}\', ${4:$post})
     \t// Do something
     @endcan
     """
@@ -143,9 +143,9 @@
   '@cannot':
     'prefix': 'cannot'
     'body': """
-    @cannot(\'${1:update}\', ${2:$post})
+    @cannot (\'${1:update}\', ${2:$post})
     \t${0:// Do something}
-    @elsecannot(\'${3:create}\', ${4:$post})
+    @elsecannot (\'${3:create}\', ${4:$post})
     \t// Do something
     @endcannot
     """
@@ -153,7 +153,7 @@
   '@auth':
     'prefix': 'auth'
     'body': """
-    @auth${1:(\'${2:admin}\')}
+    @auth${1: (\'${2:admin}\')}
     \t$0
     @endauth
     """
@@ -268,7 +268,7 @@
   '@empty ':
     'prefix': '@empty'
     'body': """
-    @empty(${1:$var})
+    @empty (${1:$var})
     \t$0
     @endempty
     """
@@ -292,9 +292,9 @@
   '@can ':
     'prefix': '@can'
     'body': """
-    @can(\'${1:update}\', ${2:$post})
+    @can (\'${1:update}\', ${2:$post})
     \t${0:// Do something}
-    @elsecan(\'${3:create}\', ${4:$post})
+    @elsecan (\'${3:create}\', ${4:$post})
     \t// Do something
     @endcan
     """
@@ -302,9 +302,9 @@
   '@cannot ':
     'prefix': '@cannot'
     'body': """
-    @cannot(\'${1:update}\', ${2:$post})
+    @cannot (\'${1:update}\', ${2:$post})
     \t${0:// Do something}
-    @elsecannot(\'${3:create}\', ${4:$post})
+    @elsecannot (\'${3:create}\', ${4:$post})
     \t// Do something
     @endcannot
     """
@@ -312,7 +312,7 @@
   '@auth ':
     'prefix': '@auth'
     'body': """
-    @auth${1:(\'${2:admin}\')}
+    @auth${1: (\'${2:admin}\')}
     \t$0
     @endauth
     """
