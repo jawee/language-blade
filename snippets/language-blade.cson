@@ -98,6 +98,74 @@
   '@isset($var)':
     'prefix': 'isset'
     'body': '@isset(${1:$var})\n\t$0\n@endisset'
+  '@verbatim':
+    'prefix': 'verbatim'
+    'body': """
+    @verbatim
+    \t$0
+    @endverbatim
+    """
+    'description': 'The @verbatim Directive, If you are displaying JavaScript variables in a large portion of your template, you may wrap the HTML in the @verbatim directive so that you do not have to prefix each Blade echo statement with an @ symbol:'
+  '@empty':
+    'prefix': 'empty'
+    'body': """
+    @empty (${1:$var})
+    \t$0
+    @endempty
+    """
+    'description': 'The @empty directive'
+  '@continue':
+    'prefix': 'continue'
+    'body': '@continue${1:(${2:$condition})}$0'
+    'description': 'The @continue directive, @continue($user->type == 1)'
+  '@break':
+    'prefix': 'break'
+    'body': '@break${1:(${2:$condition})}$0'
+    'description': 'The @break directive, @break($user->type == 1)'
+  '@includeif':
+    'prefix': 'includeif'
+    'body': '@includeif(\'${1:view}\', ${2:$data})$0'
+    'description': 'The @includeif directive'
+  '@inject':
+    'prefix': 'inject'
+    'body': '@inject(\'${1:$var}\', ${2:App::class})$0'
+    'description': 'The @inject directive, The @inject directive may be used to retrieve a service from the Laravel service container. The first argument passed to @inject is the name of the variable the service will be placed into, while the second argument is the class or interface name of the service you wish to resolve'
+  '@can':
+    'prefix': 'can'
+    'body': """
+    @can (\'${1:update}\', ${2:$post})
+    \t${0:// Do something}
+    @elsecan (\'${3:create}\', ${4:$post})
+    \t// Do something
+    @endcan
+    """
+    'description': 'The @can directive'
+  '@cannot':
+    'prefix': 'cannot'
+    'body': """
+    @cannot (\'${1:update}\', ${2:$post})
+    \t${0:// Do something}
+    @elsecannot (\'${3:create}\', ${4:$post})
+    \t// Do something
+    @endcannot
+    """
+    'description': 'The @cannot directive'
+  '@auth':
+    'prefix': 'auth'
+    'body': """
+    @auth${1: (\'${2:admin}\')}
+    \t$0
+    @endauth
+    """
+    'description': 'The @auth directive'
+  '@guest':
+    'prefix': 'guest'
+    'body': """
+    @guest
+    \t$0
+    @endguest
+    """
+    'description': 'The @guest directive'
   # The following snippets are identical to the ones above with the exception that the prefix includes the @-symbol.
   # This solves the edge case where for instance typing @if<TAB> will result in expanding to @@if... but should
   # resolve to @if... instead.
@@ -189,3 +257,71 @@
   '@isset($var) ':
     'prefix': '@isset'
     'body': '@isset(${1:$var})\n\t$0\n@endisset'
+  '@verbatim ':
+    'prefix': '@verbatim'
+    'body': """
+    @verbatim
+    \t$0
+    @endverbatim
+    """
+    'description': 'The @verbatim Directive, If you are displaying JavaScript variables in a large portion of your template, you may wrap the HTML in the @verbatim directive so that you do not have to prefix each Blade echo statement with an @ symbol:'
+  '@empty ':
+    'prefix': '@empty'
+    'body': """
+    @empty (${1:$var})
+    \t$0
+    @endempty
+    """
+    'description': 'The @empty directive'
+  '@continue ':
+    'prefix': '@continue'
+    'body': '@continue${1:(${2:$condition})}$0'
+    'description': 'The @continue directive, @continue($user->type == 1)'
+  '@break ':
+    'prefix': '@break'
+    'body': '@break${1:(${2:$condition})}$0'
+    'description': 'The @break directive, @break($user->type == 1)'
+  '@includeif ':
+    'prefix': '@includeif'
+    'body': '@includeif(\'${1:view}\', ${2:$data})$0'
+    'description': 'The @includeif directive'
+  '@inject ':
+    'prefix': '@inject'
+    'body': '@inject(\'${1:$var}\', ${2:App::class})$0'
+    'description': 'The @inject directive, The @inject directive may be used to retrieve a service from the Laravel service container. The first argument passed to @inject is the name of the variable the service will be placed into, while the second argument is the class or interface name of the service you wish to resolve'
+  '@can ':
+    'prefix': '@can'
+    'body': """
+    @can (\'${1:update}\', ${2:$post})
+    \t${0:// Do something}
+    @elsecan (\'${3:create}\', ${4:$post})
+    \t// Do something
+    @endcan
+    """
+    'description': 'The @can directive'
+  '@cannot ':
+    'prefix': '@cannot'
+    'body': """
+    @cannot (\'${1:update}\', ${2:$post})
+    \t${0:// Do something}
+    @elsecannot (\'${3:create}\', ${4:$post})
+    \t// Do something
+    @endcannot
+    """
+    'description': 'The @cannot directive'
+  '@auth ':
+    'prefix': '@auth'
+    'body': """
+    @auth${1: (\'${2:admin}\')}
+    \t$0
+    @endauth
+    """
+    'description': 'The @auth directive'
+  '@guest ':
+    'prefix': '@guest'
+    'body': """
+    @guest
+    \t$0
+    @endguest
+    """
+    'description': 'The @guest directive'
