@@ -1,4 +1,4 @@
-'.text.html.php.blade':
+'.text.html.php.blade - .source.php':
   # Common snippets
   '{{-- comment --}}':
     'description': 'Blade comment.'
