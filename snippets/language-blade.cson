@@ -1,4 +1,4 @@
-'.text.html.php.blade - .source.php':
+'.text.html.php.blade:not(.source.php)':
   # Common snippets
   '{{-- comment --}}':
     'description': 'Blade comment.'
