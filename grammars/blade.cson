@@ -232,6 +232,7 @@
                     |includewhen
                     |inject
                     |isset
+                    |json
                     |lang
                     |php
                     |prepend
