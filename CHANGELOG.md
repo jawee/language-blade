@@ -14,7 +14,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Snippets file has been reworked.
 - Descriptions for existing snippets with URL-s pointing to appropriate documentation.
-- Sync with [language-php 81e973fa0ce34c1c6e68140eaf411904973ab390](https://github.com/atom/language-php/compare/9035d97d18b2b172c317d76bf535113e41664111...2d9722ef5f6e550f2c0e9b23db1fc8943a7c6016#diff-9972c3dda8fb0e2f637ca073c25e7e6d)
+- Sync with [language-php 2d9722ef5f6e550f2c0e9b23db1fc8943a7c6016](https://github.com/atom/language-php/compare/v0.40.0...2d9722ef5f6e550f2c0e9b23db1fc8943a7c6016#diff-9972c3dda8fb0e2f637ca073c25e7e6d)
 
 ## [0.34.0] - 2017-07-20
 ### Added
@@ -32,7 +32,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - New directives: `@switch`, `@endswitch`, `@case` and `@default`
 
 ### Changed
-- Sync with [language-php 2d9722ef5f6e550f2c0e9b23db1fc8943a7c6016](https://github.com/atom/language-php/compare/9035d97d18b2b172c317d76bf535113e41664111...2d9722ef5f6e550f2c0e9b23db1fc8943a7c6016#diff-9972c3dda8fb0e2f637ca073c25e7e6d)
+- Sync with [language-php e1290265f3d68316347e0ab2665686016b4b24b7](https://github.com/atom/language-php/compare/9035d97d18b2b172c317d76bf535113e41664111...e1290265f3d68316347e0ab2665686016b4b24b7#diff-9972c3dda8fb0e2f637ca073c25e7e6d)
 
 ## [0.31.0] - 2017-06-10
 ### Changed
