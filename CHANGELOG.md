@@ -6,7 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Nothing
 
-## [0.35.0] - 2017-09-11
+## [0.35.0] - 2017-09-18
 ### Added
 - New snippets: `isset`, `verbatim`, `empty`, `continue`, `break`, `includeif`, `inject`, `can`, `cannot`, `auth` and `guest`.
 - New directive: `json`.
@@ -14,7 +14,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Snippets file has been reworked.
 - Descriptions for existing snippets with URL-s pointing to appropriate documentation.
-- Sync with [language-php 2d9722ef5f6e550f2c0e9b23db1fc8943a7c6016](https://github.com/atom/language-php/compare/v0.40.0...2d9722ef5f6e550f2c0e9b23db1fc8943a7c6016#diff-9972c3dda8fb0e2f637ca073c25e7e6d)
+- Sync with [language-php 0.42.0](https://github.com/atom/language-php/compare/v0.40.0...0.42.0#diff-9972c3dda8fb0e2f637ca073c25e7e6d)
 
 ## [0.34.0] - 2017-07-20
 ### Added
