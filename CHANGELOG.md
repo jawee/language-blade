@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.36.0] - 2017-09-22
+### Added
+- New directive: `includeFirst`.
+
 ## [0.35.0] - 2017-09-18
 ### Added
 - New snippets: `isset`, `verbatim`, `empty`, `continue`, `break`, `includeif`, `inject`, `can`, `cannot`, `auth` and `guest`.
