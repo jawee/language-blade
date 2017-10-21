@@ -43,43 +43,14 @@
         'name': 'comment.block.blade'
         # If we see a PHP tag inside the comment, we have to warn user that their comment is not processed correctly.
         # We can't back out of our commitment to use comment, so highlighting it differently is the best option.
-        # Contents of this is the original PHP patterns but with 'invalid.illegal.php-code-in-comment.blade' added to name
         'patterns': [
           {
-            'begin': '<\\?(?i:php|=)?(?![^?]*\\?>)'
-            'beginCaptures':
-              '0':
-                'name': 'punctuation.section.embedded.begin.php'
-            'end': '(\\?)>'
-            'endCaptures':
-              '0':
-                'name': 'punctuation.section.embedded.end.php'
-              '1':
-                'name': 'source.php'
-            'name': 'invalid.illegal.php-code-in-comment.blade.meta.embedded.block.php'
-            'contentName': 'source.php'
+            'begin': '(?=<\\?)'
+            'end': '(?<=\\?>)'
+            'name': 'invalid.illegal.php-code-in-comment.blade'
             'patterns': [
               {
-                'include': 'source.php'
-              }
-            ]
-          }
-          {
-            'begin': '<\\?(?i:php|=)?'
-            'beginCaptures':
-              '0':
-                'name': 'punctuation.section.embedded.begin.php'
-            'end': '(\\?)>'
-            'endCaptures':
-              '0':
-                'name': 'punctuation.section.embedded.end.php'
-              '1':
-                'name': 'source.php'
-            'name': 'invalid.illegal.php-code-in-comment.blade.meta.embedded.line.php'
-            'contentName': 'source.php'
-            'patterns': [
-              {
-                'include': 'source.php'
+                'include': '#php-tag'
               }
             ]
           }
