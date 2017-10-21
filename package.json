@@ -6,6 +6,6 @@
   "repository": "https://github.com/jawee/language-blade",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=1.21.0"
   }
 }
