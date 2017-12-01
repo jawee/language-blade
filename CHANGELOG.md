@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 - The distributed package doesn't contain development files, which slightly reduces install size.
-- CSS hack now inherits all properties and not just `color`.
+- CSS hack now unsets all properties instead of previously inheriting just `color` value.
 
 ## [0.36.0] - 2017-09-22
 ### Added
