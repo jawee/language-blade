@@ -235,6 +235,7 @@
                     |isset
                     |json
                     |lang
+                    |method
                     |php
                     |prepend
                     |push
@@ -275,6 +276,7 @@
                     @
                     (?i: # Ordering not important as we everything will be matched up to opening parentheses
                      append
+                    |csrf
                     |default
                     |else
                     |endauth
@@ -331,6 +333,7 @@
                   |(?i)auth
                   |(?i)break
                   |(?i)continue
+                  |(?i)csrf
                   |(?i)default
                   |(?i)else
                   |(?i)empty
