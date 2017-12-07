@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.38.0] - 2017-12-08
+### Added
+- New directive: `dd`.
+
 ## [0.37.0] - 2017-12-01
 ### Added
 - New directives: `csrf` and `method`.
@@ -203,7 +207,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.37.0...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.38.0...HEAD
+[0.38.0]: https://github.com/jawee/language-blade/compare/v0.37.0...v0.38.0
 [0.37.0]: https://github.com/jawee/language-blade/compare/v0.36.0...v0.37.0
 [0.36.0]: https://github.com/jawee/language-blade/compare/v0.35.0...v0.36.0
 [0.35.0]: https://github.com/jawee/language-blade/compare/v0.34.0...v0.35.0
