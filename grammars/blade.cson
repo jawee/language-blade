@@ -216,9 +216,12 @@
                     |component
                     |continue
                     |dd
+                    |dump
                     |each
+                    |elseauth
                     |elsecan
                     |elsecannot
+                    |elseguest
                     |elseif
                     |empty
                     |extends
@@ -337,6 +340,8 @@
                   |(?i)csrf
                   |(?i)default
                   |(?i)else
+                  |(?i)elseauth
+                  |(?i)elseguest
                   |(?i)empty
                   |(?i)endauth
                   |(?i)endcan
