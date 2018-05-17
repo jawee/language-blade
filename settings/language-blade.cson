@@ -13,10 +13,12 @@
        (?:
         (?i)auth
        |(?i)can
+       |(?i)canany
        |(?i)cannot
        |(?i)component
        |(?i)else
        |(?i)elsecan
+       |(?i)elsecanany
        |(?i)elsecannot
        |(?i)elseif
        |(?i)empty
@@ -61,11 +63,13 @@
           (?i)append
          |(?i)else
          |(?i)elsecan
+         |(?i)elsecanany
          |(?i)elsecannot
          |(?i)elseif
          |(?i)empty
          |(?i)endauth
          |(?i)endcan
+         |(?i)endcanany
          |(?i)endcannot
          |(?i)endcomponent
          |(?i)endempty
