@@ -156,7 +156,7 @@
   "@section('name') … @endsection":
     'description': 'Defines a section of content.'
     'descriptionMoreURL': 'https://laravel.com/docs/master/blade#defining-a-layout'
-    'prefix': 'section'
+    'prefix': 'sec'
     'body': '''
               @section('${1:name}')
               \t$0
@@ -437,7 +437,7 @@
   "@section('name') … @endsection ":
     'description': 'Defines a section of content.'
     'descriptionMoreURL': 'https://laravel.com/docs/master/blade#defining-a-layout'
-    'prefix': '@section'
+    'prefix': '@sec'
     'body': '''
               @section('${1:name}')
               \t$0

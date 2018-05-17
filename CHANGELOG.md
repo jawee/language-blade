@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - New directives: `canany`, `elsecanany` and `endcanany`.
 
+### Changed
+- `section` and `@section` snippets have been shortened to `sec` and `@sec` respectively to avoid a naming collision with `language-html`. [#82](https://github.com/jawee/language-blade/issues/82)
+
 ## [0.39.0] - 2018-03-18
 ### Added
 - New directives: `dump`, `elseauth` and `elseguest`.
