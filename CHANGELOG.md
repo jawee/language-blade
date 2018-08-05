@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.41.1] - 2018-08-06
+### Fixed
+- This is a version bump due to a botched Atom Packages publish.
+
 ## [0.41.0] - 2018-08-06
 ### Added
 - The `@` in escaped Blade syntax is now highlighted as a comment.
@@ -225,7 +229,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.41.0...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.41.1...HEAD
+[0.41.1]: https://github.com/jawee/language-blade/compare/v0.41.0...v0.41.1
 [0.41.0]: https://github.com/jawee/language-blade/compare/v0.40.0...v0.41.0
 [0.40.0]: https://github.com/jawee/language-blade/compare/v0.39.0...v0.40.0
 [0.39.0]: https://github.com/jawee/language-blade/compare/v0.38.0...v0.39.0
