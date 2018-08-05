@@ -135,6 +135,10 @@
         ]
       }
       {
+        'match': '@(?={{{|{{|{!!|@\\w+(?:::\\w+)?)'
+        'name': 'comment.blade'
+      }
+      {
         # Escaped echos
         # Escaped if preceded by @
         'begin': '(?<!@){{{'
