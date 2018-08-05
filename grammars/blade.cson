@@ -441,7 +441,7 @@
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
                   (
                     @
-                    \\w+(?:::\w+)? # Any number/letter sequence, can also be postfixed by ::someOtherString
+                    \\w+(?:::\\w+)? # Any number/letter sequence, can also be postfixed by ::someOtherString
                     [\\t ]* # Whitespace between name and parentheses
                   )
                   (\\() # Followed by opening parentheses'''
@@ -467,7 +467,7 @@
         'match': '''(?x)
                   (?<![A-Za-z0-9_@]) # Prepended @ or literal character escapes the sequence
                   @
-                  \\w+(?:::\w+)? # Any number/letter sequence, can also be postfixed by ::someOtherString
+                  \\w+(?:::\\w+)? # Any number/letter sequence, can also be postfixed by ::someOtherString
                   \\b # Bounded by word boundary'''
         'name': 'entity.name.function.blade'
       }
