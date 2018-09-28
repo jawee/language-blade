@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.41.4] - 2018-09-28
+### Fixed
+- This is a version bump due to a botched Atom Packages publish.
+
+## [0.41.3] - 2018-09-28
+### Fixed
+- Settings script did not load correctly under certain conditions because it was not transpiled. [#88](https://github.com/jawee/language-blade/issues/88)
+
 ## [0.41.2] - 2018-08-13
 ### Fixed
 - Blade syntax is now excluded from highlighting between `@php` and `@endphp` directives when used in HTML attributes. [#87](https://github.com/jawee/language-blade/issues/87)
@@ -233,7 +241,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.41.2...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.41.4...HEAD
+[0.41.4]: https://github.com/jawee/language-blade/compare/v0.41.3...v0.41.4
+[0.41.3]: https://github.com/jawee/language-blade/compare/v0.41.2...v0.41.3
 [0.41.2]: https://github.com/jawee/language-blade/compare/v0.41.1...v0.41.2
 [0.41.1]: https://github.com/jawee/language-blade/compare/v0.41.0...v0.41.1
 [0.41.0]: https://github.com/jawee/language-blade/compare/v0.40.0...v0.41.0
