@@ -22,6 +22,7 @@
        |(?i)elsecannot
        |(?i)elseif
        |(?i)empty
+       |(?i)error
        |(?i)for
        |(?i)foreach
        |(?i)forelse
@@ -73,6 +74,7 @@
          |(?i)endcannot
          |(?i)endcomponent
          |(?i)endempty
+         |(?i)enderror
          |(?i)endfor
          |(?i)endforeach
          |(?i)endforelse

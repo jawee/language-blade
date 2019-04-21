@@ -300,6 +300,15 @@
               \t$0
               @endguest
               '''
+  '@error':
+    'description': 'Determines whether there is an input error associated with the field.'
+    'descriptionMoreURL': 'https://github.com/laravel/framework/pull/28062#issue-265773495'
+    'prefix': 'error'
+    'body': '''
+              @error ('${1:field}')
+              \t$0
+              @enderror
+              '''
   # The following snippets are identical to the ones above with the exception that the prefix includes the @-symbol.
   # This solves the edge case where for instance typing @if<TAB> will result in expanding to @@if... but should
   # resolve to @if... instead.
@@ -580,4 +589,13 @@
               @guest
               \t$0
               @endguest
+              '''
+  '@error ':
+    'description': 'Determines whether there is an input error associated with the field.'
+    'descriptionMoreURL': 'https://github.com/laravel/framework/pull/28062#issue-265773495'
+    'prefix': '@error'
+    'body': '''
+              @error ('${1:field}')
+              \t$0
+              @enderror
               '''

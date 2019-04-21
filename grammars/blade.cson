@@ -230,6 +230,7 @@
                     |elseguest
                     |elseif
                     |empty
+                    |error
                     |extends
                     |for
                     |foreach
@@ -295,6 +296,7 @@
                     |endcannot
                     |endcomponent
                     |endempty
+                    |enderror
                     |endfor
                     |endforeach
                     |endforelse
@@ -356,6 +358,7 @@
                   |(?i)endcannot
                   |(?i)endcomponent
                   |(?i)endempty
+                  |(?i)enderror
                   |(?i)endfor
                   |(?i)endforeach
                   |(?i)endforelse

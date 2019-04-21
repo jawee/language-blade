@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.42.0] - 2019-04-21
+### Added
+- New directives: `error` and `enderror`.
+
 ## [0.41.4] - 2018-09-28
 ### Fixed
 - This is a version bump due to a botched Atom Packages publish.
