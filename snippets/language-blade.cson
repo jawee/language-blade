@@ -20,12 +20,12 @@
     'descriptionMoreURL': 'https://laravel.com/docs/master/blade#displaying-data'
     'prefix': 'raw'
     'body': '{!! ${1:$${2:message}} !!}$0'
-  '{{ csrf_field() }}':
+  # Snippets without @ in prefix
+  '@csrf':
     'description': 'Includes a CSRF field for use in forms.'
     'descriptionMoreURL': 'https://laravel.com/docs/master/csrf#csrf-introduction'
     'prefix': 'csrf'
-    'body': '{{ csrf_field() }}$0'
-  # Snippets without @ in prefix
+    'body': '@csrf$0'
   '@else':
     'description': 'Control structure for use with if statements.'
     'descriptionMoreURL': 'https://laravel.com/docs/master/blade#if-statements'
@@ -137,7 +137,7 @@
     'body': "@lang('${1:category.line}')$0"
   "@prepend('name') … @endprepend":
     'description': 'Prepends content to stack.'
-    'descriptionMoreURL': 'https://laravel-news.com/blade-prepend'
+    'descriptionMoreURL': 'https://laravel.com/docs/master/blade#stacks'
     'prefix': 'prepend'
     'body': '''
               @prepend('${1:name}')
@@ -316,6 +316,11 @@
   # In order to not overwrite the completions above, all of them have a space appended to the key of the completion.
   #
   # We shouldn't be doing this once https://github.com/atom/snippets/issues/107 is solved.
+  '@csrf ':
+    'description': 'Includes a CSRF field for use in forms.'
+    'descriptionMoreURL': 'https://laravel.com/docs/master/csrf#csrf-introduction'
+    'prefix': '@csrf'
+    'body': '@csrf$0'
   '@else ':
     'description': 'Control structure for use with if statements.'
     'descriptionMoreURL': 'https://laravel.com/docs/master/blade#if-statements'
@@ -427,7 +432,7 @@
     'body': "@lang('${1:category.line}')$0"
   "@prepend('name') … @endprepend ":
     'description': 'Prepends content to stack.'
-    'descriptionMoreURL': 'https://laravel-news.com/blade-prepend'
+    'descriptionMoreURL': 'https://laravel.com/docs/master/blade#stacks'
     'prefix': '@prepend'
     'body': '''
               @prepend('${1:name}')

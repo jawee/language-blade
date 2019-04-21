@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - New directives: `error` and `enderror`.
 
+### Changed
+- `csrf` snippet now expands to `@csrf`.
+
 ## [0.41.4] - 2018-09-28
 ### Fixed
 - This is a version bump due to a botched Atom Packages publish.
