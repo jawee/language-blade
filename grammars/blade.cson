@@ -219,6 +219,7 @@
                     |case
                     |choice
                     |component
+                    |componentfirst
                     |continue
                     |dd
                     |dump

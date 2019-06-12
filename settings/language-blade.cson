@@ -16,6 +16,7 @@
        |(?i)canany
        |(?i)cannot
        |(?i)component
+       |(?i)componentfirst
        |(?i)else
        |(?i)elsecan
        |(?i)elsecanany
