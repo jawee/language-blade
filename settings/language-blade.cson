@@ -74,6 +74,7 @@
          |(?i)endcanany
          |(?i)endcannot
          |(?i)endcomponent
+         |(?i)endcomponentfirst
          |(?i)endempty
          |(?i)enderror
          |(?i)endfor

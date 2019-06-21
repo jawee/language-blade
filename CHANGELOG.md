@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.43.1] - 2019-06-21
+### Added
+- New directive: `endcomponentFirst`.
+
 ## [0.43.0] - 2019-06-12
 ### Added
 - New directive: `componentFirst`.
@@ -252,7 +256,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.43.0...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.43.1...HEAD
+[0.43.1]: https://github.com/jawee/language-blade/compare/v0.43.0...v0.43.1
 [0.43.0]: https://github.com/jawee/language-blade/compare/v0.42.0...v0.43.0
 [0.42.0]: https://github.com/jawee/language-blade/compare/v0.41.4...v0.42.0
 [0.41.4]: https://github.com/jawee/language-blade/compare/v0.41.3...v0.41.4
