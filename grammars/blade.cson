@@ -242,6 +242,7 @@
                     |include
                     |includefirst
                     |includeif
+                    |includeunless
                     |includewhen
                     |inject
                     |isset

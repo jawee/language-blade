@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.44.0] - 2019-11-08
+### Added
+- New directive: `includeUnless`.
+
 ## [0.43.1] - 2019-06-21
 ### Added
 - New directive: `endcomponentFirst`.
