@@ -260,7 +260,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.43.1...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.44.0...HEAD
+[0.44.0]: https://github.com/jawee/language-blade/compare/v0.43.1...v0.44.0
 [0.43.1]: https://github.com/jawee/language-blade/compare/v0.43.0...v0.43.1
 [0.43.0]: https://github.com/jawee/language-blade/compare/v0.42.0...v0.43.0
 [0.42.0]: https://github.com/jawee/language-blade/compare/v0.41.4...v0.42.0
