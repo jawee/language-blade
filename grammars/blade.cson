@@ -28,6 +28,107 @@
   'text.html.php.blade - (meta.embedded | meta.tag | comment.block.blade), L:(text.html.php.blade meta.tag - (comment.block.blade | meta.embedded.block.blade)), L:(source.js.embedded.html - (comment.block.blade | meta.embedded.block.blade))':
     'patterns': [
       {
+        'include': '#blade'
+      }
+      {
+        'begin': '(^\\s*)(?=<\\?(?![^?]*\\?>))'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.whitespace.embedded.leading.php'
+        'end': '(?!\\G)(\\s*$\\n)?'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.whitespace.embedded.trailing.php'
+        'patterns': [
+          {
+            'begin': '<\\?(?i:php|=)?'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.begin.php'
+            'contentName': 'source.php'
+            'end': '(\\?)>'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.end.php'
+              '1':
+                'name': 'source.php'
+            'name': 'meta.embedded.block.php'
+            'patterns': [
+              {
+                'include': '#language'
+              }
+            ]
+          }
+        ]
+      }
+      {
+        'begin': '<\\?(?i:php|=)?(?![^?]*\\?>)'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.begin.php'
+        'contentName': 'source.php'
+        'end': '(\\?)>'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.end.php'
+          '1':
+            'name': 'source.php'
+        'name': 'meta.embedded.block.php'
+        'patterns': [
+          {
+            'include': '#language'
+          }
+        ]
+      }
+      {
+        'begin': '<\\?(?i:php|=)?'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.begin.php'
+        'end': '>'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.section.embedded.end.php'
+        'name': 'meta.embedded.line.php'
+        'patterns': [
+          {
+            'captures':
+              '1':
+                'name': 'source.php'
+              '2':
+                'name': 'punctuation.section.embedded.end.php'
+              '3':
+                'name': 'source.php'
+            'match': '\\G(\\s*)((\\?))(?=>)'
+            'name': 'meta.special.empty-tag.php'
+          }
+          {
+            'begin': '\\G'
+            'contentName': 'source.php'
+            'end': '(\\?)(?=>)'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.section.embedded.end.php'
+              '1':
+                'name': 'source.php'
+            'patterns': [
+              {
+                'include': '#language'
+              }
+            ]
+          }
+        ]
+      }
+    ]
+'patterns': [
+  {
+    'include': 'text.html.basic'
+  }
+]
+'repository':
+  'blade':
+    'patterns': [
+      {
         # Comments
         'begin': '{{--'
         'beginCaptures':
@@ -482,103 +583,7 @@
                   \\b # Bounded by word boundary'''
         'name': 'entity.name.function.blade'
       }
-      # End of Blade specific code, followed by regular PHP grammar
-      {
-        'begin': '(^\\s*)(?=<\\?(?![^?]*\\?>))'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.whitespace.embedded.leading.php'
-        'end': '(?!\\G)(\\s*$\\n)?'
-        'endCaptures':
-          '0':
-            'name': 'punctuation.whitespace.embedded.trailing.php'
-        'patterns': [
-          {
-            'begin': '<\\?(?i:php|=)?'
-            'beginCaptures':
-              '0':
-                'name': 'punctuation.section.embedded.begin.php'
-            'contentName': 'source.php'
-            'end': '(\\?)>'
-            'endCaptures':
-              '0':
-                'name': 'punctuation.section.embedded.end.php'
-              '1':
-                'name': 'source.php'
-            'name': 'meta.embedded.block.php'
-            'patterns': [
-              {
-                'include': '#language'
-              }
-            ]
-          }
-        ]
-      }
-      {
-        'begin': '<\\?(?i:php|=)?(?![^?]*\\?>)'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.section.embedded.begin.php'
-        'contentName': 'source.php'
-        'end': '(\\?)>'
-        'endCaptures':
-          '0':
-            'name': 'punctuation.section.embedded.end.php'
-          '1':
-            'name': 'source.php'
-        'name': 'meta.embedded.block.php'
-        'patterns': [
-          {
-            'include': '#language'
-          }
-        ]
-      }
-      {
-        'begin': '<\\?(?i:php|=)?'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.section.embedded.begin.php'
-        'end': '>'
-        'endCaptures':
-          '0':
-            'name': 'punctuation.section.embedded.end.php'
-        'name': 'meta.embedded.line.php'
-        'patterns': [
-          {
-            'captures':
-              '1':
-                'name': 'source.php'
-              '2':
-                'name': 'punctuation.section.embedded.end.php'
-              '3':
-                'name': 'source.php'
-            'match': '\\G(\\s*)((\\?))(?=>)'
-            'name': 'meta.special.empty-tag.php'
-          }
-          {
-            'begin': '\\G'
-            'contentName': 'source.php'
-            'end': '(\\?)(?=>)'
-            'endCaptures':
-              '0':
-                'name': 'punctuation.section.embedded.end.php'
-              '1':
-                'name': 'source.php'
-            'patterns': [
-              {
-                'include': '#language'
-              }
-            ]
-          }
-        ]
-      }
     ]
-'patterns': [
-  {
-    'include': 'text.html.basic'
-  }
-]
-'repository':
   'balance_brackets':
     'patterns': [
       {
