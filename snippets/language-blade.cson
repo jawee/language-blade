@@ -20,6 +20,24 @@
     'descriptionMoreURL': 'https://laravel.com/docs/master/blade#displaying-data'
     'prefix': 'raw'
     'body': '{!! ${1:$${2:message}} !!}$0'
+  '</x-component>':
+    'description': 'Generic component tag'
+    'descriptionMoreURL': 'https://laravel.com/docs/master/blade#components'
+    'prefix': 'x'
+    'body': '<x-${1:component} ${2:${3:attribute}="${4:value}"}/>'
+  '<x-component> … </x-component>':
+    'description': 'Generic component tag with slot'
+    'descriptionMoreURL': 'https://laravel.com/docs/master/blade#components'
+    'prefix': 'xx'
+    'body': '<x-${1:component} ${2:${3:attribute}="${4:value}"}>$0</x-${1:component}>'
+  '<x-component> … </x-component> (multiline)':
+    'description': 'Generic multiline component tag with slot'
+    'descriptionMoreURL': 'https://laravel.com/docs/master/blade#components'
+    'prefix': 'xxx'
+    'body': """
+        <x-${1:component} ${2:${3:attribute}="${4:value}"}>
+        \t$0
+        </x-${1:component}>"""
   # Snippets without @ in prefix
   '@csrf':
     'description': 'Includes a CSRF field for use in forms.'
