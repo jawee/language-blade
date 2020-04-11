@@ -455,7 +455,7 @@
     'body': '''
               @section('${1:name}')
               \t$0
-              @endsection
+              @${2:endsection}
               '''
   "@stack('name') ":
     'description': 'Renders contents of the stack.'
