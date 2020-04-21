@@ -30,7 +30,7 @@
     'descriptionMoreURL': 'https://laravel.com/docs/master/blade#components'
     'prefix': 'xx'
     'body': """
-        <x-${1:component} ${2:${3:attribute}="${4:value}"}>${5:
+        <x-${1:component}${2: ${3:attribute}="${4:value}"}>${5:
         \t$0
         }</x-${1:component}>"""
   # Snippets without @ in prefix
