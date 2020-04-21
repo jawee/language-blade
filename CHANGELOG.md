@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.46.0] - 2020-04-22
+### Added
+- New snippets for components: `x` and `xx`. [#92](https://github.com/jawee/language-blade/pull/92)
+
+### Changed
+- `sec` snippet has now a tab stop over `endsection` in order to aid overwriting it. [#91](https://github.com/jawee/language-blade/pull/91)
+
 ## [0.45.0] - 2020-03-13
 ### Added
 - Support for Blade directives inside Markdown documents with `.blade.md` extension, used in [Jigsaw](https://jigsaw.tighten.co/). [#90](https://github.com/jawee/language-blade/issues/90)
@@ -266,7 +273,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Complete rewrite of the grammar with PHP parts based on language-php 0.22.0
 
-[Unreleased]: https://github.com/jawee/language-blade/compare/v0.45.0...HEAD
+[Unreleased]: https://github.com/jawee/language-blade/compare/v0.46.0...HEAD
+[0.46.0]: https://github.com/jawee/language-blade/compare/v0.45.0...v0.46.0
 [0.45.0]: https://github.com/jawee/language-blade/compare/v0.44.0...v0.45.0
 [0.44.0]: https://github.com/jawee/language-blade/compare/v0.43.1...v0.44.0
 [0.43.1]: https://github.com/jawee/language-blade/compare/v0.43.0...v0.43.1
