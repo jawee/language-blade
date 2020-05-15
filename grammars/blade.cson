@@ -332,6 +332,7 @@
                     |elseguest
                     |elseif
                     |empty
+                    |env
                     |error
                     |extends
                     |for
@@ -400,6 +401,7 @@
                     |endcomponent
                     |endcomponentfirst
                     |endempty
+                    |endenv
                     |enderror
                     |endfor
                     |endforeach
@@ -409,6 +411,7 @@
                     |endisset
                     |endlang
                     |endprepend
+                    |endproduction
                     |endpush
                     |endsection
                     |endslot
@@ -417,6 +420,7 @@
                     |endwhile
                     |overwrite
                     |parent
+                    |production
                     |show
                     |stop
                     )
@@ -463,6 +467,7 @@
                   |(?i)endcomponent
                   |(?i)endcomponentfirst
                   |(?i)endempty
+                  |(?i)endenv
                   |(?i)enderror
                   |(?i)endfor
                   |(?i)endforeach
@@ -472,6 +477,7 @@
                   |(?i)endisset
                   |(?i)endlang
                   |(?i)endprepend
+                  |(?i)endproduction
                   |(?i)endpush
                   |(?i)endsection
                   |(?i)endslot
@@ -483,6 +489,7 @@
                   |(?i)lang
                   |(?i)overwrite
                   |(?i)parent
+                  |(?i)production
                   |(?i)show
                   |(?i)stop
                   |verbatim
