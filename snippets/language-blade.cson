@@ -617,3 +617,21 @@
               \t$0
               @enderror
               '''
+  '@production … @endproduction ':
+    'description': 'Determines whether application is running in the production environment.'
+    'descriptionMoreURL': 'https://laravel.com/docs/8.x/blade#environment-directives'
+    'prefix': '@production'
+    'body': '''
+              @production
+              \t$0
+              @endproduction
+              '''
+  "@env('name') … @endenv ":
+    'description': 'Determines whether application is running in the specified environment.'
+    'descriptionMoreURL': 'https://laravel.com/docs/8.x/blade#environment-directives'
+    'prefix': '@env'
+    'body': '''
+              @env('${1:name}')
+              \t$0
+              @endenv
+              '''
